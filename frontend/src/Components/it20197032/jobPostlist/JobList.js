@@ -80,7 +80,7 @@ const JobList = () => {
   return (
     <Container className="my-custom-container mt-5 p-0" style={{backgroundColor: ''}}>
       <Navbar color="light" light expand="md" className="my-custom-navbar">
-        <h5>Find your dream job here</h5>
+        
         <Nav>
           <NavItem>
             <Link to="/addjob" className="text-decoration-none">
@@ -91,16 +91,19 @@ const JobList = () => {
             <NavLink tag={Link} to="/joblist">All Jobs</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={Link} to="/dev">SE/QA/Web</NavLink>
+            <NavLink tag={Link} to="/dev">Development and Programming</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={Link} to="/db">DB</NavLink>
+            <NavLink tag={Link} to="/db">Infrastructure and Networking</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={Link} to="/ui">UI/UX</NavLink>
+            <NavLink tag={Link} to="/ui">Data and Analytics</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={Link} to="/pm">PM/BA</NavLink>
+            <NavLink tag={Link} to="/pm">Security and Compliance</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to="/pm">Management and Support</NavLink>
           </NavItem>
         </Nav>
       </Navbar>
