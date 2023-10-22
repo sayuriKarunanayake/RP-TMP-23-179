@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 
 
-const JobList = () => {
+const Pmlist = () => {
   const [jobPosts, setJobPosts] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
 
     useEffect(() => {
       // Fetch job posts from the Node.js backend
@@ -109,31 +110,33 @@ const JobList = () => {
       </Navbar>
       <br/>
       <Row>
-        {jobPosts.map((job) => (
-          <Col md="4" key={job.id}>
-            <div onClick={() => handleCardClick(job)} style={{ cursor: 'pointer' }}>
-              <Card className="mb-4">
-                <CardBody>
-                <CardTitle tag="h5">{job.jobLevel} {job.title}</CardTitle>
-                <CardSubtitle tag="h6" className="mb-2 text-muted">{job.companyName}</CardSubtitle>
-                <CardText>Location: {job.location}</CardText>
-                {/* Display truncated description */}
-                <CardText>{job.jobDescription.substring(0, 40)}...</CardText>
-                </CardBody>
-                <div className="card-footer">
-                  <Button
-                    color="success"
-                    className="float-right"
-                    variant="contained"
-                  >
-                    Apply
-                  </Button>
+        {jobPosts
+            .filter((job) => job.jobCategory === 'mangSuppt') // Filter only "pm" category jobs
+            .map((job) => (
+            <Col md="4" key={job.id}>
+                <div onClick={() => handleCardClick(job)} style={{ cursor: 'pointer' }}>
+                <Card className="mb-4">
+                    <CardBody>
+                    <CardTitle tag="h5">{job.jobLevel} {job.title}</CardTitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted">{job.companyName}</CardSubtitle>
+                    <CardText>Location: {job.location}</CardText>
+                    {/* Display truncated description */}
+                    <CardText>{job.jobDescription.substring(0, 40)}...</CardText>
+                    </CardBody>
+                    <div className="card-footer">
+                    <Button
+                        color="success"
+                        className="float-right"
+                        variant="contained"
+                    >
+                        Apply
+                    </Button>
+                    </div>
+                </Card>
                 </div>
-              </Card>
-            </div>
-          </Col>
-        ))}
-      </Row>
+            </Col>
+            ))}
+        </Row>
 
      {/* Define your popup styles using inline styles */}
      <div style={popupStyle}>
@@ -162,4 +165,4 @@ const JobList = () => {
   );
 };
 
-export default JobList;
+export default Pmlist;
