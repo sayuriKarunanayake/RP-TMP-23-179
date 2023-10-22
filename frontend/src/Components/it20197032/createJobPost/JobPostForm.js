@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Paper, Box, TextField, Button, Grid, Typography } from '@mui/material';
+import { Container, Paper, Box, FormControl, MenuItem, InputLabel, TextField, Button, Grid, Typography, Select } from '@mui/material';
 import './JobPostForm.css'; // Import custom CSS file
 import axios from 'axios'; // Import Axios
 
@@ -9,8 +9,8 @@ const JobPostForm = () => {
   const [title,setjobTitle] = useState("");
   const [location,setlocation] = useState("");
   const [jobDescription,setjobDescription] = useState("");
-  const [benefits,setbenefits] = useState("");
-  const [applProcess,setapplProcess] = useState("");
+  const [jobLevel,setjobLevel] = useState("");
+  const [jobCategory,setjobCategory] = useState("");
 
 
   const handleSubmit = (e) => {
@@ -21,8 +21,8 @@ const JobPostForm = () => {
         title,
         location,
         jobDescription,
-        benefits,
-        applProcess
+        jobLevel,
+        jobCategory
     }
         console.log(newJob);
 
@@ -73,6 +73,39 @@ const JobPostForm = () => {
                   fullWidth
                   required
                 />
+                <FormControl fullWidth required>
+                <InputLabel htmlFor="jobLevel">Job Level</InputLabel>
+                <Select
+                  style={{ margin: 0 }}
+                  label="Job Level"
+                  name="jobLevel"
+                  value={jobLevel}
+                  onChange={(e) => setjobLevel(e.target.value)}
+                  
+                >
+                  <MenuItem value="Intern">Intern</MenuItem>
+                  <MenuItem value="Trainee">Trainee</MenuItem>
+                  <MenuItem value="Associate">Associate</MenuItem>
+                  <MenuItem value="Mid Level">Mid level</MenuItem>
+                  <MenuItem value="Senior">Senior level</MenuItem>
+                </Select>
+                </FormControl>
+                <FormControl fullWidth required>
+                <InputLabel htmlFor="jobLevel">Job Category</InputLabel>
+                <Select
+                  style={{ margin: 0 }}
+                  label="Job Category"
+                  name="category"
+                  value={jobCategory}
+                  onChange={(e) => setjobCategory(e.target.value)}
+                >
+                  <MenuItem value="devProg">Dev & Programming</MenuItem>
+                  <MenuItem value="infraNet">Infra & Networking</MenuItem>
+                  <MenuItem value="dataAnaly">Data & Analytics</MenuItem>
+                  <MenuItem value="secComp">Security & Compliance</MenuItem>
+                  <MenuItem value="mangSuppt">Management & Support</MenuItem>
+                </Select>
+                </FormControl>
                 <TextField
                   label="Location"
                   name="location"
@@ -90,24 +123,7 @@ const JobPostForm = () => {
                   fullWidth
                   required
                 />
-                <TextField
-                  label="Benefits"
-                  name="benefits"
-                  value={benefits}
-                  onChange={(e) => setbenefits(e.target.value)}
-                  multiline
-                  fullWidth
-                  required
-                />
-                <TextField
-                  label="Application Process"
-                  name="applicationProcess"
-                  value={applProcess}
-                  onChange={(e) => setapplProcess(e.target.value)}
-                  multiline
-                  fullWidth
-                  required
-                />
+                
                 <Button type="submit" variant="contained" color="primary">
                   Post
                 </Button>

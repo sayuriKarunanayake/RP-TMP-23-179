@@ -27,15 +27,20 @@ const JobPostSchema = new Schema({
 
     },
 
-    benefits: {
+    jobLevel: {
         type : String,
         required : true//backend validation
 
     },
 
-    applProcess: {
+    jobCategory: {
         type : String,
         required : true//backend validation
+
+    },
+    RecruiterID: {
+        type : String,
+
 
     },
 })

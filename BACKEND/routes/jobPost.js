@@ -7,8 +7,8 @@ router.route("/addjob").post((req,res)=>{
     const title = req.body.title;
     const location = req.body.location;
     const jobDescription = req.body.jobDescription;
-    const benefits = req.body.benefits;
-    const applProcess = req.body.applProcess;
+    const jobLevel = req.body.jobLevel;
+    const jobCategory = req.body.jobCategory;
 
     //create obj.
     const newJob = new Job({
@@ -16,8 +16,8 @@ router.route("/addjob").post((req,res)=>{
         title,
         location,
         jobDescription,
-        benefits,
-        applProcess
+        jobLevel,
+        jobCategory
     })
 
     newJob.save().then(()=>{
