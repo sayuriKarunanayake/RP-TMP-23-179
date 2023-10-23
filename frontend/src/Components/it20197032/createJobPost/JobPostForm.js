@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Container, Paper, Box, FormControl, MenuItem, InputLabel, TextField, Button, Grid, Typography, Select } from '@mui/material';
-import './JobPostForm.css'; // Import custom CSS file
 import axios from 'axios'; // Import Axios
 
 const JobPostForm = () => {

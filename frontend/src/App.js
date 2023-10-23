@@ -13,6 +13,7 @@ import Cyblist from './Components/it20197032/jobPostlist/Cyblist';
 import Netlist from './Components/it20197032/jobPostlist/Netlist';
 import Dslist from './Components/it20197032/jobPostlist/Dslist';
 import SElist from './Components/it20197032/jobPostlist/SElist';
+import FakeCheck from './Components/it20197032/fakeCheckJobPost/FakeCheck';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path="/netlist" element={<Netlist />} />
         <Route path="/dslist" element={<Dslist />} />
         <Route path="/selist" element={<SElist />} />
-
+        <Route path="/fakecheck" element={<FakeCheck />} />
         <Route path="/" element={<Homepage />} />
         
 

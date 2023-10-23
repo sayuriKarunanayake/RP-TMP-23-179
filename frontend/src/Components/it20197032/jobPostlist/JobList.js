@@ -14,6 +14,8 @@ const JobList = () => {
       axios.get("http://localhost:8070/job/getalljob")
         .then(response => {
           setJobPosts(response.data);
+          console.log(response.data);
+          
         })
         .catch(error => {
           console.error("Error fetching job posts:", error);
@@ -24,6 +26,7 @@ const JobList = () => {
   const handleCardClick = (job) => {
     setSelectedJob(job);
     setIsPopupOpen(true);
+   
   };
 
   // Function to close the popup
@@ -31,7 +34,7 @@ const JobList = () => {
     setIsPopupOpen(false);
   };
   
-  // Define your CSS styles using objects
+  // Define CSS styles using objects
   const popupStyle = {
     display: isPopupOpen ? 'block' : 'none',
     position: 'fixed',
@@ -117,7 +120,7 @@ const JobList = () => {
                 <CardTitle tag="h5">{job.jobLevel} {job.title}</CardTitle>
                 <CardSubtitle tag="h6" className="mb-2 text-muted">{job.companyName}</CardSubtitle>
                 <CardText>Location: {job.location}</CardText>
-                {/* Display truncated description */}
+                {/* Display trimmed description */}
                 <CardText>{job.jobDescription.substring(0, 40)}...</CardText>
                 </CardBody>
                 <div className="card-footer">
@@ -125,8 +128,8 @@ const JobList = () => {
                     color="success"
                     className="float-right"
                     variant="contained"
-                  >
-                    Apply
+                   >
+                    View Job
                   </Button>
                 </div>
               </Card>
