@@ -89,17 +89,12 @@ const Headermain = () => {
             <WorkIcon />
           </IconButton>
           <IconButton color="inherit">
-            <MailIcon />
-          </IconButton>
-          <IconButton color="inherit">
-            <NotificationsIcon />
+            <PersonIcon />
           </IconButton>
           <IconButton color="inherit">
             <MoreHorizIcon />
           </IconButton>
-          <IconButton color="inherit">
-            <PersonIcon />
-          </IconButton>
+          
 
         </HeaderIconsContainer>
       </Toolbar>
