@@ -82,20 +82,22 @@ const JobList = () => {
   };
 
   const activeStyle = {
-    fontWeight: 'bold',
+    
     borderBottom: '2px solid #0c7cba',
   };
 
+  const pageStyle = {
+
+    minHeight: '100vh', 
+    padding: '50px', 
+    margin: '0', 
+
+  };
+
   return (
-    <Container className="my-custom-container mt-5 p-0" style={{backgroundColor: ''}}>
-      <Navbar color="light" light expand="md" className="my-custom-navbar">
-        
+    <div style={pageStyle}>
+      <Navbar color="light" light expand="md" className="my-custom-navbar" >
         <Nav>
-          <NavItem>
-            <Link to="/addjob" className="text-decoration-none">
-              <Button color="primary" variant="contained">Post a Job</Button>
-            </Link>
-          </NavItem>
           <NavItem>
             <NavLink style={activeStyle} tag={Link} to="/joblist">All Jobs</NavLink>
           </NavItem>
@@ -121,7 +123,7 @@ const JobList = () => {
         {jobPosts.map((job) => (
           <Col md="4" key={job.id}>
             <div onClick={() => handleCardClick(job)} style={{ cursor: 'pointer' }}>
-              <Card className="mb-4">
+              <Card className="mb-4" style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
                 <CardBody>
                 <CardTitle tag="h5">{job.jobLevel} {job.title}</CardTitle>
                 <CardSubtitle tag="h6" className="mb-2 text-muted">{job.companyName}</CardSubtitle>
@@ -165,7 +167,7 @@ const JobList = () => {
         </div>
       </div>
     </div>
-    </Container>
+    </div>
     
     
   );
