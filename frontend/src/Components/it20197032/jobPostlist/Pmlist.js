@@ -78,6 +78,11 @@ const Pmlist = () => {
     marginTop: '20px',
   };
 
+  const activeStyle = {
+    fontWeight: 'bold',
+    borderBottom: '2px solid #0c7cba',
+  };
+
   return (
     <Container className="my-custom-container mt-5 p-0" style={{backgroundColor: ''}}>
       <Navbar color="light" light expand="md" className="my-custom-navbar">
@@ -104,7 +109,7 @@ const Pmlist = () => {
             <NavLink tag={Link} to="/cyblist">Security and Compliance</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={Link} to="/pmlist">Management and Support</NavLink>
+            <NavLink style={activeStyle} tag={Link} to="/pmlist">Management and Support</NavLink>
           </NavItem>
         </Nav>
       </Navbar>
@@ -129,7 +134,7 @@ const Pmlist = () => {
                         className="float-right"
                         variant="contained"
                     >
-                        Apply
+                        View Job
                     </Button>
                     </div>
                 </Card>

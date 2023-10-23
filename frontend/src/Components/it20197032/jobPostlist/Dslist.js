@@ -77,6 +77,11 @@ const Dslist = () => {
     marginTop: '20px',
   };
 
+  const activeStyle = {
+    fontWeight: 'bold',
+    borderBottom: '2px solid #0c7cba',
+  };
+
   return (
     <Container className="my-custom-container mt-5 p-0" style={{backgroundColor: ''}}>
       <Navbar color="light" light expand="md" className="my-custom-navbar">
@@ -97,7 +102,7 @@ const Dslist = () => {
             <NavLink tag={Link} to="/netlist">Infrastructure and Networking</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={Link} to="/dslist">Data and Analytics</NavLink>
+            <NavLink style={activeStyle} tag={Link} to="/dslist">Data and Analytics</NavLink>
           </NavItem>
           <NavItem>
             <NavLink tag={Link} to="/cyblist">Security and Compliance</NavLink>
@@ -128,7 +133,7 @@ const Dslist = () => {
                         className="float-right"
                         variant="contained"
                     >
-                        Apply
+                        View Job
                     </Button>
                     </div>
                 </Card>

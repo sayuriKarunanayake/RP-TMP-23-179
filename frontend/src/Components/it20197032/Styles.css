@@ -1,0 +1,191 @@
+.job-post-form {
+    background-color: #f8f8f8;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+    max-width: 500px; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  
+  .job-post-form input[type='file'] {
+    margin-top: 10px;
+  }
+  
+  .job-post-form button[type='submit'] {
+    margin-top: 20px;
+  }
+
+  .job-post-form .MuiFormControl-root {
+    margin-bottom: 20px; /* Add some spacing between form fields */
+  }
+  
+  .job-post-form .MuiButton-containedPrimary {
+    background-color: #2196f3; /* Change the submit button background color */
+    color: #ffffff; /* Change the submit button text color */
+  }
+  
+  .job-post-form .MuiButton-containedPrimary:hover {
+    background-color: #0c7cba; /* Change the submit button background color on hover */
+  }
+
+  .Container {
+    margin-top: 40px;
+  }
+  
+  /* Style the paper (form container) */
+  .Paper {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 900px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  
+  /* Style form fields and submit button */
+  form > div {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the submit button */
+  Button[type='submit'] {
+    margin-top: 20px;
+    background-color: #2196f3;
+    color: #ffffff;
+  }
+  
+  Button[type='submit']:hover {
+    background-color: #0c7cba;
+  }
+
+  .job-post-container {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .job-details {
+    flex: 2;
+  }
+  
+  .job-actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .apply-button,
+  .scam-check-button,
+  .view-profile-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .apply-button:hover,
+  .scam-check-button:hover,
+  .view-profile-button:hover {
+    background-color: #0056b3;
+  }
+
+  /*fake checker css*/
+  .form2,
+.content {
+   width: 70%;
+   margin: 0 auto;
+}
+
+.form2-group {
+   margin-bottom: 10px;
+}
+
+.form2-group input,
+.form2-group textarea,
+.form2-group select {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #e6e6e6;
+   border-radius: 5px;
+   margin-bottom: 10px;
+   font-family: inherit;
+   min-height: 100px;
+}
+
+.form2-group label {
+   text-align: left;
+   display: block;
+   margin: 0 0 5px 3px;
+}
+
+.btn2 {
+   padding: 10px 20px;
+   border: 1px solid #000;
+   border-radius: 5px;
+   background: #000;
+   color: #fff;
+   font-size: 16px;
+   font-weight: 700;
+   cursor: pointer;
+   text-align: center;
+   appearance: button;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.fj-container .btn2 {
+   width: 60%;
+   margin: 16px auto;
+}
+
+.result-container .loader {
+   max-width: 20%;
+   height: auto;
+}
+
+.btn2 svg {
+   margin-right: 8px;
+}
+
+.btn2-reverse {
+   background: #fff;
+   color: #000;
+}
+
+.btn2-block {
+   width: 100%;
+   margin-bottom: 20px;
+}
+
+.btn2:hover {
+   transform: scale(0.98);
+}
+
+.loadingSpinnerContainer {
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 5000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.loadingSpinner {
+   width: 64px;
+   height: 64px;
+   border: 8px solid;
+   border-color: #000 transparent #555 transparent;
+   border-radius: 50%;
+   animation: spin 1.2s linear infinite;
+}
+
+

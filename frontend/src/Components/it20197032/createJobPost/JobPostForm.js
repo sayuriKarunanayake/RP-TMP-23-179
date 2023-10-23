@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Container, Paper, Box, FormControl, MenuItem, InputLabel, TextField, Button, Grid, Typography, Select } from '@mui/material';
-import './JobPostForm.css'; // Import custom CSS file
 import axios from 'axios'; // Import Axios
 
 const JobPostForm = () => {
@@ -54,7 +53,7 @@ const JobPostForm = () => {
             {/* Right side with the form */}
             <Grid item xs={12} md={6}>
               <Typography variant="h4" gutterBottom>
-                Job Post Form
+                Create Job Post
               </Typography>
               <form onSubmit={handleSubmit}>
                 <TextField
