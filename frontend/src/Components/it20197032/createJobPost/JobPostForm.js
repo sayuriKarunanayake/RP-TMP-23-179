@@ -53,7 +53,7 @@ const JobPostForm = () => {
             {/* Right side with the form */}
             <Grid item xs={12} md={6}>
               <Typography variant="h4" gutterBottom>
-                Job Post Form
+                Create Job Post
               </Typography>
               <form onSubmit={handleSubmit}>
                 <TextField

@@ -77,6 +77,11 @@ const SElist = () => {
     marginTop: '20px',
   };
 
+  const activeStyle = {
+    fontWeight: 'bold',
+    borderBottom: '2px solid #0c7cba',
+  };
+
   return (
     <Container className="my-custom-container mt-5 p-0" style={{backgroundColor: ''}}>
       <Navbar color="light" light expand="md" className="my-custom-navbar">
@@ -91,7 +96,7 @@ const SElist = () => {
             <NavLink tag={Link} to="/joblist">All Jobs</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink tag={Link} to="/selist">Development and Programming</NavLink>
+            <NavLink style={activeStyle} tag={Link} to="/selist">Development and Programming</NavLink>
           </NavItem>
           <NavItem>
             <NavLink tag={Link} to="/netlist">Infrastructure and Networking</NavLink>
@@ -128,7 +133,7 @@ const SElist = () => {
                         className="float-right"
                         variant="contained"
                     >
-                        Apply
+                        View Job
                     </Button>
                     </div>
                 </Card>
