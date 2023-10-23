@@ -40,7 +40,7 @@ function FakeCheck() {
                   <button className="btn2" onClick={analyzeJob}>
                      Analyze Job
                   </button>
-                  <div className="result-container" style={{ textAlign:'center' }}>{loading ? <img className="loader" src={spinner} /> : <p style={{ color: 'blue', fontSize: '20px'}}>Result: {result}</p>}</div>
+                  <div className="result-container" style={{ textAlign:'center' }}>{loading ? <img className="loader" src={spinner} /> : <p style={{ color: 'black', fontSize: '20px'}}>Result: {result}</p>}</div>
                </div>
             </div>
          </div>
