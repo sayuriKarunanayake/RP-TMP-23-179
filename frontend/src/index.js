@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import QuizHolder from './Components/IT20198954/QuizHolder';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    
+    <QuizHolder>
+      <App />
+    </QuizHolder>
+   
   </React.StrictMode>
 );
 

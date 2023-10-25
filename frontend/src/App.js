@@ -18,8 +18,34 @@ import RegRecruiter from './Components/it20197032/registerRecruiter/RegRecruiter
 import RecruiterLogin from './Components/it20197032/loginRecruiter/RecruiterLogin';
 
 
+//IT20198954
+import React, { useState, lazy, Suspense } from "react";
+import Result from "./Components/IT20198954/Result";
+import Start from "./Components/IT20198954/Start";
+import Quiz from "./Components/IT20198954/Quiz";
+import { QuizContext, QuizHolder } from "./Components/IT20198954/QuizHolder";
+import { useContext } from "react";
+import AddUser from "./Components/IT20198954/CreateAccount";
+import NavBar from "./Components/Header";
+import Job from "./Components/IT20198954/DesiredJobForm";
+//import {QuizHolder} from './Components/IT20198954/QuizHolder';
+import Signin from "./Components/IT20198954/Signin";
+import UpdateUser from "./Components/IT20198954/UpdateUser";
+import JobView from "./Components/IT20198954/ViewJobs";
+import Fail from "./Components/IT20198954/FailedPage";
+import ViewRecommendations from "./Components/IT20198954/ViewRecommendations";
+import Home from "./Components/IT20198954/Home";
+
 function App() {
+
+  //it20198954
+  const { start, exit } = useContext(QuizContext);
+  const [email, setEmail] = useState("");
+  const LazyHeader = lazy(() => import("./Components/Header"));
+  const [jobRole, setJobRole] = useState(""); // Add jobRole state here
+   
   return (
+    <> 
     <Router>
     <div>
       <Headermain />
@@ -41,6 +67,53 @@ function App() {
       </Routes>
     </div>
   </Router>
+
+  {/* It20198954 */}
+  
+  <Router>
+
+  {" "}
+        <Suspense fallback={<div>Loading...</div>}>
+          {/* <LazyHeader /> */}
+
+          <NavBar  email={email} ></NavBar>
+          <Routes>
+            {exit === false ? (
+              <>
+                {start === true ? (
+                  <Route exact path="/quiz" element={<Quiz  />} />
+                ) : (
+                  <Route exact path="/quiz" element={<Start/>} />
+                )}
+              </>
+            ) : (
+              <Route exact path="/quiz" element={<Result />} />
+            )}
+
+            <Route exact path="/signup" element={<AddUser />} />
+            <Route
+              exact
+              path="/signin"
+              element={<Signin setEmail={setEmail} />}
+            />
+
+ 
+           
+            <Route exact path="/jobform" element={<Job email={email} />} />
+            <Route
+              exact
+              path="/updateuser"
+              element={<UpdateUser email={email} />}
+            />
+            <Route exact path="/jobs" element={<JobView email={email} />} />
+            <Route exact path="/fail" element={<Fail email={email} />} />
+            <Route exact path="/viewrec" element={<ViewRecommendations email={email} />} />
+            <Route exact path="/home" element={<Home email={email} />} />
+          </Routes>
+        </Suspense>
+
+  </Router>
+   </> 
   );
 }
 

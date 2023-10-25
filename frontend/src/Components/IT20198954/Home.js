@@ -210,7 +210,7 @@ const getUser = async () => {
 };
   
  const handleTest = async () => {
-  navigation("/", { state: { email } });
+  navigation("/jobform", { state: { email } });
  }
 
 
