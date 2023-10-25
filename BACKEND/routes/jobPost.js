@@ -51,10 +51,48 @@ router.route("/getjobpost/:id").get(async(req,res)=>{
     })
 })
 
+//update
+router.route("/updatejob/:id").put(async(req,res)=>{
+    let jobId = req.params.id;
+    const { 
+        companyName,
+        title,
+        location,
+        jobDescription,
+        jobLevel,
+        jobCategory
+     } = req.body;
+
+    const updateJob = {
+        companyName,
+        title,
+        location,
+        jobDescription,
+        jobLevel,
+        jobCategory   
+    }
+    const update = await Job.findByIdAndUpdate(jobId,updateJob)
+    .then(()=>{
+        res.status(200).send({status:"Job post updated"})
+    }).catch((err)=>{
+        console.log(err);
+        res.status(500).send({status:"Error updating job post", error:err.message});
+    })
+    
+})
 
 
 
-
+//delete
+router.route("/deletejob/:id").delete(async(req,res)=>{
+    let jobId = req.params.id;
+    await Job.findByIdAndDelete(jobId).then(()=>{
+        res.status(200).send({status:"Job deleted"});
+    }).catch((err)=>{
+        console.log(err.message);
+        res.status(500).send({status:"Error with deletion", error:err.message});
+    })
+})
 
 
 module.exports = router;

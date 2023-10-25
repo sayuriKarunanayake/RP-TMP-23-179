@@ -29,8 +29,10 @@ connection.once("open", () => {
 //give access to route file here
 //IT20197032
 const JobPostRouter = require("./routes/jobPost.js");
-app.use("/job", JobPostRouter);//1st parameter is the url name to call js file
+app.use("/job", JobPostRouter);
 
+const RecuiterRouter = require("./routes/recruiterReg.js");
+app.use("/recruiter", RecuiterRouter);
 
 
 app.listen(PORT, () => {
