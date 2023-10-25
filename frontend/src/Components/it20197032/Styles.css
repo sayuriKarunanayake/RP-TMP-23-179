@@ -188,4 +188,17 @@
    animation: spin 1.2s linear infinite;
 }
 
+.login-form {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (min-width: 576px) {
+  .login-form {
+    margin: 0 auto;
+  }
+}
+
 

@@ -63,6 +63,7 @@ const RegRecruiter = () => {
                   onChange={(e) => setFirstName(e.target.value)}
                   fullWidth
                   required
+              
                 />
                 <TextField
                   label="Last Name"

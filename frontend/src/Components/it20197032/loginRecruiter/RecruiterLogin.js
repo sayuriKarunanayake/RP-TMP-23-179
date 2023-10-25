@@ -4,6 +4,7 @@ import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import  icon from'../../../Assets/padlock.png';
 
 
 export default function RecruiterLogin() {
@@ -48,34 +49,58 @@ export default function RecruiterLogin() {
     };
   
     return (
-        <div>
-        <h2>Login</h2>
-        <form onSubmit={handleLogin}>
-          <TextField
-            type="email"
-            label="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            required
-          />
-          <TextField
-            type="password"
-            label="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            required
-          />
-          <Button type="submit" variant="contained" color="primary" fullWidth>
-            Login
-          </Button>
-        </form>
-        <ToastContainer />
+      <div style={{backgroundColor:'#F0FFFF', height:'100vh', width:'100vw', margin:0, padding:0}}>
+        <div class="login-form"
+          style={{
+            textAlign: 'center',
+            maxWidth: '450px',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+            borderRadius: '5px',
+            backgroundColor: 'white',
+            padding: '20px',
+            weight:"50px",
+          }}
+        >
+          <br/>
+          <img src={icon} alt="Icon" style={{ maxWidth: '40px', maxHeight: '40px' }}/><br/><br/>          <h5 style={{ color: '#333', marginBottom: '20px' }}>Sign In</h5>
+          <form onSubmit={handleLogin}>
+            <TextField
+              type="email"
+              label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              variant="outlined"
+              margin="dense"
+              fullWidth
+              required
+            />
+            
+            <TextField
+              type="password"
+              label="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              variant="outlined"
+              margin="dense"
+              fullWidth
+              required
+            />
+            <br/><br/>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+          
+            >
+              Login
+            </Button>
+            <p style={{ textAlign: 'center', marginTop: '10px' }}>
+              Don't have an account? <a href="/regrecruiter">Register</a>
+            </p>
+          </form>
+          <ToastContainer />
+        </div>
       </div>
     )
 }
