@@ -14,6 +14,9 @@ import Netlist from './Components/it20197032/jobPostlist/Netlist';
 import Dslist from './Components/it20197032/jobPostlist/Dslist';
 import SElist from './Components/it20197032/jobPostlist/SElist';
 import FakeCheck from './Components/it20197032/fakeCheckJobPost/FakeCheck';
+import RegRecruiter from './Components/it20197032/registerRecruiter/RegRecruiter';
+import RecruiterLogin from './Components/it20197032/loginRecruiter/RecruiterLogin';
+
 
 function App() {
   return (
@@ -30,6 +33,8 @@ function App() {
         <Route path="/dslist" element={<Dslist />} />
         <Route path="/selist" element={<SElist />} />
         <Route path="/fakecheck" element={<FakeCheck />} />
+        <Route path="/regrecruiter" element={<RegRecruiter />} />
+        <Route path="/recruiterLogin" element={<RecruiterLogin />} />
         <Route path="/" element={<Homepage />} />
         
 

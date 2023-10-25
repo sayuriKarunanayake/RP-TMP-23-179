@@ -41,7 +41,6 @@ const JobPostSchema = new Schema({
     RecruiterID: {
         type : String,
 
-
     },
 })
 //data coming from routes go to DB through models
