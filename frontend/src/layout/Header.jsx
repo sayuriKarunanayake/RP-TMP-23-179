@@ -22,7 +22,7 @@ const headerIcons = [
 
 const Header = () => {
   return (
-    <div className=" w-full sticky top-0 left-0 z-50 py-3 px-5 bg-[#1976b2] flex items-center justify-between">
+    <div className=" w-full sticky top-0 left-0 z-50 py-3 px-5 bg-[#1976d2] flex items-center justify-between">
       {/* left side */}
       <img src={logo} alt="logo" className=" w-[117px] object-contain" />
 

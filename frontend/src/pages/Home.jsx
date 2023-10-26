@@ -2,7 +2,7 @@ import HomeHeader from "../layout/HomeHeader";
 
 const Home = () => {
   return (
-    <div className=" relative w-full h-screen bg-[url('https://fjwp.s3.amazonaws.com/blog/wp-content/uploads/2021/09/10045333/Job-Searching-Online-11-Best-Practices-You-Need-to-Know-2-2.jpg')]">
+    <div className=" relative w-full h-screen bg-[url('https://img.freepik.com/premium-vector/job-interview-online-service-platform-candidate-hr-manager-business-man-woman-table-vector-illustration-conversation-career-human-resource-concept_2175-919.jpg?w=900')]">
       <HomeHeader />
       <div className=" w-2/3 h-full pl-20 flex flex-col justify-center bg-gradient-to-r from-white">
         <p className=" ml-1 ">Easiest way to find a perfect job</p>
