@@ -66,7 +66,7 @@ export default function AddUser() {
    }
 
   return (
-    <Container maxWidth="md">
+    <Container classname="containerQuiz" maxWidth="md">
       <Grid container spacing={2} justifyContent="center" alignItems="center">
         <Grid item xs={12}>
           <br></br>

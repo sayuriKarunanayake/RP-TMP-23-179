@@ -50,7 +50,7 @@ export default function Start() {
       <Container maxWidth="md" className="buttoncontainer">
         <br></br>
         <br></br>
-        <Paper elevation={6} className="paper">
+        <Paper elevation={6} className="paperRec">
           <div className="leftSide">
             <br></br>
             <br></br>

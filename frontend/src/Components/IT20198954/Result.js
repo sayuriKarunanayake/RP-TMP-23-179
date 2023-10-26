@@ -59,6 +59,7 @@ export default function Result({ email }) {
         dataArray.push(jobRole);
         dataArray.push(data.recommendations);
         console.log(dataArray,"dataArray");
+        localStorage.setItem("results", correct);
         navigate("/viewrec", { state: { updatedUser: dataArray } });
 
       } else {
@@ -79,6 +80,8 @@ export default function Result({ email }) {
       console.log(dataArray,"dataArray after next clcik");
      // navigate("/jobs", { state: { dataArray } });
      // navigate("/jobs", { state: { updatedUser } });
+        localStorage.setItem("results", correct);
+        
       navigate("/jobs", { state: { updatedUser: dataArray } });
       
     } else {

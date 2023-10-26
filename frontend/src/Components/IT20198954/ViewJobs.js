@@ -2,10 +2,6 @@ import React, { useState,useEffect } from "react";
 import {
   Box,
   Typography,
-  Paper,
-  List,
-  ListItem,
-  ListItemText,
   Grid,
   Button,
   TextField,
@@ -50,7 +46,7 @@ const JobView = () => {
   const [jobPosts, setJobPosts] = useState([]);
   const [filteredJobPosts, setFilteredJobPosts] = useState([]);
 
-
+  const [email, setEmail] = useState(localStorage.getItem("email"));
   const { state } = useLocation();
 const { dataArray, userSkills } = state || {};
 const { jobRole, recommendations } = dataArray || [];
@@ -289,7 +285,10 @@ const filteredJobData = filteredPosts.filter((filteredPosts) => {
    setLocationFilter(event.target.value);
  };
   
- 
+  const handleStart =() => {
+    navigate("/jobform", { state: { email } });
+ }
+  
   return (
     // <div className="job-recommendations">
     <div
@@ -353,6 +352,9 @@ const filteredJobData = filteredPosts.filter((filteredPosts) => {
   Clear Filters
 </Button>
   
+<Button variant="contained" color="primary" onClick={handleStart}>
+              Retake QUIZ
+            </Button>
         </div>
       <Grid
         container

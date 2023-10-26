@@ -58,7 +58,7 @@ export default function Fail() {
 
   return (
     <Root className={classes.root}>
-      <Container>
+      <Container classname="containerQuiz">
         <Typography variant="h4" gutterBottom>
           You do not have enough score to proceed. Please try again!
         </Typography>
