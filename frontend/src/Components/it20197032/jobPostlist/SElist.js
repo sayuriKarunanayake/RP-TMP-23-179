@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Container, Row, Col, Card, CardBody, CardTitle, CardSubtitle, CardText, Nav, NavItem, NavLink, Navbar } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import '../Styles.css';
 
 
 const SElist = () => {
