@@ -48,7 +48,7 @@ const RegRecruiter = () => {
               <img
                 src="https://www.nicepng.com/png/full/363-3633723_why-offshore-rpo-services-social-recruiting-clip-art.png"
                 alt="Recruiter Registration"
-                style={{ width: '100%', height: '100%' }}
+                style={{ width: '100%', height: '90%' }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
