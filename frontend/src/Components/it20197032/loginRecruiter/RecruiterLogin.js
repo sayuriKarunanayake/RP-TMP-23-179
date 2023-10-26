@@ -126,7 +126,14 @@ export default function RecruiterLogin() {
               Don't have an account? <a href="/regrecruiter">Sign up</a> Here
             </p>
           </form>
-          <ToastContainer />
+          <ToastContainer 
+          position="top-center"
+          autoClose={3000} // Set the duration for which the toast will be displayed in milliseconds (e.g., 3000 for 3 seconds)
+          hideProgressBar={false} // Set to true if you want to hide the progress bar
+          newestOnTop={false} // Set to true if you want the newest toast to appear at the top
+          closeOnClick // Close the toast when clicked
+          pauseOnHover
+          />
         </div>
       </div>
 

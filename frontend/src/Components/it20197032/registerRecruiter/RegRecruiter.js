@@ -72,7 +72,7 @@ const RegRecruiter = () => {
                         style: {
                           borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                           borderRadius: '0',  // No border-radius
-                          marginBottom: '20px', // Adjusted spacing
+                          marginBottom: '30px', // Adjusted spacing
                         },
                       }}
                     />
@@ -92,7 +92,7 @@ const RegRecruiter = () => {
                         style: {
                           borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                           borderRadius: '0',  // No border-radius
-                          marginBottom: '20px', // Adjusted spacing
+                          
                         },
                       }}
                     />
@@ -113,7 +113,7 @@ const RegRecruiter = () => {
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '20px', // Adjusted spacing
+                      marginBottom: '30px', // Adjusted spacing
                     },
                   }}
                 />
@@ -132,7 +132,7 @@ const RegRecruiter = () => {
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '20px', // Adjusted spacing
+                      marginBottom: '30px', // Adjusted spacing
                     },
                   }}
                 />
@@ -151,7 +151,7 @@ const RegRecruiter = () => {
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '20px', // Adjusted spacing
+                      marginBottom: '30px', // Adjusted spacing
                     },
                   }}
                 />
@@ -170,7 +170,7 @@ const RegRecruiter = () => {
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '20px', // Adjusted spacing
+                      marginBottom: '30px', // Adjusted spacing
                     },
                   }}
                 />
@@ -189,7 +189,7 @@ const RegRecruiter = () => {
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '20px', // Adjusted spacing
+                      marginBottom: '15px', // Adjusted spacing
                     },
                   }}
                 />
