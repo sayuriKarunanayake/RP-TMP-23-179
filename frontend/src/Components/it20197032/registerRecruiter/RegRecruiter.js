@@ -29,7 +29,7 @@ const RegRecruiter = () => {
     axios.post("http://localhost:8070/recruiter/addRecruiter", newRecruiter)
       .then(() => {
         alert("Recruiter Registration Successful!");
-        window.location = `/addjob`;
+        window.location = `/recruiterLogin`;
 
       })
       .catch((err) => {
@@ -53,7 +53,7 @@ const RegRecruiter = () => {
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography variant="h4" gutterBottom>
-                Recruiter Registration
+                Sign Up
               </Typography>
               <form onSubmit={handleSubmit}>
                 <TextField
@@ -115,7 +115,7 @@ const RegRecruiter = () => {
                   required
                 />
                 <Button type="submit" variant="contained" color="primary">
-                  Register
+                  Sign Up
                 </Button>
               </form>
             </Grid>
