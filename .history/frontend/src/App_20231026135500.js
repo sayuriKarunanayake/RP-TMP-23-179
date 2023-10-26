@@ -16,11 +16,8 @@ import SElist from './Components/it20197032/jobPostlist/SElist';
 import FakeCheck from './Components/it20197032/fakeCheckJobPost/FakeCheck';
 import RegRecruiter from './Components/it20197032/registerRecruiter/RegRecruiter';
 import RecruiterLogin from './Components/it20197032/loginRecruiter/RecruiterLogin';
+import Homepage from './Components/it20197032/homepage/Homepage';
 
-
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Profile from "./pages/Profile";
 
 
 
@@ -29,37 +26,34 @@ import Profile from "./pages/Profile";
 
 function App() {
 
-
-
+  
+   
   return (
-    <>
-      <Router>
-        <div>
-          <Headermain />
+    <> 
+    <Router>
+    <div>
+      <Headermain />
 
-          <Routes>
-            <Route path="/addjob" element={<JobPostForm />} />
-            <Route path="/joblist" element={<Joblist />} />
-            <Route path="/pmlist" element={<Pmlist />} />
-            <Route path="/cyblist" element={<Cyblist />} />
-            <Route path="/netlist" element={<Netlist />} />
-            <Route path="/dslist" element={<Dslist />} />
-            <Route path="/selist" element={<SElist />} />
-            <Route path="/fakecheck" element={<FakeCheck />} />
-            <Route path="/regrecruiter" element={<RegRecruiter />} />
-            <Route path="/recruiterLogin" element={<RecruiterLogin />} />
-         
+      <Routes>
+        <Route path="/addjob" element={<JobPostForm />} />
+        <Route path="/joblist" element={<Joblist />} />
+        <Route path="/pmlist" element={<Pmlist />} />
+        <Route path="/cyblist" element={<Cyblist />} />
+        <Route path="/netlist" element={<Netlist />} />
+        <Route path="/dslist" element={<Dslist />} />
+        <Route path="/selist" element={<SElist />} />
+        <Route path="/fakecheck" element={<FakeCheck />} />
+        <Route path="/regrecruiter" element={<RegRecruiter />} />
+        <Route path="/recruiterLogin" element={<RecruiterLogin />} />
+        <Route path="/" element={<Homepage />} />
+        
 
-            <Route path="/" Component={Home} />
-            <Route path="/dashboard" Component={Dashboard} />
-            <Route path="/profile" Component={Profile} />
+      </Routes>
+    </div>
+  </Router>
 
-          </Routes>
-        </div>
-      </Router>
-
-
-    </>
+ 
+   </> 
   );
 }
 
