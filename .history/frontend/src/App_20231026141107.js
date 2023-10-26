@@ -16,7 +16,7 @@ import SElist from './Components/it20197032/jobPostlist/SElist';
 import FakeCheck from './Components/it20197032/fakeCheckJobPost/FakeCheck';
 import RegRecruiter from './Components/it20197032/registerRecruiter/RegRecruiter';
 import RecruiterLogin from './Components/it20197032/loginRecruiter/RecruiterLogin';
-
+import Homepage from './Components/it20197032/homepage/Homepage';
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
