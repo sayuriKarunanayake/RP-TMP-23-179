@@ -5,7 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import  icon from'../../../Assets/padlock.png';
-
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import InputAdornment from '@mui/material/InputAdornment';
 
 export default function RecruiterLogin() {
     const [email, setEmail] = useState('');
@@ -49,58 +51,84 @@ export default function RecruiterLogin() {
     };
   
     return (
-      <div style={{backgroundColor:'#F0FFFF', height:'100vh', width:'100vw', margin:0, padding:0}}>
-        <div class="login-form"
-          style={{
-            textAlign: 'center',
-            maxWidth: '450px',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-            borderRadius: '5px',
-            backgroundColor: 'white',
-            padding: '20px',
-            weight:"50px",
-          }}
-        >
+      <div style={{ backgroundColor: 'white', height: '100vh', width: '100vw', margin: 0, padding: 0 }}>
+        <div className="login-form" style={{
+          textAlign: 'center',
+          maxWidth: '450px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1)',
+          borderRadius: '10px',
+          backgroundColor: 'white',
+          padding: '20px',
+          margin: 'auto',
+        
+        }}>
+          <img src={icon} alt="Icon" style={{ maxWidth: '40px', maxHeight: '40px', marginBottom: '20px' }} />
+          <h5 style={{ color: '#333', marginBottom: '20px' }}>Sign In</h5>
           <br/>
-          <img src={icon} alt="Icon" style={{ maxWidth: '40px', maxHeight: '40px' }}/><br/><br/>          <h5 style={{ color: '#333', marginBottom: '20px' }}>Sign In</h5>
           <form onSubmit={handleLogin}>
-            <TextField
-              type="email"
-              label="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              variant="outlined"
-              margin="dense"
-              fullWidth
-              required
-            />
+          <TextField
+            type="email"
             
-            <TextField
-              type="password"
-              label="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              variant="outlined"
-              margin="dense"
-              fullWidth
-              required
-            />
-            <br/><br/>
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            margin="dense"
+            fullWidth
+            required
+            variant="standard"
+            InputLabelProps={{ shrink: true }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <EmailIcon style={{ color: '#2196F3' }} />
+                </InputAdornment>
+              ),
+              style: {
+                borderBottom: '1px solid #2196F3', 
+                borderRadius: '0',  
+                marginBottom: '20px',
+              },
+            }}
+          />
+
+          <TextField
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            margin="dense"
+            fullWidth
+            required
+            variant="standard"
+            InputLabelProps={{ shrink: true }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LockIcon style={{ color: '#2196F3' }} />
+                </InputAdornment>
+              ),
+              style: {
+                borderBottom: '1px solid #2196F3',  // Adjust the color as needed
+                borderRadius: '0',  // No border-radius
+              },
+            }}
+          />
+            <br /><br />
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
-          
+              style={{ backgroundColor: '#2196f3', marginTop: '10px'}}
             >
               Login
             </Button>
-            <p style={{ textAlign: 'center', marginTop: '10px' }}>
-              Don't have an account? <a href="/regrecruiter">Register</a>
+            <p style={{ textAlign: 'center', marginTop: '10px'}}>
+              Don't have an account? <a href="/regrecruiter">Sign up</a> Here
             </p>
           </form>
           <ToastContainer />
         </div>
       </div>
+
     )
 }
