@@ -34,9 +34,14 @@ app.use("/job", JobPostRouter);
 const RecuiterRouter = require("./routes/recruiterReg.js");
 app.use("/recruiter", RecuiterRouter);
 
+
 //IT20198954 
 const registerRouter =require("./routes/createAccount.js"); //import  register routes
 app.use("/register",registerRouter); //create register routes
+
+const resultRouter =require("./routes/quiz.js"); //import  register routes
+app.use("/result",resultRouter); //create register routes 
+
 
 app.listen(PORT, () => {
     console.log(`Server up and running on port ${PORT}`)

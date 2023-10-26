@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from "../../Assets/IT20198954/user.png";
+import logo from "../../Assets/IT20198954/user2.png";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
@@ -66,7 +66,7 @@ export default function AddUser() {
    }
 
   return (
-    <Container maxWidth="md">
+    <Container classname="containerQuiz" maxWidth="md">
       <Grid container spacing={2} justifyContent="center" alignItems="center">
         <Grid item xs={12}>
           <br></br>
@@ -84,13 +84,13 @@ export default function AddUser() {
               alt="logo"
               className="simage"
               style={{
-                width: "100px",
-                height: "100px",
+                width: "110px",
+                height: "130px",
                 marginRight: "20px",
-                marginLeft: "50px",
+                marginLeft: "40px",
               }}
             />
-            <br></br>
+             
             <Typography variant="h6" color="textSecondary" gutterBottom>
               Already have an account?
             </Typography>

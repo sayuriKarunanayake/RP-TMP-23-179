@@ -96,7 +96,7 @@ const QuizBox = ({ current, next, jobRole }) => {
         height: "900px",
       }}
     >
-      <Container
+      <Container 
         backgroundSize="cover"
         backgroundPosition="center"
         maxWidth="sm"

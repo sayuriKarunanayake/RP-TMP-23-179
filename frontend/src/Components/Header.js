@@ -13,19 +13,19 @@ const NavBar = () => {
   const [email, setEmail] = useState(localStorage.getItem("email"));
   const navigation = useNavigate();
 
-  useEffect(() => {
-    // Moved the API call inside useEffect
-    const getUser = async () => {
-      try {
-        const result = await axios.get(`http://localhost:8070/register/find/${email}`);
-        setUserData(result.data.data);
-        console.log(UserData, "UserData nav bar");
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getUser();
-  }, [email, UserData]);
+  // useEffect(() => {
+  //   // Moved the API call inside useEffect
+  //   const getUser = async () => {
+  //     try {
+  //       const result = await axios.get(`http://localhost:8070/register/find/${email}`);
+  //       setUserData(result.data.data);
+  //       console.log(UserData, "UserData nav bar");
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   getUser();
+  // }, [email, UserData]);
 
   const handleJob = () => {
     navigation("/home", { state: { email } });

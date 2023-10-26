@@ -1,0 +1,478 @@
+.containerQuiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .buttoncontainerff {
+    display: 'flex';
+    height: '100vh';
+    align-items: center;
+    justify-content: "space-between", 
+      
+  }
+
+  .leftSidec {
+    display: 'flex';
+    flex-direction: column;
+   align-items: center; 
+   justify-content: center; 
+    flex: 1;
+     
+  }
+  .rightSidec {
+    display: 'flex';
+    align-items: center;
+    justify-content: center; 
+    flex: 1;
+     
+  }
+  .description {
+    margin-bottom: auto; 
+  }
+  .imagej {
+    max-width: "100%";
+      max-height: "100%";
+  }
+  
+  .paperRec {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: "row";
+  }
+
+  .resultpaper{
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: "row";
+  }
+  
+  .leftSide {
+    flex: 1;
+  }
+  .rightSide {
+    flex: 1;
+  }
+  .bold-question {
+    font-weight: bold;
+  }
+
+  .quizpaper {
+    width: auto;
+    height:auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: "row";
+     
+  }
+
+  /* .progress-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    position: relative;
+  }
+  
+  .progress-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  } */
+  
+  /* .percentage {
+    font-size: 24px;
+    font-weight: bold;
+  } */
+  
+  /* .label {
+    font-size: 16px;
+    color: #888888;
+  } */
+  
+  /* .card {
+    border-radius: 10px;
+    width:100%;
+    background-color:  #c4e6f5;
+     margin: 0 auto; /* Center the card horizontally */
+  /* } */ */
+  
+  /* .card-body {
+    padding: 20px;
+  } */
+  
+  .h1rec {
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  /* .label {
+    font-weight: bold;
+    margin-right: 70px;
+  }
+   */
+
+  .custom-select {
+    margin-bottom: 10px;
+    width: 500px;
+   
+  }
+  
+  /* .btn {
+    width: 100%;
+  } */
+
+  /* .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+   
+}
+  
+  
+  .form-control {
+    flex: 1;
+    margin-right: 10px;
+    border: 1px solid black; /* Add black color border */
+  /* }  */
+
+  .square-card {
+    width: 500px;
+    height: 200px;
+    left: 20px;
+    top: 70%;
+     margin-left: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid black;
+  }
+  
+  
+  .dropdown-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    
+  }
+
+
+  .square-card-2 {
+    width: 500px;
+    height: 200px;
+    position: fixed;
+    right: 20px;
+    align-items: left;
+     margin-left: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid black;
+  }
+
+  .playagainbutton {
+    background-color: rgb(255, 166, 0);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .totalquestionsbutton {
+    background-color: rgb(0, 255, 76);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  /* .tableCell {
+    font: size 5%;;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid black;
+  } */
+  .correctnumberbutton {
+    background-color: rgb(50, 50, 240);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  /* h2 {
+    text-align: center;
+    color: white;
+  }
+   */
+  /* table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    height: min-content;
+  } */
+  
+.resultscontainer{
+  width: 600px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: "row";
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*signup */
+ 
+ 
+ 
+.signup2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 10px;
+  
+}
+.signup1{
+  
+  padding: 10px;
+ 
+  text-align: center; 
+  background-color: #d6abec;
+}
+
+/* #user {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid rgb(229, 190, 190);
+  max-width: 1550px;
+  background-color: #ebc7eb;
+}
+
+#user td   {
+  
+  padding: 8px;
+  margin-left: 6px;
+  
+
+}
+
+ 
+
+#user th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  
+  
+} */
+
+.stopic {
+  font-size: 42px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  font-style: bold;
+  width: 100%;
+  color: rgb(11, 20, 17);
+  max-height: 2500px;
+  text-align: center;
+  max-width: 1250px;
+  margin: 10px auto;
+}
+
+.simage{
+  display: flex;
+  display: -webkit-box;
+  margin-left: 130px;
+  margin-right: 50px;
+  margin-top: 10px;
+  width: 350px;
+ height: 350px;
+ border-radius: 50%;
+}
+ 
+.linkreg{
+  position: relative;
+  left: 40px;
+  font: size 45px; 
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  font-style: bold;
+
+}
+
+.links2{
+  position: relative;
+  left: 30px;
+  font-size: 30px;
+
+}
+
+.register-form{
+  max-width: 1500px;
+  max-block-size: auto;
+}
+
+/* .labels{
+  font-size:22px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  font-style: bold;
+  width: 100%;
+  color: rgb(11, 20, 17);
+  max-height: 200px;
+  text-align: center;
+  max-width: 250px;
+  margin: 10px auto;
+} */
+
+/* .btncancel{
+  margin-right:16px;
+  background-color:btn btn-light;
+  border: rgb(30, 146, 30);
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+} */
+ 
+.addf{
+ 
+ 
+  background-size: cover;
+  
+  width: cover;
+
+}
+
+.viewf{
+  
+  background-size: cover;
+  
+  width: cover;
+}
+.addorder{
+ 
+ 
+  background-size: cover;
+  
+  width: cover;
+
+}
+
+.adminorder{
+ 
+  
+  background-size: cover;
+  
+  width: cover;
+
+}
+
+/* .signup{
+  /*background-image: url(./assets/bgs.jpg); */
+  /* background-size: cover;
+  
+  width: cover; */
+/* } */
+  
+
+.signin2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 10px;
+  
+}
+.signins{
+  
+  padding: 20px;
+ 
+  text-align: center;
+  max-width: 1200px;
+  max-height: 1000;
+  margin: 10px auto;
+   
+  background-color: #dbc9e3;
+}
+.loginimage{
+  display: flex;
+  display: -webkit-box;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 10px;
+  width: 250px;
+ height: 250px;
+ border-radius: 50%;
+}
+
+ 
+
+.signinform{
+  margin-left: 250px;
+}
+
+.ftable{
+  margin-left: 650px;
+  font-size: large;
+  width: 650px;
+  
+}
+
+/* .btnspace{
+  margin-right:20px;
+   margin-left:50px;
+   font-size: large;
+   font-weight: 600;
+   
+   border-radius: 7%;
+   height: 50px;
+   width: 250px;
+} */
+
+/* JobView.css */
+.job-paper {
+  margin-top: 16px;
+  padding: 16px;
+}
+
+.job-section {
+  margin-top: 16px;
+}
+
+/* You can add more custom styling here as needed */
+.job-recommendations {
+   
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.job-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* header
+.nav-link:hover {
+  /* background-color: #FFD700; */
+  /* cursor: pointer;
+  transform: scale(1.05); */
+  /* opacity: 0.8; */
+/* } */ 

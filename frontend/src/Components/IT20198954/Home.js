@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Box,
   Typography,
@@ -49,9 +49,9 @@ const Home = () => {
   const location = useLocation();
   const userEmail = location.state && location.state.email;
   const [user, setUser] = useState("");
-  const [email, setEmail] = useState(userEmail && userEmail ? userEmail : "");
+  //const [email, setEmail] = useState(userEmail && userEmail ? userEmail : "");
   const history = useNavigate();
-
+  const [email, setEmail] = useState(localStorage.getItem("email"));
   const [expanded, setExpanded] = React.useState(false);
   const [expandedCard, setExpandedCard] = useState(null);
   const cardsPerPage = 6; // Number of cards to display per page
@@ -62,10 +62,11 @@ const Home = () => {
 
   //const [jobRole,setJobRole] = useState(updatedUser && updatedUser.jobRole ? updatedUser.jobRole : '');
   //const [skills,setSkills] = useState(updatedUser && updatedUser.skills ? updatedUser.skills : '');
-  const [message, setMessage] = useState('');
+  const [resultsData, setResultsData] = useState();
+ const [recommendations,setRecommendations] =useState(resultsData && resultsData.recommendations ? resultsData.recommendations : '');
 
   console.log("jobRole and skills row job posts page", jobRole , skills);
-  //   const handleExpandClick = () => {
+  //   const handleExpandClick = () => {resultsData
   //     setExpanded(!expanded);
   //   };
 
@@ -191,28 +192,48 @@ const Home = () => {
 
  const jobCardsToShow = filteredJobData.slice(startIndex, endIndex);
 
-//  const handleExpandClick = () => {
-//    setExpanded(!expanded);
-//  };
  
-const getUser = async () => {
+useEffect(() => {
+  // Moved the API call inside useEffect
+  
+  getResults();
+  // setRecommendations(resultsData.recommendations);
+  // setJobRole(resultsData.jobRole);
+}, [email, resultsData,recommendations,jobRole]);
+
+const getResults = async () => {
   try {
-    const result = await axios.get(`http://localhost:8070/register/find`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-    setUserData(result.data.data);
-    console.log(UserData,"UserData   homr page");
+    const response = await axios.get(`http://localhost:8070/result/find/${email}`);
+    
+    if (response.status === 200 && response.data.success) {
+      setResultsData(response.data.data);
+      setRecommendations(response.data.data.recommendations);
+      setJobRole(response.data.data.jobRole);
+      console.log(response.data.data, "resultsData");
+    } else {
+      console.log("Error while loading data");
+    }
   } catch (err) {
     console.log(err);
   }
 };
-  
- const handleTest = async () => {
-  navigation("/jobform", { state: { email } });
- }
 
+ 
+//console.log(resultsData,recommendations,jobRole,"setResultsData ,recommendations ,jobRole, homr page");
+
+ const handleTest = async () => {
+  
+  if(resultsData ==''){
+  
+    navigation("/jobform", { state: { email } });
+  }else
+  navigation("/jobs", { state: { dataArray: { jobRole, recommendations } } });
+   
+ }
+// const handleTest = async () => {
+  
+//   navigation("/jobform", { state: { email } });
+// }
 
   return (
     // <div className="job-recommendations">

@@ -3,9 +3,7 @@ import axios from "axios";
 import {
   Button,
   Container,
-  Card,
   Typography,
-  TextField,
   Box,
   Paper,
   Table,
@@ -27,34 +25,66 @@ export default function JobRecommendationForm() {
   const location = useLocation();
   const userEmail = location.state && location.state.email;
   const [user, setUser] = useState("");
-  const [email, setEmail] = useState(userEmail && userEmail ? userEmail : "");
+  //const [email, setEmail] = useState(userEmail && userEmail ? userEmail : "");
   const history = useNavigate();
+  //const userSkills = userData.skills;
+  //const userJobRole = userData.jobRole;
+  const [email, setEmail] = useState(localStorage.getItem("email"));
+ 
 
   useEffect(() => {
-    allUsers();
-  }, []);
-
-  const allUsers = async () => {
+    // Moved the API call inside useEffect
+    
+    getResults();
+    // setRecommendations(resultsData.recommendations);
+    // setJobRole(resultsData.jobRole);
+  }, [email, user,skills,jobRole]);
+  
+  const getResults = async () => {
     try {
-      setEmail(userEmail);
-      const response = await axios.get(
-        `http://localhost:8070/register/getoneuser/${email}`
-      );
-      if (response) {
-        const userData = response.data.savedRegister;
-        setUser(userData);
-
-        const userSkills = userData.skills;
-        const userJobRole = userData.jobRole;
-
-        setSkills(userSkills);
-        setJobRole(userJobRole);
+      const response = await axios.get(`http://localhost:8070/register/find/${email}`);
+      
+      if (response.status === 200 && response.data.success) {
+        setUser(response.data.data);
+        setSkills(response.data.data.skills);
+        setJobRole(response.data.data.jobRole);
+        console.log(response.data.data, "resultsData");
+      } else {
+        console.log("Error while loading data");
       }
-    } catch (error) {
-      console.log("Error fetching user data:", error);
+    } catch (err) {
+      console.log(err);
     }
   };
 
+//old way
+  // useEffect(() => {
+  //   allUsers();
+  // }, [email,user]);
+
+  // const allUsers = async () => {
+  //   try {
+      
+  //     const response = await axios.get(
+  //       `http://localhost:8070/register/find/${email}`
+  //     );
+  //     if (response) {
+  //       const userData = response.data.data;
+
+  //       setUser(userData);
+
+  //       // const userSkills = userData.skills;
+  //       // const userJobRole = userData.jobRole;
+
+  //       setSkills(userData.skills);
+  //       setJobRole(userData.jobRole);
+  //     }
+  //   } catch (error) {
+  //     console.log("Error fetching user data:", error);
+  //   }
+  // };
+
+    
   const sendData = (e) => {
     e.preventDefault();
     // Your logic for form submission here
@@ -65,7 +95,7 @@ export default function JobRecommendationForm() {
   };
 
   return (
-    <Container >
+    <Container classname="containerQuiz">
     
 
       <Box sx={{ backgroundColor: "#80bfff", padding: 4, marginTop: 4 }}>

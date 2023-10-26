@@ -35,7 +35,7 @@ const Root = styled('div')((
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    weight:"50px",
+    weight:"150px",
     backgroundColor:"#F0FFFF",
   },
 
@@ -44,6 +44,8 @@ const Root = styled('div')((
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    width: "100%", // Set the width to 100%
+    maxWidth: "400px", // Set a maximum width for the form
   },
 
   [`& .${classes.avatar}`]: {
@@ -51,8 +53,10 @@ const Root = styled('div')((
   },
 
   [`& .${classes.form}`]: {
-    width: "450px", // Fix IE 11 issue.
+    width: "250px", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
+    //width: "100%", // Set the width to 100%
+    maxWidth: "250px", // Set a maximum width for the form
 
   },
 
@@ -64,6 +68,7 @@ const Root = styled('div')((
   [`& .${classes.logo}`]: {
     maxWidth: "100%",
     height: "auto",
+    margin: "0 auto", // Center the logo horizontally
   }
 }));
 
@@ -109,9 +114,10 @@ const Signin = () => {
   }
 
   return (
-    <Container component="main" maxWidth="100%" className={classes.root}>
-      <Paper elevation={3} maxWidth="md"  className={classes.paper}>
-        <Avatar style={{ backgroundColor: "#1976d2 " }} className={classes.avatar}>
+    <center>   <Container style={{ marginTop:"100px" }} component="main" maxWidth="1px" className={classes.root}>
+         
+      <Paper elevation={5} maxWidth="md"   style={{ width: "33%" ,height:"auto" }}>
+        <br></br><Avatar style={{ backgroundColor: "#1976d2 " }} className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar><br></br>
         <Typography component="h1" variant="h5">
@@ -127,6 +133,7 @@ const Signin = () => {
             label="Email Address"
             name="email"
             autoComplete="email"
+            style={{marginBottom: "10px",marginLeft:"30px" , marginRight:" 20px" ,width:"400px"}}
             autoFocus
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -139,7 +146,8 @@ const Signin = () => {
             name="password"
             label="Password"
             type="password"
-            id="password"
+            style={{ marginBottom: "10px",   marginLeft:"30px" , marginRight:" 20px" ,width:"400px"}}
+           id="password"
             autoComplete="current-password"
             value={pwd}
             onChange={(e) => setPwd(e.target.value)}
@@ -149,18 +157,18 @@ const Signin = () => {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
-            style={{ backgroundColor: "#1976d2 " }}
+              
+            style={{ backgroundColor: "#1976d2 " ,marginTop:"10px", marginBottom: "10px",marginLeft:"30px" , marginRight:" 20px" ,width:"400px"}}
           >
             Sign In
           </Button>
-          <Typography variant="body2">
+          <Typography variant="body2"> 
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </Typography>
-        </form>
-      </Paper>
+        </form><br></br>
+      </Paper> 
       {/* <img src={logo} alt="logo" className={classes.logo} /> */}
-    </Container>
+    </Container></center>
   );
 };
 
