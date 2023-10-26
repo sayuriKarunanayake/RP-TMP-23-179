@@ -62,8 +62,8 @@ export default function RecruiterLogin() {
           margin: 'auto',
         
         }}>
-          <img src={icon} alt="Icon" style={{ maxWidth: '40px', maxHeight: '40px', marginBottom: '20px' }} />
-          <h5 style={{ color: '#333', marginBottom: '20px' }}>Sign In</h5>
+          <img src={icon} alt="Icon" style={{ maxWidth: '40px', maxHeight: '40px', alignItems: 'center', display: 'block', margin: 'auto'}}/><br/>
+          <h4 style={{ color: '#333', marginBottom: '20px' }}>Sign In</h4>
           <br/>
           <form onSubmit={handleLogin}>
           <TextField

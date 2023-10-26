@@ -7,7 +7,6 @@ import '@mui/system';
 import JobPostForm from './Components/it20197032/createJobPost/JobPostForm.js';
 import Headermain from './Components/it20197032/header/Headermain.js';
 import Joblist from './Components/it20197032/jobPostlist/JobList';
-
 import Pmlist from './Components/it20197032/jobPostlist/Pmlist';
 import Cyblist from './Components/it20197032/jobPostlist/Cyblist';
 import Netlist from './Components/it20197032/jobPostlist/Netlist';
@@ -28,14 +27,14 @@ import Profile from "./pages/Profile";
 
 
 function App() {
-
-
+  //add paths to pages where Headermain should not be visible like login/register
+  const shouldRenderHeader = !['/regrecruiter', '/recruiterLogin', '/'].includes(window.location.pathname);
 
   return (
     <>
       <Router>
         <div>
-          <Headermain />
+          {shouldRenderHeader && <Headermain />}
 
           <Routes>
             <Route path="/addjob" element={<JobPostForm />} />
@@ -55,6 +54,7 @@ function App() {
             <Route path="/profile" Component={Profile} />
 
           </Routes>
+          
         </div>
       </Router>
 

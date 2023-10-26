@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 
 const HeaderAppBar = styled(AppBar)(({ theme }) => ({
-  backgroundColor: '##1976d2',
+  backgroundColor: '#1976d2',
 }));
 
 const HeaderLogo = styled('img')(({ theme }) => ({
