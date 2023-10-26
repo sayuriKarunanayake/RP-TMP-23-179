@@ -5,7 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import  icon from'../../../Assets/padlock.png';
-
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import InputAdornment from '@mui/material/InputAdornment';
 
 export default function RecruiterLogin() {
     const [email, setEmail] = useState('');
@@ -62,42 +64,55 @@ export default function RecruiterLogin() {
         }}>
           <img src={icon} alt="Icon" style={{ maxWidth: '40px', maxHeight: '40px', marginBottom: '20px' }} />
           <h5 style={{ color: '#333', marginBottom: '20px' }}>Sign In</h5>
+          <br/>
           <form onSubmit={handleLogin}>
-            <TextField
-              type="email"
-              label="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              margin="dense"
-              fullWidth
-              required
-              variant="standard"  
-              InputLabelProps={{ shrink: true }}
-              InputProps={{
-                style: {
-                  borderBottom: '1px #2196F3',  // Adjust the color as needed
-                  borderRadius: '0',  // No border-radius
-                },
-              }}
-            />
+          <TextField
+            type="email"
+            
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            margin="dense"
+            fullWidth
+            required
+            variant="standard"
+            InputLabelProps={{ shrink: true }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <EmailIcon style={{ color: '#2196F3' }} />
+                </InputAdornment>
+              ),
+              style: {
+                borderBottom: '1px solid #2196F3', 
+                borderRadius: '0',  
+                marginBottom: '20px',
+              },
+            }}
+          />
 
-            <TextField
-              type="password"
-              label="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              margin="dense"
-              fullWidth
-              required
-              variant="standard"  
-              InputLabelProps={{ shrink: true }}
-              InputProps={{
-                style: {
-                  borderBottom: '1px #2196F3',  // Adjust the color as needed
-                  borderRadius: '0',  // No border-radius
-                },
-              }}
-            />
+          <TextField
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            margin="dense"
+            fullWidth
+            required
+            variant="standard"
+            InputLabelProps={{ shrink: true }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LockIcon style={{ color: '#2196F3' }} />
+                </InputAdornment>
+              ),
+              style: {
+                borderBottom: '1px solid #2196F3',  // Adjust the color as needed
+                borderRadius: '0',  // No border-radius
+              },
+            }}
+          />
             <br /><br />
             <Button
               type="submit"
