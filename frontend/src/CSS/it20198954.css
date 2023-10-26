@@ -126,9 +126,9 @@
    
   }
   
-  .btn {
+  /* .btn {
     width: 100%;
-  }
+  } */
 
   .form-group {
     display: flex;
@@ -207,11 +207,11 @@
     margin-top: 10px;
   }
 
-  h2 {
+  /* h2 {
     text-align: center;
     color: white;
   }
-  
+   */
   /* table {
     width: 100%;
     border-collapse: collapse;

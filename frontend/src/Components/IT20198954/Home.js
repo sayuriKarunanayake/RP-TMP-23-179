@@ -192,54 +192,7 @@ const Home = () => {
 
  const jobCardsToShow = filteredJobData.slice(startIndex, endIndex);
 
-//  const handleExpandClick = () => {
-//    setExpanded(!expanded);
-//  };
  
-// const getUser = async () => {
-//   try {
-//     const result = await axios.get(`http://localhost:8070/register/find${email}`, {
-//       headers: {
-//         authorization: `Bearer ${localStorage.getItem("token")}`,
-//       },
-//     });
-//     setUserData(result.data.data);
-//     console.log(UserData,"UserData   homr page");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
- 
-// const getResults = async () => {
-//   try {
-//     const result = await axios.get(`http://localhost:8070/result/find/${email}`, {
-      
-//     });
-//     if(result){
-//       setResultsData(result.data.data);
-//       console.log(resultsData,"resultsData");
-//     }else{
-//       console.log("err with axio laod data");
-//     }
-     
-//      } catch (err) {
-//     console.log(err);
-//   }
-// };
-
-// const getResults = async () => {
-//   try {
-//     const response = await axios.get(`http://localhost:8070/result/find/${email}`);
-//     if (response) {
-//       setResultsData(response.data.data); // Update state with response data
-//       console.log(response.data.data, "resultsData");
-//     } else {
-//       console.log("Error with Axios data");
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
 useEffect(() => {
   // Moved the API call inside useEffect
   
