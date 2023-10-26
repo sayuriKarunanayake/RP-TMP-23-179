@@ -9,57 +9,6 @@ from transformers import DistilBertTokenizer, TFDistilBertForSequenceClassificat
 from flask import Flask, request, jsonify
 from flask import Flask
 from flask_cors import CORS
-import googlemaps 
-
-# Google API key
-google_api_key = 'AIzaSyB5z0b68aGnk09gWTiwlP7YsaZ7OCx4okE' 
-
-
-# Function to calculate reputation score
-def calculate_reputation_score(ratings):
-    if not ratings:
-        return None
-    
-    # Calculate the sum of all ratings and the total number of ratings
-    sum_of_ratings = sum(ratings)
-    total_ratings = len(ratings)
-    
-    # Set a default prior estimate for the item's mean rating (m)
-    prior_estimate_m = 3.0
-    
-    # Set a default average number of ratings per item (C)
-    average_ratings_per_item_C = 10.0
-    
-    # Calculate the reputation score using the provided formula
-    reputation_score = (average_ratings_per_item_C * prior_estimate_m + sum_of_ratings) / (average_ratings_per_item_C + total_ratings)
-    
-    return reputation_score
-
-# Function to fetch ratings from the Google Places API based on company name
-def fetch_ratings_from_places_api(company_name):
-    try:
-        # Initialize the Google Maps API client with your API key
-        gmaps = googlemaps.Client(key=google_api_key)
-
-        # Use the Places API to search for the company by name
-        places_result = gmaps.places(company_name)
-
-        if 'results' in places_result:
-            # Assuming you want the ratings of the first result
-            place_id = places_result['results'][0]['place_id']
-
-            # Use the Place Details API to get the details, including the rating
-            place_details = gmaps.place(place_id=place_id)
-
-            if 'result' in place_details:
-                if 'rating' in place_details['result']:
-                    return place_details['result']['rating']
-
-        return None  # Return None if no ratings are found
-    except Exception as e:
-        return None  # Handle API request errors gracefully
-    
-
 
 
 def extract_job_details(input):
@@ -287,41 +236,6 @@ if __name__ == "__main__":
 
     # New one
     openai.api_key = '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'
-
-    @app.route('/calculate_reputation', methods=['POST'])
-def calculate_reputation():
-    try:
-        data = request.get_json()
-        ratings = data.get('ratings')
-        
-        reputation_score = calculate_reputation_score(ratings)
-        
-        response = {'reputation_score': reputation_score}
-        return jsonify(response)
-    except Exception as e:
-        return jsonify({'error': str(e)})
-
-@app.route('/get_company_ratings', methods=['POST'])
-def get_company_ratings():
-    try:
-        data = request.get_json()
-        company_name = data.get('company_name')
-        
-        # Fetch ratings from the Google Places API
-        ratings = fetch_ratings_from_places_api(company_name)
-        
-        if ratings is not None:
-            # Calculate the reputation score using the fetched ratings
-            reputation_score = calculate_reputation_score([ratings])
-            
-            # Prepare the response
-            response = {'ratings': ratings, 'reputation_score': reputation_score}
-        else:
-            response = {'error': 'Ratings not found for the company'}
-        
-        return jsonify(response)
-    except Exception as e:
-        return jsonify({'error': str(e)})
     
-    app.run(debug=True)
+    app.run(debug=True, port=5008)
     
