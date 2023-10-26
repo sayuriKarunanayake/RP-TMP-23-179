@@ -71,7 +71,7 @@
      
   }
 
-  .progress-circle {
+  /* .progress-circle {
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -85,7 +85,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-  }
+  } */
   
   /* .percentage {
     font-size: 24px;
@@ -130,7 +130,7 @@
     width: 100%;
   } */
 
-  .form-group {
+  /* .form-group {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -142,7 +142,7 @@
     flex: 1;
     margin-right: 10px;
     border: 1px solid black; /* Add black color border */
-  }
+  /* }  */
 
   .square-card {
     width: 500px;
@@ -250,7 +250,7 @@
   background-color: #d6abec;
 }
 
-#user {
+/* #user {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -275,7 +275,7 @@
   text-align: center;
   
   
-}
+} */
 
 .stopic {
   font-size: 42px;
@@ -323,7 +323,7 @@
   max-block-size: auto;
 }
 
-.labels{
+/* .labels{
   font-size:22px;
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -334,9 +334,9 @@
   text-align: center;
   max-width: 250px;
   margin: 10px auto;
-}
+} */
 
-.btncancel{
+/* .btncancel{
   margin-right:16px;
   background-color:btn btn-light;
   border: rgb(30, 146, 30);
@@ -348,7 +348,7 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-}
+} */
  
 .addf{
  
@@ -433,7 +433,7 @@
   
 }
 
-.btnspace{
+/* .btnspace{
   margin-right:20px;
    margin-left:50px;
    font-size: large;
@@ -442,7 +442,7 @@
    border-radius: 7%;
    height: 50px;
    width: 250px;
-}
+} */
 
 /* JobView.css */
 .job-paper {
@@ -469,10 +469,10 @@
   min-height: 100vh;
 }
 
-/* header */
+/* header
 .nav-link:hover {
   /* background-color: #FFD700; */
-  cursor: pointer;
-  transform: scale(1.05);
+  /* cursor: pointer;
+  transform: scale(1.05); */
   /* opacity: 0.8; */
-}
+/* } */ 
