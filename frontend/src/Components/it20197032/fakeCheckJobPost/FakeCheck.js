@@ -16,7 +16,7 @@ function FakeCheck() {
       setLoading(true); // Set loading to true when the request is initiated.
 
       axios
-         .post('http://127.0.0.1:5000/analyze_job', { job_description: jobDescription })
+         .post('http://127.0.0.1:5008/analyze_job', { job_description: jobDescription })
          .then((response) => {
             setResult(response.data.result);
          })
@@ -40,7 +40,8 @@ function FakeCheck() {
                   <button className="btn2" onClick={analyzeJob}>
                      Analyze Job
                   </button>
-                  <div className="result-container" style={{ textAlign:'center' }}>{loading ? <img className="loader" src={spinner} /> : <p style={{ color: 'black', fontSize: '20px'}}>Result: {result}</p>}</div>
+                  <div className="result-container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                     {loading ? <img className="loader" src={spinner} /> : <p style={{ color: 'black', fontSize: '20px'}}>Result: {result}</p>}</div>
                </div>
             </div>
          </div>
