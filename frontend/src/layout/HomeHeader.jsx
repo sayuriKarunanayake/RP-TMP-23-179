@@ -5,7 +5,7 @@ const Navigation = ["Home", "Browse Job", "Contact"];
 
 const HomeHeader = () => {
   return (
-    <div className=" absolute top-0 left-0 w-full py-5 px-28 bg-[#1976b2] flex items-center justify-between">
+    <div className=" absolute top-0 left-0 w-full py-5 px-28 bg-[#1976d2] flex items-center justify-between">
       {/* logo */}
       <img src={logo} alt="logo" className=" w-[117px] object-contain" />
       {/* navigation */}
