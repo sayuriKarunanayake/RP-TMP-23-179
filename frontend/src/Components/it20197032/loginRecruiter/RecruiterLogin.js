@@ -118,11 +118,11 @@ export default function RecruiterLogin() {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              style={{ backgroundColor: '#2196f3', marginTop: '10px'}}
             >
               Login
             </Button>
-            <p style={{ textAlign: 'center', marginTop: '10px' }}>
+            <p style={{ textAlign: 'center', marginTop: '10px'}}>
               Don't have an account? <a href="/regrecruiter">Sign up</a> Here
             </p>
           </form>
