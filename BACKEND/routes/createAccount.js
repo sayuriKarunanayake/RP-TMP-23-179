@@ -190,20 +190,45 @@ router.get("/user/:email", async (req, res) => {
     router.route("/getoneuser/:email").get(async(req,res)=> {
     
    
-      const email = req.params.email;
+      const email = req.body.email;
   console.log(email,"email")
       const user= await Register.findOne({email:email})
-      .then(savedRegister =>{
-          if(!savedRegister){
+      .then(user =>{
+          if(!user){
              return  res.status(422).json({error:"Invalid Email or Password backend error"})
     
           }else{
-              res.status(200).json({ status : "user fetched", savedRegister})
+              res.status(200).json({ status : "user fetched", user})
           }
        
    })
    })
 
+   //newfind user
+   router.get("/find/:email", async (req, res) => {
+    // const userEmail = req.body.email;
+     const userEmail = req.params.email;
+     console.log(userEmail,"for  user");
+     try {
+      // let structuredData = await userService.readUser(userEmail);
+       const result = await Register.findOne({ email: userEmail });
+       if (result) {
+         return res.status(200).send({
+           success: true,
+           message: "Results fetched successfully",
+           data: result,
+         });
+       }else{
+         return res
+         .status(500)
+         .send({ success: false, error: "Error while loading data" });
+       }
+     } catch (error) {
+       return res
+         .status(500)
+         .send({ success: false, error: "Error while loading data" });
+     }
+   });
 
    //fetch data of one user -working
 router.get("/find", async (req, res) => {
