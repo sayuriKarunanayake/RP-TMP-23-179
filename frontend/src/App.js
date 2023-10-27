@@ -50,8 +50,6 @@ import ResumeSuggestions from "./Components/IT20192532/ResumeSuggestions"
 function App() {
   //add paths to pages where Headermain should not be visible like login/register
   const shouldRenderHeader = ![
-    "/regrecruiter",
-    "/recruiterLogin",
     "/",
   ].includes(window.location.pathname)
 
