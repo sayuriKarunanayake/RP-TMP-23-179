@@ -56,7 +56,7 @@ export default function Fail() {
   };
 
   const handleContinue = () => {
-    navigate("/quiz", { state: { dataArray } });
+    navigate("/jobform", { state: { email } });
   };
 
   return (
