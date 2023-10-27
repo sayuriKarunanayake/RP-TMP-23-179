@@ -132,7 +132,7 @@ const Cyblist = () => {
                   <Button
                     color="success"
                     className="float-right"
-                    style={{ backgroundColor: '#2ECC71', border: 'none', borderRadius: '5px' }}
+                    style={{ backgroundColor: '#1976d2', border: 'none', borderRadius: '5px' }}
                   >
                     View Job
                   </Button>
