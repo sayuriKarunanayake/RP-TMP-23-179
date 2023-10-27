@@ -57,33 +57,7 @@ export default function JobRecommendationForm() {
     }
   };
 
-//old way
-  // useEffect(() => {
-  //   allUsers();
-  // }, [email,user]);
-
-  // const allUsers = async () => {
-  //   try {
-      
-  //     const response = await axios.get(
-  //       `http://localhost:8070/register/find/${email}`
-  //     );
-  //     if (response) {
-  //       const userData = response.data.data;
-
-  //       setUser(userData);
-
-  //       // const userSkills = userData.skills;
-  //       // const userJobRole = userData.jobRole;
-
-  //       setSkills(userData.skills);
-  //       setJobRole(userData.jobRole);
-  //     }
-  //   } catch (error) {
-  //     console.log("Error fetching user data:", error);
-  //   }
-  // };
-
+ 
     
   const sendData = (e) => {
     e.preventDefault();
@@ -95,25 +69,31 @@ export default function JobRecommendationForm() {
   };
 
   return (
-    <Container classname="containerQuiz">
+    <Container classname="containerQuiz" style={{ textAlign: "center" }}>
     
 
-      <Box sx={{ backgroundColor: "#80bfff", padding: 4, marginTop: 4 }}>
-        <Typography variant="h4" color="white">
+      <Box sx={{ backgroundColor: "#1976d2 ", padding: 4, marginTop: 4, fontFamily: "Open Sans, sans-serif" }}>
+        <Typography variant="h4" color="white" style={{ fontFamily: "Open Sans, sans-serif" }}>
           Guidelines
         </Typography>
-        <Typography variant="body1" color="white">
-          1. Please take a look at the job role and skills you've specified in your job profile.
+        <Typography variant="body1" color="white" >
+          1. Please take a look at the below job role and skills you've specified in your job profile.
+        </Typography>
+        <Typography variant="body1" color="white" >
+          2. You can edit the given job role and skills in next step.
         </Typography>
         <Typography variant="body1" color="white">
-          2. After selecting your desired job role, you will navigate to a
+          3. After selecting your desired job role, you will navigate to a
           personalized skill test.
         </Typography>
         <Typography variant="body1" color="white">
-          3. You must get 7 out of 10 questions to continue the Recommendation process.
+          4. Backward navigation is disabled in the skill test.
         </Typography>
         <Typography variant="body1" color="white">
-          4. After successfully completing the quiz, you will get recommended jobs for you.
+          5. You must score 7 out of 10 questions to continue the Recommendation process.
+        </Typography>
+        <Typography variant="body1" color="white">
+          6. After successfully completing the quiz, you will get recommended job titles with posts for you.
         </Typography>
       </Box>
 
@@ -124,21 +104,21 @@ export default function JobRecommendationForm() {
       <Box sx={{ marginTop: 4 }}>
         <TableContainer component={Paper}>
           <Table>
-            <TableHead>
+            <TableHead sx={{ backgroundColor: "#1976d2", color: "white" }}>
               <TableRow>
-                <TableCell>Email</TableCell>
-                <TableCell align="right">Job role</TableCell>
-                <TableCell align="center">Skills</TableCell>
-                <TableCell align="right">Action</TableCell>
+                <TableCell  sx={{ color: "white" }}>Email</TableCell>
+                <TableCell sx={{ color: "white" }} >Job role</TableCell>
+                <TableCell sx={{ color: "white" }} >Skills</TableCell>
+                <TableCell sx={{ color: "white" }} >Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               <TableRow>
                 <TableCell>{email}</TableCell>
-                <TableCell align="right">{jobRole}</TableCell>
-                <TableCell align="center">{skills}</TableCell>
-                <TableCell align="right">
-                  <Tooltip title="Edit">
+                <TableCell >{jobRole}</TableCell>
+                <TableCell >{skills}</TableCell>
+                <TableCell >
+                  <Tooltip title="Next">
                     <IconButton onClick={onUpdate} size="large">
                       <EastIcon  color="primary"  fontSize="large"/>
                     </IconButton>
