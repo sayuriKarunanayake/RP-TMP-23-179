@@ -1,0 +1,12 @@
+/* InputFormPage.css */
+
+/* Add transitions for text color and font size to resumeinputpa */
+.resumeinputpa {
+  transition: color 0.3s, font-size 0.1s;
+}
+
+/* Apply hover effect on .resumeinputpa elements */
+.resumeinputpa:hover {
+  color: blue; /* Change text color on hover */
+  font-size: 24px; /* Change font size on hover */
+}
