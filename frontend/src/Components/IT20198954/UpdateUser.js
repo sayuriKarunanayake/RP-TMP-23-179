@@ -74,13 +74,13 @@ const navigate = useNavigate()
   console.log(name, email, "daa");
 
   return (
-    <>
+    <div style={{ backgroundColor: "#f0f0f0", minHeight: "100vh" }}>
       <br></br>
       <br></br>
       <br></br>
       <center>
-        <Typography variant="h5" component="div">
-            {user ? "Update Or Confirm  " : "Add User"}
+        <Typography sx={{   fontFamily: "Open Sans, sans-serif" }} variant="h5" component="div">
+            {user ? "Step 2: Update Or Confirm  " : "Add User"}
           <br></br>
           <br></br>
         </Typography>
@@ -141,21 +141,21 @@ const navigate = useNavigate()
               <MenuItem value="SoftwareEngineer">
                 Software Engineering
               </MenuItem>
-              <MenuItem value="uiUxEngineering">UI/UX Engineering</MenuItem>
-              <MenuItem value="projectManagement">Project management</MenuItem>
-              <MenuItem value="networkEngineering">
+              <MenuItem value="UiUxEngineer">UI/UX Engineering</MenuItem>
+              <MenuItem value="ProjectManager">Project management</MenuItem>
+              <MenuItem value="NetworkEngineer">
                 Network Engineering
               </MenuItem>
-              <MenuItem value="databaseAdministration">
+              <MenuItem value="DatabaseAdministrator">
                 Database Administration
               </MenuItem>
-              <MenuItem value="cybersecurity">Cybersecurity</MenuItem>
-              <MenuItem value="systemAdministration">
+              <MenuItem value="CybersecurityAnalyst">Cybersecurity</MenuItem>
+              <MenuItem value="SystemAdministrator">
                 System Administration
               </MenuItem>
-              <MenuItem value="qualityAssurance">Quality Assurance</MenuItem>
-              <MenuItem value="businessAnalyst">Business Analyst</MenuItem>
-              <MenuItem value="devopsEngineering">Devops Engineering</MenuItem>
+              <MenuItem value="QualityAssuranceEngineer">Quality Assurance</MenuItem>
+              <MenuItem value="BusinessAnalyst">Business Analyst</MenuItem>
+              <MenuItem value="DevopsEngineer">Devops Engineering</MenuItem>
 
                   </TextField>
                   <br></br>
@@ -163,7 +163,7 @@ const navigate = useNavigate()
                 </Box>
               </CardContent>
 
-              <Button variant="contained"  style={{ backgroundColor: "#80bfff" }} type="submit" size="large">
+              <Button variant="contained"  style={{ backgroundColor: "#1976d2 " }} type="submit" size="large">
                 {" "}
                 {user ? "Update / Continue" : "submit"}
                 {/* <Button type="submit" size="large"> submit
@@ -173,7 +173,7 @@ const navigate = useNavigate()
           </Card>
         </div>
       </center>
-    </>
+    </div>
   );
 }
  
