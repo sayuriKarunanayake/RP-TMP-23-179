@@ -63,10 +63,10 @@ const Cyblist = () => {
   };
   
   const applyButtonStyle = {
-    backgroundColor: 'green',
+    backgroundColor: '#2ECC71',
     color: 'white',
     border: 'none',
-    padding: '10px 20px',
+    padding: '5px 20px',
     borderRadius: '4px',
     cursor: 'pointer',
   };
@@ -83,7 +83,7 @@ const Cyblist = () => {
   };
 
   const pageStyle = {
-
+    backgroundColor:'#F2F2F2',
     minHeight: '100vh', 
     padding: '50px', 
     margin: '0', 
@@ -93,58 +93,55 @@ const Cyblist = () => {
   return (
     <div style={pageStyle}>
       <Navbar color="light" light expand="md" className="my-custom-navbar">
-        
-        <Nav>
-          
-          <NavItem>
-            <NavLink tag={Link} to="/joblist">All Jobs</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to="/selist">Development and Programming</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to="/netlist">Infrastructure and Networking</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to="/dslist">Data and Analytics</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink style={activeStyle} tag={Link} to="/cyblist">Security and Compliance</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to="/pmlist">Management and Support</NavLink>
-          </NavItem>
-        </Nav>
-      </Navbar>
+      <Nav className="mx-auto" navbar>
+        <NavItem style={{ marginRight: '20px' }}>
+          <NavLink  tag={Link} to="/joblist">All Jobs</NavLink>
+        </NavItem>
+        <NavItem style={{ marginRight: '20px' }}>
+          <NavLink tag={Link} to="/selist">Development and Programming</NavLink>
+        </NavItem>
+        <NavItem style={{ marginRight: '20px' }}>
+          <NavLink tag={Link} to="/netlist">Infrastructure and Networking</NavLink>
+        </NavItem>
+        <NavItem style={{ marginRight: '20px' }}>
+          <NavLink tag={Link} to="/dslist">Data and Analytics</NavLink>
+        </NavItem>
+        <NavItem style={{ marginRight: '20px' }}>
+          <NavLink style={activeStyle} tag={Link} to="/cyblist">Security and Compliance</NavLink>
+        </NavItem>
+        <NavItem style={{ marginRight: '20px' }}>
+          <NavLink tag={Link} to="/pmlist">Management and Support</NavLink>
+        </NavItem>
+      </Nav>
+    </Navbar>
       <br/>
-      <Row>
+        <Row>
         {jobPosts
-            .filter((job) => job.jobCategory === 'secComp') // Filter only "pm" category jobs
-            .map((job) => (
-            <Col md="4" key={job.id}>
-                <div onClick={() => handleCardClick(job)} style={{ cursor: 'pointer' }}>
-                <Card className="mb-4" style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-                    <CardBody>
-                    <CardTitle tag="h5">{job.jobLevel} {job.title}</CardTitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">{job.companyName}</CardSubtitle>
-                    <CardText>Location: {job.location}</CardText>
-                    {/* Display truncated description */}
-                    <CardText>{job.jobDescription.substring(0, 40)}...</CardText>
-                    </CardBody>
-                    <div className="card-footer">
-                    <Button
-                        color="success"
-                        className="float-right"
-                        variant="contained"
-                    >
-                        View Job
-                    </Button>
-                    </div>
-                </Card>
+        .filter((job) => job.jobCategory === 'secComp')
+        .map((job) => (
+          <Col md="4" key={job.id}>
+            <div onClick={() => handleCardClick(job)} style={{ cursor: 'pointer' }}>
+              <Card className="mb-4" style={{ boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)', borderRadius: '10px', overflow: 'hidden' }}>
+                <CardBody>
+                  <CardTitle tag="h5" style={{ color: '#2C3E50', marginBottom: '10px' }}>{job.jobLevel} {job.title}</CardTitle>
+                  <CardSubtitle tag="h6" className="mb-2 text-muted">{job.companyName}</CardSubtitle>
+                  <CardText style={{ color: '#7F8C8D', marginBottom: '15px' }}>Location: {job.location}</CardText>
+                  <CardText style={{ color: '#34495E', lineHeight: '1.6', marginBottom: '15px' }}>{job.jobDescription.substring(0, 150)}...</CardText>
+                </CardBody>
+                <div className="card-footer" style={{ backgroundColor: '#ECF0F1', borderTop: '1px solid #BDC3C7' }}>
+                  <Button
+                    color="success"
+                    className="float-right"
+                    style={{ backgroundColor: '#2ECC71', border: 'none', borderRadius: '5px' }}
+                  >
+                    View Job
+                  </Button>
                 </div>
-            </Col>
-            ))}
-        </Row>
+              </Card>
+            </div>
+          </Col>
+        ))}
+      </Row>
 
      {/* Define your popup styles using inline styles */}
      <div style={popupStyle}>
