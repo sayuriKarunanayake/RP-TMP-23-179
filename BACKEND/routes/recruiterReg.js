@@ -49,8 +49,8 @@ router.route("/getRecuiter/:id").get(async(req,res)=>{
     .then((Recruiter) =>{
         res.status(200).send({ status : "Recruiter details fetched", Recruiter})
 
-    }).catch(()=> {
-        console.log(err.message);
+    }).catch((err)=> {
+        console.log(err);
         res.status(500).send({status: "Error fetching recruiter details"});
     })
 })

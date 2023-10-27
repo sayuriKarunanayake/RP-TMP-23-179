@@ -10,11 +10,15 @@ const Home = () => {
           Find Your Next <br /> Dream Job
         </h1>
         <div className=" mt-7 flex items-center gap-7">
-          <button className=" py-2 px-7 bg-blue-600 hover:bg-blue-700 border-2 border-blue-600 hover:border-blue-700 drop-shadow-lg font-semibold rounded-lg">
+          <button className=" py-2 px-7 bg-blue-500 hover:bg-blue-700 border-2  hover:border-blue-700 drop-shadow-lg font-semibold rounded-lg">
+          <a href="/signin" className="text-white no-underline">
             Looking for a job
+          </a>
           </button>
-          <button className=" py-2 px-7 bg-blue-500 hover:bg-blue-600 border-2 border-blue-600 hover:border-blue-700 drop-shadow-lg font-semibold rounded-lg">
+          <button className=" py-2 px-7 bg-blue-500 hover:bg-blue-600 border-2  hover:border-blue-700 drop-shadow-lg font-semibold rounded-lg">
+          <a href="/recruiterLogin" className="text-white no-underline">
             Find Talent
+          </a>
           </button>
         </div>
       </div>

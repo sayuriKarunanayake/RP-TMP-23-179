@@ -9,6 +9,7 @@ router.route("/addjob").post((req,res)=>{
     const jobDescription = req.body.jobDescription;
     const jobLevel = req.body.jobLevel;
     const jobCategory = req.body.jobCategory;
+    const recruiterID = req.body.recruiterID;
 
     //create obj.
     const newJob = new Job({
@@ -17,7 +18,8 @@ router.route("/addjob").post((req,res)=>{
         location,
         jobDescription,
         jobLevel,
-        jobCategory
+        jobCategory,
+        recruiterID
     })
 
     newJob.save().then(()=>{
@@ -93,6 +95,22 @@ router.route("/deletejob/:id").delete(async(req,res)=>{
         res.status(500).send({status:"Error with deletion", error:err.message});
     })
 })
+
+// Route to get job posts by recruiter ID
+// router.route('/getJobsByRecruiter/:recruiterId').get(async (req, res) => {
+//     const recruiterId = req.params.recruiterId;
+  
+//     try {
+//       // Find job posts with the specified recruiter ID
+//       const jobs = await Job.find({ recruiterId: recruiterId });
+  
+  
+//       res.status(200).json({ success: true, jobs: jobs });
+//     } catch (error) {
+//       console.error('Error fetching job posts:', error);
+//       res.status(500).json({ success: false, message: 'Internal server error' });
+//     }
+//   });
 
 
 module.exports = router;

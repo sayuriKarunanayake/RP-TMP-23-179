@@ -24,15 +24,7 @@ const HomeHeader = () => {
           </Link>
         ))}
       </div>
-      {/* buttons */}
-      <div className=" flex items-center gap-5">
-        <button className=" py-2 px-5 -my-2 text-sm font-bold text-gray-100 hover:text-gray-300">
-          Post a Job
-        </button>
-        <button className=" text-sm font-bold hover:text-gray-300 text-gray-100">
-          Log In
-        </button>
-      </div>
+     
     </div>
   );
 };

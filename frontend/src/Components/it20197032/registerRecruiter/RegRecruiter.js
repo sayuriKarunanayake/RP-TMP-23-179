@@ -53,7 +53,7 @@ const RegRecruiter = () => {
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography variant="h4" gutterBottom style={{ textAlign: 'center', fontFamily: 'Open Sans, sans-serif'}}>
-                Sign Up
+                Join Us
               </Typography>
               <form onSubmit={handleSubmit} style={{ padding: '16px' }}>
                 <Grid container spacing={2}>
