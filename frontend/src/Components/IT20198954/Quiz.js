@@ -11,16 +11,17 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme();
 
 export default function Quiz() {
+  const navigate = useNavigate();
+
   const [current, setCurrent] = useState(0);
-  
   const [skills, setSkills] = useState("");
   const location = useLocation();
   const [value, setValue] = useState("");
   const { state } = useLocation();
   const { updatedUser } = state || {}; // Read values passed on state
   const [user, setUser] = useState("");
-  console.log("adduser row", updatedUser);
-  const navigate = useNavigate();
+   
+   
   const [jobRole, setJobRole] = useState(
     updatedUser && updatedUser.jobRole ? updatedUser.jobRole : ""
   );

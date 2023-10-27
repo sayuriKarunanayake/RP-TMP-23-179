@@ -17,8 +17,7 @@ export default function Result({ email }) {
   const { correct, setExit, setStart, quizSets, setCorrect } =
     useContext(QuizContext);
   const navigate = useNavigate();
-  const [message, setMessage] = useState();
-
+  
   const { state } = useLocation();
   const { updatedUser } = state || {};
 

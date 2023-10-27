@@ -48,7 +48,7 @@ export default function Fail() {
   );
   const [email, setEmail] = useState(localStorage.getItem("email"));
 
-  console.log(jobRole, "jobRole");
+  //console.log(jobRole, "jobRole");
 
   const handleStart = () => {
     setStart(true);

@@ -24,13 +24,13 @@ export default function Start() {
   const { state } = useLocation();
   const { updatedUser } = state || {}; // Read values passed on state
 
-  console.log("adduser row", updatedUser);
+  //console.log("adduser row", updatedUser);
   const navigate = useNavigate();
   const [jobRole, setJobRole] = useState(
     updatedUser && updatedUser.jobRole ? updatedUser.jobRole : ""
   );
 
-  console.log("jobRole in start page", updatedUser.jobRole);
+  //console.log("jobRole in start page", updatedUser.jobRole);
 
   const handleStart = () => {
     setStart(true);
