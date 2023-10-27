@@ -173,7 +173,7 @@ const JobView = () => {
     <div
       className="job-recommendations"
       style={{
-        // backgroundColor: "#e1e7f8",
+        backgroundColor: "#F2F4F5",
         minHeight: "100vh",
         padding: "20px",
       }}
@@ -195,6 +195,7 @@ const JobView = () => {
           {" "}
           {/* Add space to the right */}
           <TextField
+            style={{ marginLeft: "300px" }}
             label="Company"
             variant="outlined"
             size="small"
@@ -221,7 +222,8 @@ const JobView = () => {
           style={{
             margin: "10px 0 5px",
             marginRight: "200px",
-            backgroundColor: "#0096FF", // Change background color
+
+            backgroundColor: "#1976d2", // Change background color
             color: "#FFFFFF", // Change text color
             border: "1px solid #0096FF", // Add border
             borderRadius: "4px", // Add border radius
@@ -238,7 +240,11 @@ const JobView = () => {
 
         <Button
           variant="contained"
-          style={{  backgroundcolor:"#1976d2", margin: "10px 0 5px" }}
+          style={{
+            backgroundcolor: "#1976d2",
+            margin: "10px 0 5px",
+            marginLeft: "auto",
+          }}
           onClick={handleStart}
         >
           Retake QUIZ
@@ -259,10 +265,13 @@ const JobView = () => {
         {/* {filteredPosts.map((post, index) => ( */}
         {jobCardsToShow.map((post, index) => (
           <Grid item xs={12} sm={6} md={4} key={post._id}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card
+              style={{ boxShadow: "0px 4px 6px rgba(3, 2,2, 0.3)" ,marginLeft:"30px", marginRight:"30px" }}
+              sx={{ maxWidth: 345 }}
+            >
               <CardHeader
                 avatar={
-                  <Avatar sx={{ bgcolor: "#0096FF" }} aria-label="recipe">
+                  <Avatar sx={{ bgcolor: "#1976d2" }} aria-label="recipe">
                     R
                   </Avatar>
                 }
@@ -285,9 +294,12 @@ const JobView = () => {
                 </Typography>
               </CardContent>
               <Divider style={{ backgroundColor: "silver" }} />
-              <CardActions  style={{
-    backgroundColor: "#f5f5f5", // Lighter color
-  }}  disableSpacing>
+              <CardActions
+                style={{
+                  backgroundColor: "#f5f5f5", // Lighter color
+                }}
+                disableSpacing
+              >
                 <Button
                   style={{
                     backgroundColor: "#1976d2",
@@ -304,23 +316,23 @@ const JobView = () => {
                 <IconButton aria-label="share" size="large">
                   <ShareIcon />
                 </IconButton>  */}
- <Tooltip title="See More"> 
-                <ExpandMore
-                  expand={expandedCard === index}
-                  style={{ color: "#1976d2" }}
-                  onClick={() => handleExpandClick(index)}
-                  aria-expanded={expandedCard === index}
-                  aria-label="show more"
-                >
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                  ></Typography>
-                  <IconButton>
-                    {" "}
-                    <ExpandMoreIcon />{" "}
-                  </IconButton>
-                </ExpandMore>
+                <Tooltip title="See More">
+                  <ExpandMore
+                    expand={expandedCard === index}
+                    style={{ color: "#1976d2" }}
+                    onClick={() => handleExpandClick(index)}
+                    aria-expanded={expandedCard === index}
+                    aria-label="show more"
+                  >
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                    ></Typography>
+                    <IconButton>
+                      {" "}
+                      <ExpandMoreIcon />{" "}
+                    </IconButton>
+                  </ExpandMore>
                 </Tooltip>
               </CardActions>
               <Collapse
@@ -333,7 +345,7 @@ const JobView = () => {
                   <Typography paragraph>{post.jobDescription}</Typography>
                   {/* <Typography paragraph>
                     Benefits <br /> */}
-                    {/* Add post-specific benefits here */}
+                  {/* Add post-specific benefits here */}
                   {/* </Typography> */}
                 </CardContent>
               </Collapse>
@@ -356,7 +368,7 @@ const JobView = () => {
         </Button>
         {Array.from({ length: totalPages }, (_, index) => (
           <Button
-            style={{ margin: "10px 0 5px" }}
+            style={{ margin: "10px 0 5px", marginLeft: "10px" }}
             key={index}
             variant={currentPage === index + 1 ? "contained" : "outlined"}
             onClick={() => handlePageChange(index + 1)}
@@ -365,7 +377,7 @@ const JobView = () => {
           </Button>
         ))}
         <Button
-          style={{ margin: "10px 0 5px" }}
+          style={{ margin: "10px 0 5px", marginLeft: "10px" }}
           variant="outlined"
           onClick={handleNextPage}
         >
@@ -378,237 +390,4 @@ const JobView = () => {
 
 export default JobView;
 
-//old job osts display
-
-// {/* {" "}
-//         {/* Use Grid container */}
-//         {/* {job.map((job, index) => ( */}
-//         {jobCardsToShow.map((job, index) => (
-//           // {filteredJobData.map((job, index) => (
-//             <Grid item xs={12} sm={6} md={4} key={job.title}>
-//               {" "}
-//               {/* Use Grid item */}
-//               {/* <Card sx={{ maxWidth: 345 }}
-//            > */}
-//               <Card
-//                 sx={{
-//                   maxWidth: 345,
-//                   backgroundColor: "white",
-//                   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.1)",
-//                 }}
-//               >
-//                 <CardHeader
-//                   avatar={
-//                     <Avatar sx={{ bgcolor: "#0096FF" }} aria-label="recipe">
-//                       R
-//                     </Avatar>
-//                   }
-//                   action={
-//                     <IconButton aria-label="settings">
-//                       <MoreVertIcon />
-//                     </IconButton>
-//                   }
-//                   title={job.title}
-//                   subheader="September 14, 2016"
-//                   style={{ color: "#0096FF" }}
-//                 />
-
-//                 <CardContent>
-//                   <Typography variant="body2" color="text.secondary">
-//                     Company ={job.company} <br></br>
-//                     Location ={job.location} <br></br>
-//                     <br></br>
-//                     {job.description} <br></br>
-//                   </Typography>
-//                 </CardContent>
-//                 <CardActions disableSpacing>
-//                   <IconButton aria-label="add to favorites">
-//                     <FavoriteIcon />
-//                   </IconButton>
-//                   <IconButton aria-label="share">
-//                     <ShareIcon />
-//                   </IconButton>
-//                   {/* <ExpandMore
-//           expand={expanded}
-//           onClick={handleExpandClick}
-//           aria-expanded={expanded}
-//           aria-label="show more"
-//         > */}
-//                   <ExpandMore
-//                     expand={expandedCard === index}
-//                     onClick={() => handleExpandClick(index)}
-//                     aria-expanded={expandedCard === index}
-//                     aria-label="show more"
-//                   >
-//                     <ExpandMoreIcon />
-//                   </ExpandMore>
-//                 </CardActions>
-//                 {/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
-//                 <Collapse
-//                   in={expandedCard === index}
-//                   timeout="auto"
-//                   unmountOnExit
-//                 >
-//                   <CardContent>
-//                     <Typography paragraph>Requirements:</Typography>
-//                     <Typography paragraph>{job.requirements}</Typography>
-//                     <Typography paragraph>
-//                       Benefits <br></br>
-//                       {job.benefits}
-//                     </Typography>
-//                   </CardContent>
-//                 </Collapse>
-//               </Card>{" "}
-//             </Grid>
-//           ))}
-//           ;{" "}
-
-// Dummy job data
-// const job = [
-//   {
-//     title: "Software Engineer 1",
-//     company: "Tech Co.",
-//     location: "New York, NY",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     requirements: [
-//       "Bachelor's degree in Computer Science or related field",
-//       "3+ years of experience in software development",
-//       "Strong problem-solving skills",
-//     ],
-//     benefits: [
-//       "Competitive salary",
-//       "Healthcare coverage",
-//       "Flexible working hours",
-//     ],
-//   },
-//   // Add more job objects here
-//   {
-//     title: "Frontend Developer 2",
-//     company: "Web Solutions Inc.",
-//     location: "San Francisco, CA",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     requirements: [
-//       "Experience with React.js",
-//       "Proficiency in HTML, CSS, and JavaScript",
-//       "UI/UX design skills",
-//     ],
-//     benefits: [
-//       "Competitive salary",
-//       "Remote work options",
-//       "Professional growth opportunities",
-//     ],
-//   },
-//   {
-//     title: "Frontend Developer 3",
-//     company: "Web Solutions Inc.",
-//     location: "San Francisco, CA",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     requirements: [
-//       "Experience with React.js",
-//       "Proficiency in HTML, CSS, and JavaScript",
-//       "UI/UX design skills",
-//     ],
-//     benefits: [
-//       "Competitive salary",
-//       "Remote work options",
-//       "Professional growth opportunities",
-//     ],
-//   },
-//   {
-//     title: "Frontend Developer 4",
-//     company: "Web Solutions Inc.",
-//     location: "San Francisco, CA",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     requirements: [
-//       "Experience with React.js",
-//       "Proficiency in HTML, CSS, and JavaScript",
-//       "UI/UX design skills",
-//     ],
-//     benefits: [
-//       "Competitive salary",
-//       "Remote work options",
-//       "Professional growth opportunities",
-//     ],
-//   },
-//   {
-//     title: "Frontend Developer 5",
-//     company: "Web Solutions Inc.",
-//     location: "San Francisco, CA",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     requirements: [
-//       "Experience with React.js",
-//       "Proficiency in HTML, CSS, and JavaScript",
-//       "UI/UX design skills",
-//     ],
-//     benefits: [
-//       "Competitive salary",
-//       "Remote work options",
-//       "Professional growth opportunities",
-//     ],
-//   },
-//   {
-//     title: "Frontend Developer 6",
-//     company: "Web Solutions Inc.",
-//     location: "San Francisco, CA",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     requirements: [
-//       "Experience with React.js",
-//       "Proficiency in HTML, CSS, and JavaScript",
-//       "UI/UX design skills",
-//     ],
-//     benefits: [
-//       "Competitive salary",
-//       "Remote work options",
-//       "Professional growth opportunities",
-//     ],
-//   },
-//   {
-//     title: "Data Scientist 7",
-//     company: "Data Analytics Co.",
-//     location: "Seattle, WA",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     requirements: [
-//       "Master's or Ph.D. in Computer Science or related field",
-//       "Experience with data analysis tools",
-//       "Strong statistical and analytical skills",
-//     ],
-//     benefits: [
-//       "Competitive salary",
-//       "Comprehensive data training programs",
-//       "Health and wellness benefits",
-//     ],
-//   },
-//   {
-//       title: "Data Scientist 8",
-//       company: "Data Analytics Co.",
-//       location: "Seattle, WA",
-//       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//       requirements: [
-//         "Master's or Ph.D. in Computer Science or related field",
-//         "Experience with data analysis tools",
-//         "Strong statistical and analytical skills",
-//       ],
-//       benefits: [
-//         "Competitive salary",
-//         "Comprehensive data training programs",
-//         "Health and wellness benefits",
-//       ],
-//     },
-//     {
-//       title: "Data Scientist 9",
-//       company: "Data Analytics Co.",
-//       location: "Seattle, WA",
-//       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//       requirements: [
-//         "Master's or Ph.D. in Computer Science or related field",
-//         "Experience with data analysis tools",
-//         "Strong statistical and analytical skills",
-//       ],
-//       benefits: [
-//         "Competitive salary",
-//         "Comprehensive data training programs",
-//         "Health and wellness benefits",
-//       ],
-//     },
-//   // Add more job objects here
-// ];
+ 

@@ -74,7 +74,7 @@ const navigate = useNavigate()
   console.log(name, email, "daa");
 
   return (
-    <div style={{ backgroundColor: "#f0f0f0", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "#F2F4F5", minHeight: "100vh" }}>
       <br></br>
       <br></br>
       <br></br>

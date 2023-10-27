@@ -72,7 +72,7 @@ export default function JobRecommendationForm() {
     <Container classname="containerQuiz" style={{ textAlign: "center" }}>
     
 
-      <Box sx={{ backgroundColor: "#1976d2 ", padding: 4, marginTop: 4, fontFamily: "Open Sans, sans-serif" }}>
+      {/* <Box sx={{ backgroundColor: "#1976d2 ", padding: 4, marginTop: 4, fontFamily: "Open Sans, sans-serif" }}>
         <Typography variant="h4" color="white" style={{ fontFamily: "Open Sans, sans-serif" }}>
           Guidelines
         </Typography>
@@ -95,7 +95,57 @@ export default function JobRecommendationForm() {
         <Typography variant="body1" color="white">
           6. After successfully completing the quiz, you will get recommended job titles with posts for you.
         </Typography>
-      </Box>
+      </Box> */}
+      <Box sx={{ backgroundColor: "#1976d2", padding: 4, marginTop: 4, fontFamily: "Open Sans, sans-serif", }}>
+  <Typography variant="h4" color="white" style={{ fontFamily: "Open Sans, sans-serif", marginBottom: 16 }}>
+    Guidelines
+  </Typography>
+
+  <div style={{ display: "grid", gap: 10 }}>
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <span style={{ fontSize: 20, fontWeight: "bold", marginRight: 8 ,color:"white" }}>1.</span>
+      <Typography variant="body1" color="white">
+        Please take a look at the below job role and skills you've specified in your job profile.
+      </Typography>
+    </div>
+
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <span style={{ fontSize: 20, fontWeight: "bold", marginRight: 8 ,color:"white" }}>2.</span>
+      <Typography variant="body1" color="white">
+        You can edit the given job role and skills in the next step.
+      </Typography>
+    </div>
+
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <span style={{ fontSize: 20, fontWeight: "bold", marginRight: 8 ,color:"white" }}>3.</span>
+      <Typography variant="body1" color="white">
+        After selecting your desired job role, you will navigate to a personalized skill test.
+      </Typography>
+    </div>
+
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <span style={{ fontSize: 20, fontWeight: "bold", marginRight: 8 ,color:"white" }}>4.</span>
+      <Typography variant="body1" color="white">
+        Backward navigation is disabled in the skill test.
+      </Typography>
+    </div>
+
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <span style={{ fontSize: 20, fontWeight: "bold", marginRight: 8 ,color:"white" }}>5.</span>
+      <Typography variant="body1" color="white">
+        You must score 7 out of 10 questions to continue the Recommendation process.
+      </Typography>
+    </div>
+
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <span style={{ fontSize: 20, fontWeight: "bold", marginRight: 8 ,color:"white" }}>6.</span>
+      <Typography variant="body1" color="white">
+        After successfully completing the quiz, you will get recommended job titles with posts for you.
+      </Typography>
+    </div>
+  </div>
+</Box>
+
 
       <form>
         {/* Your dropdown and other form elements here */}
@@ -114,9 +164,9 @@ export default function JobRecommendationForm() {
             </TableHead>
             <TableBody>
               <TableRow>
-                <TableCell>{email}</TableCell>
-                <TableCell >{jobRole}</TableCell>
-                <TableCell >{skills}</TableCell>
+                <TableCell style={{ fontSize: "16px", color: "#555", fontWeight: "bold" }}>{email}</TableCell>
+                <TableCell style={{ fontSize: "16px", color: "#555", fontWeight: "bold" }}>{jobRole}</TableCell>
+                <TableCell style={{ fontSize: "16px", color: "#555", fontWeight: "bold" }}>{skills}</TableCell>
                 <TableCell >
                   <Tooltip title="Next">
                     <IconButton onClick={onUpdate} size="large">
