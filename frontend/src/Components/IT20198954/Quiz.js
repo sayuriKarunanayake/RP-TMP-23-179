@@ -2,13 +2,13 @@ import React, { useContext, useState } from "react";
 import { Box, Typography, Paper, Container } from "@mui/material";
 import { QuizContext } from "./QuizHolder";
 import quiz1 from "../../Assets/IT20198954/quiz5.png";
-import { useNavigate, useLocation } from "react-router-dom";
-import { StyledEngineProvider } from "@mui/material/styles";
+import { useNavigate, useLocation } from "react-router-dom"; 
 import Button from "@mui/material/Button";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme();
+
 export default function Quiz() {
   const [current, setCurrent] = useState(0);
 
@@ -26,18 +26,20 @@ export default function Quiz() {
 
   return (
     <ThemeProvider theme={theme}>
+      <div style={{ backgroundImage: `url(${quiz1})`, backgroundSize: "cover", backgroundPosition: "center" }}> 
       <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
-        height="100vh"
+         
       >
-        <Box width={400}>
-          <Paper elevation={3}>
+        <Box marginTop={10}>
+          
             <QuizBox current={current} next={setCurrent} jobRole={jobRole} />
-          </Paper>
+         
         </Box>
-      </Box>{" "}
+      </Box>{" "} 
+      </div>
     </ThemeProvider>
   );
 }
@@ -89,24 +91,22 @@ const QuizBox = ({ current, next, jobRole }) => {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${quiz1})`,
-        maxWidth: "sm",
-        height: "900px",
-      }}
-    >
-      <Container 
+    <div>
+      {/* <Container 
         backgroundSize="cover"
         backgroundPosition="center"
         maxWidth="sm"
         style={{ height: "900px", display: "flex", alignItems: "center" }}
-      >
-        <Paper elevation={3} className="quizpaper" style={{ width: "100%" }}>
+      > */}
+       {/* <Container maxWidth="sm" style={{ height: "100%" }}>
+       
+        <Paper elevation={5}> */}
+         <Container maxWidth="md">
+        <Paper elevation={3} className="quizpaper" style={{   height:"auto" ,maxWidth:"650px" }}>
           <center>
             {" "}
-            <br></br> <br></br>
-            <Box p={6}>
+            <br></br> 
+            <Box p={1}>
               {" "}
               <center>
                 {/* <Typography
@@ -122,16 +122,17 @@ const QuizBox = ({ current, next, jobRole }) => {
                 {current + 1}){quizzes[current].question}
               </Typography>{" "} */}
                 <Typography
-                  className="bold-question"
+                  className="bold-questionTest"
+                  
                   variant="h6"
-                  marginRight="10px"
-                  marginLeft="20px"
+                  
                   gutterBottom
                   style={{
                     textAlign: "center",
                     margin: "5 auto",
                     marginLeft: "10px",
                     marginRight: "10px",
+                    fontFamily: "Open Sans, sans-serif",
                   }}
                 >
                   {current + 1}) {quizzes[current].question}
@@ -139,7 +140,7 @@ const QuizBox = ({ current, next, jobRole }) => {
                 <Typography
                   variant="h6"
                   marginRight="10px"
-                  marginLeft="20px"
+                  marginLeft="10px"
                   gutterBottom
                   style={{
                     textAlign: "center",
@@ -163,7 +164,7 @@ const QuizBox = ({ current, next, jobRole }) => {
                 {["a", "b", "c", "d"].map((option, index) => (
                   <div>
                     {" "}
-                    <Button
+                    <Button  
                       key={option}
                       variant="contained"
                       color={ans.includes(option) ? "primary" : "inherit"}
@@ -171,7 +172,7 @@ const QuizBox = ({ current, next, jobRole }) => {
                       style={{
                         marginBottom: "8px",
                         marginRight: "20px",
-                        marginLeft: "25px",
+                        marginLeft: "20px",
                         width: "500px",
                         height: "auto",
                         textAlign: "center",
@@ -186,13 +187,17 @@ const QuizBox = ({ current, next, jobRole }) => {
                 ))}
               </Box>
             </div>
+            
             <Box display="flex" justifyContent="space-between" mt={3}>
               <Button
                 variant="contained"
                 style={{
                   marginRight: "10px",
                   backgroundColor: "#ff9800",
-                  color: "#fff",
+                  color: "error",
+                  marginLeft: "90px" ,
+                  marginBottom:"40px",
+                  width:"100px"
                 }}
                 onClick={() => setAns([])}
               >
@@ -201,12 +206,14 @@ const QuizBox = ({ current, next, jobRole }) => {
               <Button
                 variant="contained"
                 color="primary"
-                style={{ marginRight: "10px" }}
+                style={{ marginRight: "10px" ,marginBottom:"40px" }}
                 onClick={saveHandler}
               >
                 Save & Next
               </Button>
               <Button
+              marginRight="6px"
+              style={{ marginRight: "90px" ,marginBottom:"40px" , width:"100px" }}
                 variant="contained"
                 color="secondary"
                 onClick={() => setExit(true)}

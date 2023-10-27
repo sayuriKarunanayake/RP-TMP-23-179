@@ -180,7 +180,7 @@ const quizSets = {
     },
   ],
 
-  networkEngineering: [
+  NetworkEngineer: [
     {
       question:
         "What is the difference between a router and a switch in networking?",
@@ -275,7 +275,7 @@ const quizSets = {
     },
   ],
 
-  devopsEngineering: [
+  DevopsEngineer: [
     {
       question:
         "What is DevOps, and why is it important in software development? ",
@@ -373,7 +373,7 @@ const quizSets = {
     },
   ],
 
-  uiUxEngineering: [
+  UiUxEngineer: [
     {
       question:
         " What is the difference between user interface (UI) design and user experience (UX) design?",
@@ -470,7 +470,7 @@ const quizSets = {
     },
   ],
 
-  systemAdministration: [
+  SystemAdministrator: [
     {
       question: "What is the primary responsibility of a system administrator?",
       a: "Developing software applications. ",
@@ -569,7 +569,7 @@ const quizSets = {
     },
   ],
 
-  databaseAdministration: [
+  DatabaseAdministrator: [
     {
       question: "What is the purpose of a database management system (DBMS)?",
       a: " To create and design databases. ",
@@ -667,7 +667,7 @@ const quizSets = {
     },
   ],
 
-  qualityAssurance: [
+  QualityAssuranceEngineer: [
     {
       question: "What is the purpose of a test case?",
       a: "Test cases are used to create software documentation. ",
@@ -760,7 +760,7 @@ const quizSets = {
     },
   ],
 
-  businessAnalyst: [
+  BusinessAnalyst: [
     {
       question:
         "What is the role of a business analyst in software development projects?",
@@ -858,7 +858,7 @@ const quizSets = {
     },
   ],
 
-  cybersecurity: [
+  CybersecurityAnalyst: [
     {
       question: "What are the main goals of cybersecurity? ",
       a: " Cybersecurity aims to make software applications run faster. ",
@@ -952,7 +952,7 @@ const quizSets = {
     },
   ],
 
-  projectManagement: [
+  ProjectManager: [
     {
       question: " What are the key responsibilities of a project manager?  ",
       a: " Project managers are responsible for software development.",

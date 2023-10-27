@@ -4,7 +4,7 @@ import { QuizContext } from "./QuizHolder";
 import quiz1 from "../../Assets/IT20198954/quiz5.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-
+import Divider from "@mui/material/Divider";
 import {
   Table,
   TableBody,
@@ -45,6 +45,7 @@ export default function Result({ email }) {
 
   const handleSubmit = async () => {
     // e.preventDefault();
+    if(correct >= 7 ){
     try {
       const response = await axios.post("http://192.168.1.2:5000/recommend", {
         user_skills: userSkills,
@@ -68,6 +69,10 @@ export default function Result({ email }) {
     } catch (error) {
       setError("An error occurred while fetching recommendations.");
     }
+  }else{
+    setCorrect(0);
+  navigate("/fail", { state: { updatedUser: dataArray } });
+}
   };
 
   const nextStep = () => {
@@ -109,14 +114,15 @@ export default function Result({ email }) {
             backgroundSize="cover"
             backgroundPosition="center"
             maxWidth="sm"
-            style={{ height: "900px", display: "flex", alignItems: "center" }}
-          >
-            <Paper elevation={6} className="resultpaper">
+            style={{ height: "700px", display: "flex", alignItems: "center" }}
+          > 
+          
+            <Paper  elevation={6} className="resultpaper" >
               {" "}
-              <br></br> <br></br>
+             
               <Table>
                 <TableHead>
-                  <TableRow>
+                  {/* <TableRow>
                     <TableCell classname="tableCell">
                       <Typography>
                         <div>
@@ -140,14 +146,15 @@ export default function Result({ email }) {
                         </div>
                       </Typography>
                     </TableCell>
-                  </TableRow>
+                  </TableRow> */}
                   <TableRow>
                     <TableCell classname="tableCell">
                       <Typography
                         className="bold-question"
                         variant="h4"
-                        marginRight="5px"
-                        marginLeft="5px"
+                        marginRight="50px"
+                        marginLeft="50px"
+                        marginTop={5}
                         gutterBottom
                         style={{
                           textAlign: "center",
@@ -158,7 +165,9 @@ export default function Result({ email }) {
                       >
                         RESULTS
                       </Typography>
+                      
                     </TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -223,7 +232,7 @@ export default function Result({ email }) {
                     >
                       Retry
                     </Button>
-                    <Button
+                    {/* <Button
                       variant="contained"
                       color="primary"
                       onClick={nextStep}
@@ -237,7 +246,7 @@ export default function Result({ email }) {
                       }}
                     >
                       next
-                    </Button>
+                    </Button> */}
                     <Button
                       variant="contained"
                       color="primary"
