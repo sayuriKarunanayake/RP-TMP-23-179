@@ -209,8 +209,8 @@ const TopBanner = () => {
             <h3 className="text-2xl font-semibold mb-2">
               {recruiterDetails.firstName} {recruiterDetails.lastName}
             </h3>
-            <p>{recruiterDetails.currentJob}</p>
-            <p>{recruiterDetails.company_name}</p>
+            <p className="font-sans text-lg">{recruiterDetails.currentJob}</p>
+            <p className="font-sans text-lg">{recruiterDetails.company_name}</p>
           </>
         ) : (
           <p>Loading recruiter details...</p>

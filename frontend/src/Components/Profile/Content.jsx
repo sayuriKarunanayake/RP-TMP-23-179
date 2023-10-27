@@ -113,10 +113,10 @@ const Content = () => {
                 <TableCell align="right">{job.jobLevel}</TableCell>
                 <TableCell align="right">{job.location}</TableCell>
                 <TableCell align="right">2023/02</TableCell>
-                <TableCell >
+                <TableCell className="float-right">
                   <AiOutlineDelete
-                  className="cursor-pointer text-red-500 text-2xl"
-                  onClick={() => handleDelete(job._id)}
+                    className="cursor-pointer text-red-500 text-2xl"
+                    onClick={() => handleDelete(job._id)}
                   />
                 </TableCell>
               </TableRow>
