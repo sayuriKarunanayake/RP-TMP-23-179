@@ -1,7 +1,7 @@
 import Content from "../Components/Profile/Content";
 import TopBanner from "../Components/Profile/TopBanner";
 import Footer from "../layout/Footer";
-import Header from "../layout/Header";
+
 import { useParams } from 'react-router-dom';
 
 const Profile = () => {
@@ -10,8 +10,6 @@ const Profile = () => {
 
   return (
     <div className=" w-full min-h-screen flex flex-col">
-      {/* header */}
-      <Header id={id}/>
       {/* top banner */}
       <TopBanner id={id}/>
       {/* content */}

@@ -10,6 +10,8 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios'; // Import Axios
 import React, { useState, useEffect } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const Content = () => {
   const { id } = useParams();
@@ -26,10 +28,41 @@ const Content = () => {
       });
   }, []);
 
-// Filter jobs based on the recruiter ID
-const filteredJobs = jobDetails.filter(job => job.recruiterID === id);
+    // Filter jobs based on the recruiter ID
+    const filteredJobs = jobDetails.filter(job => job.recruiterID === id);
 
+    const handleDelete = (jobId) => {
+      confirmAlert({
+        title: 'Confirm Delete',
+        message: 'Are you sure you want to delete this job post?',
+        buttons: [
+          {
+            label: 'Yes',
+            onClick: () => {
+              // Handle job deletion here
+              deleteJob(jobId);
+            }
+          },
+          {
+            label: 'No',
+            onClick: () => {}
+          }
+        ]
+      });
+    };
 
+    const deleteJob = async (jobId) => {
+      try {
+        // Make a DELETE request to delete the job post
+        await axios.delete(`http://localhost:8070/job/deletejob/${jobId}`);
+        alert('Job post deleted successfully!');
+        window.location.reload();//refresh page
+
+      } catch (error) {
+        console.error('Error deleting job post:', error);
+        alert('Error deleting job post. Please try again.');
+      }
+    };
   return (
     <div className=" w-full">
       {/* top section */}
@@ -80,10 +113,10 @@ const filteredJobs = jobDetails.filter(job => job.recruiterID === id);
                 <TableCell align="right">{job.jobLevel}</TableCell>
                 <TableCell align="right">{job.location}</TableCell>
                 <TableCell align="right">2023/02</TableCell>
-                <TableCell align="right">
+                <TableCell >
                   <AiOutlineDelete
-                  className="cursor-pointer text-red-500"
-                  
+                  className="cursor-pointer text-red-500 text-2xl"
+                  onClick={() => handleDelete(job._id)}
                   />
                 </TableCell>
               </TableRow>
