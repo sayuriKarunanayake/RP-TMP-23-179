@@ -4,8 +4,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "@mui/material";
 import "@mui/icons-material";
 import "@mui/system";
+//IT20197032
 import JobPostForm from "./Components/it20197032/createJobPost/JobPostForm.js";
-import Headermain from "./Components/it20197032/header/Headermain.js";
+import Headermain from "./Components/Headermain.js";
 import Joblist from "./Components/it20197032/jobPostlist/JobList";
 import Pmlist from "./Components/it20197032/jobPostlist/Pmlist";
 import Cyblist from "./Components/it20197032/jobPostlist/Cyblist";
@@ -60,7 +61,8 @@ function App() {
           {shouldRenderHeader && <Headermain />}
 
           <Routes>
-            <Route path="/addjob" element={<JobPostForm />} />
+            {/* IT20197032 */}
+            <Route path="/addjob/:id" element={<JobPostForm />} />
             <Route path="/joblist" element={<Joblist />} />
             <Route path="/pmlist" element={<Pmlist />} />
             <Route path="/cyblist" element={<Cyblist />} />
@@ -74,7 +76,7 @@ function App() {
 
             <Route path="/" Component={Home} />
             <Route path="/dashboard" Component={Dashboard} />
-            <Route path="/profile" Component={Profile} />
+            <Route path="/profile/:id" Component={Profile} />
 
             {/* thisara */}
             {exit === false ? (

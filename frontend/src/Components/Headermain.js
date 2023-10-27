@@ -7,7 +7,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MailIcon from '@mui/icons-material/Mail';
 import WorkIcon from '@mui/icons-material/Work';
 import HomeIcon from '@mui/icons-material/Home';
-import LinkedInLogo from '../../../Assets/logo.png';
+import LinkedInLogo from '../Assets/logo.png';
 import { Link } from 'react-router-dom'; 
 
 
@@ -70,18 +70,8 @@ const Headermain = () => {
       <Toolbar>
         
         <HeaderLogo src={LinkedInLogo} alt="LinkedIn Logo" />
-        <HeaderSearch>
-          <HeaderSearchIcon>
-            <SearchIcon />
-          </HeaderSearchIcon>
-          <HeaderInputRoot
-            placeholder="                 Search..."
-            inputProps={{ 'aria-label': 'search' }}
-            inputComponent={HeaderInputInput}
-          />
-        </HeaderSearch>
+        
         <HeaderIconsContainer>
-
           <IconButton color="inherit" component={Link} to="/">
             <HomeIcon />
           </IconButton>

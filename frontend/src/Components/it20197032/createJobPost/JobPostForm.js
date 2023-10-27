@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Paper, Box, FormControl, MenuItem, InputLabel, TextField, Button, Grid, Typography, Select } from '@mui/material';
 import axios from 'axios'; // Import Axios
+import { useParams } from 'react-router-dom';
 
 const JobPostForm = () => {
   
@@ -10,6 +11,11 @@ const JobPostForm = () => {
   const [jobDescription,setjobDescription] = useState("");
   const [jobLevel,setjobLevel] = useState("");
   const [jobCategory,setjobCategory] = useState("");
+  
+  const { id } = useParams();
+  console.log('Recruiter ID:', id);
+  
+  const [recruiterID, setrecruiterID] = useState(id);
 
 
   const handleSubmit = (e) => {
@@ -21,13 +27,14 @@ const JobPostForm = () => {
         location,
         jobDescription,
         jobLevel,
-        jobCategory
+        jobCategory,
+        recruiterID
     }
         console.log(newJob);
 
         axios.post("http://localhost:8070/job/addjob",newJob).then(()=>{
             alert("Job Post Added Sucessfully");
-            window.location = `/joblist`;
+            window.location = `/profile/${id}`;
         }).catch((err)=>{
             alert(err.response.data.message);
             console.log(err.message);
@@ -57,70 +64,124 @@ const JobPostForm = () => {
               </Typography>
               <form onSubmit={handleSubmit}>
                 <TextField
-                  label="Company Name"
+                  placeholder="Company Name"
                   name="companyName"
                   value={companyName}
                   onChange={(e) => setcompanyName(e.target.value)}
                   fullWidth
                   required
+                  variant="standard"
+                      InputLabelProps={{ shrink: true }}
+                      InputProps={{
+                        style: {
+                          borderBottom: '1px solid #2196F3',  // Adjust the color as needed
+                          borderRadius: '0',  // No border-radius
+                          marginBottom: '15px', // Adjusted spacing
+                      }}}
                 />
                 <TextField
-                  label="Job Title"
+                  placeholder="Job Title"
                   name="jobTitle"
                   value={title}
                   onChange={(e) => setjobTitle(e.target.value)}
                   fullWidth
                   required
+                  variant="standard"
+                      InputLabelProps={{ shrink: true }}
+                      InputProps={{
+                        style: {
+                          borderBottom: '1px solid #2196F3',  // Adjust the color as needed
+                          borderRadius: '0',  // No border-radius
+                          marginBottom: '15px', // Adjusted spacing
+                      }}}
                 />
-                <FormControl fullWidth required>
-                <InputLabel htmlFor="jobLevel">Job Level</InputLabel>
-                <Select
-                  style={{ margin: 0 }}
-                  label="Job Level"
-                  name="jobLevel"
-                  value={jobLevel}
-                  onChange={(e) => setjobLevel(e.target.value)}
-                  
-                >
-                  <MenuItem value="Intern">Intern</MenuItem>
-                  <MenuItem value="Trainee">Trainee</MenuItem>
-                  <MenuItem value="Associate">Associate</MenuItem>
-                  <MenuItem value="Mid Level">Mid level</MenuItem>
-                  <MenuItem value="Senior">Senior level</MenuItem>
-                </Select>
+                <FormControl fullWidth required variant="standard">
+                  <InputLabel
+                    shrink={jobLevel !== ''}
+                    style={{
+                      color: '#757575', 
+                    }}
+                    >
+                    Job Level
+                  </InputLabel>
+                  <Select
+                    style={{
+                      borderBottom: '1px solid #2196F3',
+                      borderRadius: '0',
+                      marginBottom: '15px',
+                    }}
+                   
+                    name="jobLevel"
+                    value={jobLevel}
+                    onChange={(e) => setjobLevel(e.target.value)}
+                  >
+                    <MenuItem value="Intern">Intern</MenuItem>
+                    <MenuItem value="Trainee">Trainee</MenuItem>
+                    <MenuItem value="Associate">Associate</MenuItem>
+                    <MenuItem value="Mid Level">Mid level</MenuItem>
+                    <MenuItem value="Senior">Senior level</MenuItem>
+                  </Select>
                 </FormControl>
-                <FormControl fullWidth required>
-                <InputLabel htmlFor="jobLevel">Job Category</InputLabel>
-                <Select
-                  style={{ margin: 0 }}
-                  label="Job Category"
-                  name="category"
-                  value={jobCategory}
-                  onChange={(e) => setjobCategory(e.target.value)}
-                >
-                  <MenuItem value="devProg">Dev & Programming</MenuItem>
-                  <MenuItem value="infraNet">Infra & Networking</MenuItem>
-                  <MenuItem value="dataAnaly">Data & Analytics</MenuItem>
-                  <MenuItem value="secComp">Security & Compliance</MenuItem>
-                  <MenuItem value="mangSuppt">Management & Support</MenuItem>
-                </Select>
+                <FormControl fullWidth required variant="standard">
+                  <InputLabel
+                    style={{
+                      marginBottom: jobCategory ? '8px' : '0', // Adjusted margin when an option is selected
+                      pointerEvents: 'none', // Disable pointer events to make the label not clickable
+                    }}
+                    htmlFor="category"
+                  >
+                    {jobCategory ? 'Job Category' : 'Select Job Category'}
+                  </InputLabel>
+                  <Select
+                    style={{
+                      borderBottom: '1px solid #2196F3',
+                      borderRadius: '0',
+                      marginBottom: '15px',
+                    }}
+                  
+                    name="category"
+                    value={jobCategory}
+                    onChange={(e) => setjobCategory(e.target.value)}
+                  >
+                    <MenuItem value="devProg">Dev & Programming</MenuItem>
+                    <MenuItem value="infraNet">Infra & Networking</MenuItem>
+                    <MenuItem value="dataAnaly">Data & Analytics</MenuItem>
+                    <MenuItem value="secComp">Security & Compliance</MenuItem>
+                    <MenuItem value="mangSuppt">Management & Support</MenuItem>
+                  </Select>
                 </FormControl>
                 <TextField
-                  label="Location"
+                  placeholder="Location"
                   name="location"
                   value={location}
                   onChange={(e) => setlocation(e.target.value)}
                   fullWidth
                   required
+                  variant="standard"
+                      InputLabelProps={{ shrink: true }}
+                      InputProps={{
+                        style: {
+                          borderBottom: '1px solid #2196F3',  // Adjust the color as needed
+                          borderRadius: '0',  // No border-radius
+                          marginBottom: '15px', // Adjusted spacing
+                      }}}
                 />
                 <TextField
-                  label="Job Description"
+                  placeholder="Job Description"
                   name="jobDescription"
                   value={jobDescription}
                   onChange={(e) => setjobDescription(e.target.value)}
                   multiline
                   fullWidth
                   required
+                  variant="standard"
+                      InputLabelProps={{ shrink: true }}
+                      InputProps={{
+                        style: {
+                          borderBottom: '1px solid #2196F3',  // Adjust the color as needed
+                          borderRadius: '0',  // No border-radius
+                          marginBottom: '15px', // Adjusted spacing
+                      }}}
                 />
                 
                 <Button type="submit" variant="contained" color="primary">

@@ -38,9 +38,9 @@ const JobPostSchema = new Schema({
         required : true//backend validation
 
     },
-    RecruiterID: {
+    recruiterID: {
         type : String,
-
+        required : true
     },
 })
 //data coming from routes go to DB through models

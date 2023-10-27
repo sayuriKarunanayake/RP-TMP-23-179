@@ -35,8 +35,15 @@ export default function RecruiterLogin() {
         const response = await axios.post('http://localhost:8070/recruiter/login', { workMail: email, pwd: password });
   
         if (response.data.success) {
-            toast.success('Login successful');
             console.error('Login success', error.message);
+            toast.success('Login successful');
+
+            // Wait for the toast to close before navigating
+            await new Promise(resolve => setTimeout(resolve, 2000)); // Adjust the duration as needed
+
+            const userId = response.data.userId;
+            window.location = `/profile/${userId}`;
+           
             
         } else {
           console.error('Login failed', error.message);
@@ -128,11 +135,6 @@ export default function RecruiterLogin() {
           </form>
           <ToastContainer 
           position="top-center"
-          autoClose={3000} // Set the duration for which the toast will be displayed in milliseconds (e.g., 3000 for 3 seconds)
-          hideProgressBar={false} // Set to true if you want to hide the progress bar
-          newestOnTop={false} // Set to true if you want the newest toast to appear at the top
-          closeOnClick // Close the toast when clicked
-          pauseOnHover
           />
         </div>
       </div>
