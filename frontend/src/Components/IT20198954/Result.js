@@ -71,6 +71,8 @@ export default function Result({ email }) {
     }
   }else{
     setCorrect(0);
+    setExit(false);
+    setStart(false);
   navigate("/fail", { state: { updatedUser: dataArray } });
 }
   };
