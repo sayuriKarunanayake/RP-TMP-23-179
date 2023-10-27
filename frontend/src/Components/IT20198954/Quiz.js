@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState ,useEffect} from "react"; 
+import axios from "axios";
 import { Box, Typography, Paper, Container } from "@mui/material";
 import { QuizContext } from "./QuizHolder";
 import quiz1 from "../../Assets/IT20198954/quiz5.png";
@@ -11,18 +12,47 @@ const theme = createTheme();
 
 export default function Quiz() {
   const [current, setCurrent] = useState(0);
-
+  
+  const [skills, setSkills] = useState("");
+  const location = useLocation();
   const [value, setValue] = useState("");
   const { state } = useLocation();
   const { updatedUser } = state || {}; // Read values passed on state
-
+  const [user, setUser] = useState("");
   console.log("adduser row", updatedUser);
   const navigate = useNavigate();
   const [jobRole, setJobRole] = useState(
     updatedUser && updatedUser.jobRole ? updatedUser.jobRole : ""
   );
-  console.log("jobRole row", jobRole);
+   
   // Access the quiz questions for the user's job role
+  const [email, setEmail] = useState(localStorage.getItem("email"));
+ 
+  useEffect(() => {
+    // Moved the API call inside useEffect
+    
+    getResults();
+    // setRecommendations(resultsData.recommendations);
+    // setJobRole(resultsData.jobRole);
+  }, [email, user,skills,jobRole]);
+  
+  const getResults = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8070/register/find/${email}`);
+      
+      if (response.status === 200 && response.data.success) {
+        setUser(response.data.data);
+        setSkills(response.data.data.skills);
+        setJobRole(response.data.data.jobRole);
+        console.log(response.data.data, "resultsData");
+      } else {
+        console.log("Error while loading data");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   return (
     <ThemeProvider theme={theme}>
