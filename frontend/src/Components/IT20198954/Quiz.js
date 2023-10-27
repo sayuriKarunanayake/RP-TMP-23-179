@@ -34,7 +34,7 @@ export default function Quiz() {
     getResults();
     // setRecommendations(resultsData.recommendations);
     // setJobRole(resultsData.jobRole);
-  }, [email, user,skills,jobRole]);
+  }, [email,jobRole]);
   
   const getResults = async () => {
     try {

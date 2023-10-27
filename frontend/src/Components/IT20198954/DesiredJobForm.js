@@ -38,7 +38,7 @@ export default function JobRecommendationForm() {
     getResults();
     // setRecommendations(resultsData.recommendations);
     // setJobRole(resultsData.jobRole);
-  }, [email, user,skills,jobRole]);
+  }, []);
   
   const getResults = async () => {
     try {
