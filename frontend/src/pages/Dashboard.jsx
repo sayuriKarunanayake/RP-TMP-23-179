@@ -45,12 +45,12 @@ const Dashboard = () => {
   };
 
   const handleTest = async () => {
-    if (resultsData == "") {
-      navigation("/jobform", { state: { email } });
-    } else
+    if (resultsData && resultsData.recommendations && resultsData.jobRole) {
       navigation("/jobs", {
         state: { dataArray: { jobRole, recommendations } },
       });
+    } else
+    navigation("/jobform", { state: { email } });
   };
 
   const [isHovered, setIsHovered] = useState(false);
