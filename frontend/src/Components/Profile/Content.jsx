@@ -83,8 +83,9 @@ const Content = () => {
           sx={{ minWidth: 650 }}
           className=" shadow-lg rounded-lg overflow-hidden"
           aria-label="simple table"
+          
         >
-          <TableHead className=" bg-[#1976b2]">
+          <TableHead className=" bg-[#1976d2]">
             <TableRow>
               <TableCell className="tabal-color">Job Title</TableCell>
               <TableCell className="tabal-color" align="right">
