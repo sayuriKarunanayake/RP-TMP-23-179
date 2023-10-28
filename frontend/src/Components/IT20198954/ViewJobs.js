@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Box, Typography, Grid, Button, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
@@ -18,6 +18,7 @@ import "../../CSS/it20198954.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import Divider from "@mui/material/Divider";
+import { QuizContext } from "./QuizHolder";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -45,6 +46,9 @@ const JobView = () => {
   const { state } = useLocation();
   const { dataArray, userSkills } = state || {};
   const { jobRole, recommendations } = dataArray || [];
+
+  const { correct, setExit, setStart, quizSets, setCorrect } =
+  useContext(QuizContext);
 
   console.log(jobRole, "jobRole");
   console.log(recommendations, "recommendations");
@@ -230,6 +234,7 @@ const JobView = () => {
   };
 
   const handleStart = () => {
+    setCorrect(0);
     navigate("/jobform", { state: { email } });
   };
 
