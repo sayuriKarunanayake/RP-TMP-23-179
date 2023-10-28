@@ -18,10 +18,12 @@ import SElist from "./Components/it20197032/jobPostlist/SElist"
 import FakeCheck from "./Components/it20197032/fakeCheckJobPost/FakeCheck"
 import RegRecruiter from "./Components/it20197032/registerRecruiter/RegRecruiter"
 import RecruiterLogin from "./Components/it20197032/loginRecruiter/RecruiterLogin"
+import Profile from "./pages/Profile"
+import ReputationCalculator from "./Components/it20197032/fakeCheckJobPost/ReputationScore"
 
 import Home from "./pages/Home"
 import Dashboard from "./pages/Dashboard"
-import Profile from "./pages/Profile"
+
 
 //IT20198954
 import React, { useState, lazy, Suspense, useEffect } from "react"
@@ -122,6 +124,7 @@ function App() {
             <Route path="/fakecheck" element={<FakeCheck />} />
             <Route path="/regrecruiter" element={<RegRecruiter />} />
             <Route path="/recruiterLogin" element={<RecruiterLogin />} />
+            <Route path="/repscore" element={<ReputationCalculator />} />
 
             <Route path="/" Component={Home} />
             <Route path="/dashboard" Component={Dashboard} />
