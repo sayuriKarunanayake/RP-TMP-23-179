@@ -93,47 +93,45 @@
      animation: spin 1.2s linear infinite;
   }
 
-  /* Add these styles to your existing CSS */
-
-.fake-result {
-   color: #FF0000; /* Red text for fake result */
- }
- 
- .real-result {
-   color: #008000; /* Green text for real result */
- }
- 
- .blinking-text {
-   animation: blink 1s infinite;
- }
-
- 
- @keyframes blink {
-   0%, 100% {
-     opacity: 1;
+   .fake-result {
+      color: #FF0000; /* Red text for fake result */
    }
-   50% {
-     opacity: 0;
+   
+   .real-result {
+      color: #008000; /* Green text for real result */
    }
- }
- 
- .result-text {
-   font-size: 20px;
-   font-weight: bold;
-   color: black; /* Default text color */
- }
- 
+   
+   .blinking-text {
+      animation: blink 1s infinite;
+   }
 
-  .login-form {
-     margin: 0 auto;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-  }
+   
+   @keyframes blink {
+      0%, 100% {
+      opacity: 1;
+      }
+      50% {
+      opacity: 0;
+      }
+   }
+   
+   .result-text {
+      font-size: 20px;
+      font-weight: bold;
+      color: black; /* Default text color */
+   }
+   
+/*recruiter login css*/
+   .login-form {
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+   }
 
-  @media (min-width: 576px) {
-     .login-form {
-        margin: 0 auto;
-     }
-  }
+   @media (min-width: 576px) {
+      .login-form {
+         margin: 0 auto;
+      }
+   }
