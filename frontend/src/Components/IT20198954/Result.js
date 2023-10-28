@@ -46,7 +46,7 @@ export default function Result({ email }) {
     // e.preventDefault();
     if(correct >= 7 ){
     try {
-      const response = await axios.post("http://192.168.1.2:5000/recommend", {
+      const response = await axios.post("http://192.168.1.3:5001/recommend", {
         user_skills: userSkills,
       });
       if (response.status === 200) {
