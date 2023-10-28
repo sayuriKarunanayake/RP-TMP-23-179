@@ -48,12 +48,10 @@ import ResumeSuggestions from "./Components/IT20192532/ResumeSuggestions"
 // import Combined from "./Components/IT20192532/Combined";
 
 function App() {
-  //add paths to pages where Headermain should not be visible like login/register
-  const shouldRenderHeader = ![
-    "/regrecruiter",
-    "/recruiterLogin",
-    "/",
-  ].includes(window.location.pathname)
+  // //add paths to pages where Headermain should not be visible like login/register
+  // const shouldRenderHeader = ![
+  //   "/",
+  // ].includes(window.location.pathname)
 
   //IT20192532 - RESUME BUILDER Storage
   // Remove details from the form
@@ -71,7 +69,8 @@ function App() {
     <>
       <Router>
         <div>
-          {shouldRenderHeader && <Headermain />}
+         
+          <Headermain/>      
 
           <Routes>
             {/* IT20197032 */}
