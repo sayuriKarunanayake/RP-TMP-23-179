@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Paper, Box, FormControl, MenuItem, InputLabel, TextField, Button, Grid, Typography, Select } from '@mui/material';
 import axios from 'axios'; 
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const RegRecruiter = () => {
   const [firstName, setFirstName] = useState("");
@@ -11,22 +13,33 @@ const RegRecruiter = () => {
   const [workMail, setWorkMail] = useState("");
   const [pwd, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  //add validations to form fields 
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required("First name is required").min(2, "Too short"),
+    lastName: Yup.string().required("Last name is required").min(2, "Too short"),
+    company_name: Yup.string().required("Company name is required").min(2, "Too short"),
+    currentJob: Yup.string().required("Current job is required").min(2, "Too short"),
+    contactNo: Yup.string().required("Contact number is required").matches(/^\d{10}$/, "Invalid contact number"),
+    workMail: Yup.string().required("Work email is required").email( "Invalid email address"),
+    pwd: Yup.string()
+      .required("Password is required")
+      .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/, "Password must contain at least one uppercase letter, one lowercase letter, and one number, and be at least 8 characters long"),
+  });
 
-    const newRecruiter = {
-      firstName,
-      lastName,
-      company_name,
-      currentJob,
-      contactNo,
-      workMail,
-      pwd,
-    };
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      company_name: "",
+      currentJob: "",
+      contactNo: "",
+      workMail: "",
+      pwd: "",
+    },
 
-    console.log(newRecruiter);
-
-    axios.post("http://localhost:8070/recruiter/addRecruiter", newRecruiter)
+    validationSchema: validationSchema,
+    onSubmit: (newRecruiter) => {
+      axios.post("http://localhost:8070/recruiter/addRecruiter", newRecruiter)
       .then(() => {
         alert("Recruiter Registration Successful!");
         window.location = `/recruiterLogin`;
@@ -36,7 +49,10 @@ const RegRecruiter = () => {
         alert(err.response.data.message);
         console.log(err.message);
       });
-  };
+    },
+  });
+
+
 
   return (
     <div>
@@ -55,24 +71,26 @@ const RegRecruiter = () => {
               <Typography variant="h4" gutterBottom style={{ textAlign: 'center', fontFamily: 'Open Sans, sans-serif'}}>
                 Join Us
               </Typography>
-              <form onSubmit={handleSubmit} style={{ padding: '16px' }}>
+              <form onSubmit={formik.handleSubmit} style={{ padding: '20px' }}>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>
                     <TextField
                       type="text"
                       placeholder="First Name"
                       name="firstName"
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
+                      value={formik.values.firstName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                       fullWidth
                       required
                       variant="standard"
                       InputLabelProps={{ shrink: true }}
+                      helperText={formik.touched.firstName && formik.errors.firstName}
+                      error={formik.touched.firstName && Boolean(formik.errors.firstName)}
                       InputProps={{
                         style: {
                           borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                           borderRadius: '0',  // No border-radius
-                          marginBottom: '30px', // Adjusted spacing
                         },
                       }}
                     />
@@ -82,17 +100,20 @@ const RegRecruiter = () => {
                       type="text"
                       placeholder="Last Name"
                       name="lastName"
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
+                      value={formik.values.lastName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                       fullWidth
                       required
                       variant="standard"
                       InputLabelProps={{ shrink: true }}
+                      helperText={formik.touched.lastName && formik.errors.lastName}
+                      error={formik.touched.lastName && Boolean(formik.errors.lastName)}
                       InputProps={{
                         style: {
                           borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                           borderRadius: '0',  // No border-radius
-                          
+                          marginBottom: '20px', // Adjusted spacing
                         },
                       }}
                     />
@@ -102,18 +123,21 @@ const RegRecruiter = () => {
                 <TextField
                   type="text"
                   placeholder="Company Name"
-                  name="companyName"
-                  value={company_name}
-                  onChange={(e) => setCompanyName(e.target.value)}
+                  name="company_name"
+                  value={formik.values.company_name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   fullWidth
                   required
                   variant="standard"
                   InputLabelProps={{ shrink: true }}
+                  helperText={formik.touched.company_name && formik.errors.company_name}
+                  error={formik.touched.company_name && Boolean(formik.errors.company_name)}
                   InputProps={{
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '30px', // Adjusted spacing
+                      marginBottom: '20px', // Adjusted spacing
                     },
                   }}
                 />
@@ -122,17 +146,20 @@ const RegRecruiter = () => {
                   type="text"
                   placeholder="Current Job"
                   name="currentJob"
-                  value={currentJob}
-                  onChange={(e) => setCurrentJob(e.target.value)}
+                  value={formik.values.currentJob}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   fullWidth
                   required
                   variant="standard"
                   InputLabelProps={{ shrink: true }}
+                  helperText={formik.touched.currentJob && formik.errors.currentJob}
+                  error={formik.touched.currentJob && Boolean(formik.errors.currentJob)}
                   InputProps={{
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '30px', // Adjusted spacing
+                      marginBottom: '20px', // Adjusted spacing
                     },
                   }}
                 />
@@ -141,17 +168,20 @@ const RegRecruiter = () => {
                   type="tel"
                   placeholder="Contact Number"
                   name="contactNo"
-                  value={contactNo}
-                  onChange={(e) => setContactNo(e.target.value)}
+                  value={formik.values.contactNo}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   fullWidth
                   required
                   variant="standard"
                   InputLabelProps={{ shrink: true }}
+                  helperText={formik.touched.contactNo && formik.errors.contactNo}
+                  error={formik.touched.contactNo && Boolean(formik.errors.contactNo)}
                   InputProps={{
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '30px', // Adjusted spacing
+                      marginBottom: '20px', // Adjusted spacing
                     },
                   }}
                 />
@@ -160,17 +190,20 @@ const RegRecruiter = () => {
                   type="email"
                   placeholder="Work Email"
                   name="workMail"
-                  value={workMail}
-                  onChange={(e) => setWorkMail(e.target.value)}
+                  value={formik.values.workMail}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   fullWidth
                   required
                   variant="standard"
                   InputLabelProps={{ shrink: true }}
+                  helperText={formik.touched.workMail && formik.errors.workMail}
+                  error={formik.touched.workMail && Boolean(formik.errors.workMail)}
                   InputProps={{
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '30px', // Adjusted spacing
+                      marginBottom: '20px', // Adjusted spacing
                     },
                   }}
                 />
@@ -178,18 +211,21 @@ const RegRecruiter = () => {
                 <TextField
                   type="password"
                   placeholder="Password"
-                  name="password"
-                  value={pwd}
-                  onChange={(e) => setPassword(e.target.value)}
+                  name="pwd"
+                  value={formik.values.pwd}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   fullWidth
                   required
                   variant="standard"
                   InputLabelProps={{ shrink: true }}
+                  helperText={formik.touched.pwd && formik.errors.pwd}
+                  error={formik.touched.pwd && Boolean(formik.errors.pwd)}
                   InputProps={{
                     style: {
                       borderBottom: '1px solid #2196F3',  // Adjust the color as needed
                       borderRadius: '0',  // No border-radius
-                      marginBottom: '15px', // Adjusted spacing
+                      marginBottom: '20px', // Adjusted spacing
                     },
                   }}
                 />
