@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.css"
 import "@mui/material"
 import "@mui/icons-material"
 import "@mui/system"
+import axios from 'axios';
+
 //IT20197032
 import JobPostForm from "./Components/it20197032/createJobPost/JobPostForm.js"
 import Headermain from "./Components/Headermain.js"
@@ -47,6 +49,9 @@ import Resume2 from "./Components/IT20192532/Resume2"
 import ResumeSuggestions from "./Components/IT20192532/ResumeSuggestions"
 // import Combined from "./Components/IT20192532/Combined";
 
+//IT20201296
+import UploadForm from './Components/IT20201296/UploadForm';
+
 function App() {
   // //add paths to pages where Headermain should not be visible like login/register
   // const shouldRenderHeader = ![
@@ -64,6 +69,39 @@ function App() {
   const [email, setEmail] = useState("")
   //const LazyHeader = lazy(() => import("./Components/Header"));
   const [jobRole, setJobRole] = useState("") // Add jobRole state here
+
+  //IT20201296
+  const [verificationResult, setVerificationResult] = useState(null);
+  const [image1, setImage1] = useState(null);
+  const [video, setVideo] = useState(null);
+  const [headPosePercentage, setHeadPosePercentage] = useState(null);
+
+  const handleVerification = async (e) => {
+    e.preventDefault();
+
+    if (!image1 || !video) {
+      console.error('Please upload an image and a video.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', image1);
+    formData.append('video', video);
+
+    try {
+      const response = await axios.post('http://localhost:4000/verify', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      const result = response.data;
+      setVerificationResult(result);
+      setHeadPosePercentage(result.headPosePercentage); // Set head pose percentage state
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <>
@@ -142,6 +180,22 @@ function App() {
             <Route path="/resume2" element={<Resume2 />} />
           </Routes>
         </div>
+
+        {/* IT20201296 */}
+        <Routes>
+          <Route path="/applyform" element={<UploadForm
+            onImageUpload={(file) => {
+              setImage1(file);
+            }}
+            onVideoUpload={(file) => {
+              setVideo(file);
+            }}
+            verificationResult={verificationResult}
+            headPosePercentage={headPosePercentage}
+            onVerifyClick={handleVerification} // Pass handleVerification function as prop
+          />} />
+        </Routes>
+
       </Router>
     </>
   )
