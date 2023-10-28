@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './UploadForm.css'; // Import the CSS file
 
 function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPosePercentage, onVerifyClick }) {
   const [uploadProgress, setUploadProgress] = useState(0);
