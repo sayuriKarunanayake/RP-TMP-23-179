@@ -16,12 +16,21 @@ const JobPostForm = () => {
   console.log('Recruiter ID:', id);
   
   const [recruiterID, setrecruiterID] = useState(id);
-
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newJob = {
+    // Send only the job description for analysis
+  axios.post('http://127.0.0.1:5008/analyze_job', { job_description: jobDescription })
+  .then((response) => {
+    const isFake = response.data.result.toLowerCase() === 'fake job';
+    if (isFake) {
+      // If the job is identified as fake, show an alert
+      alert("Oops! We couldn't save the job post in a standard way. Please review and try again.");
+    } else {
+      // If the job is identified as real, proceed to save it to the backend
+      const newJob = {
         companyName,
         title,
         location,
@@ -29,17 +38,27 @@ const JobPostForm = () => {
         jobLevel,
         jobCategory,
         recruiterID
-    }
-        console.log(newJob);
+      };
 
-        axios.post("http://localhost:8070/job/addjob",newJob).then(()=>{
-            alert("Job Post Added Sucessfully");
-            window.location = `/profile/${id}`;
-        }).catch((err)=>{
-            alert(err.response.data.message);
-            console.log(err.message);
-            
+      axios.post("http://localhost:8070/job/addjob", newJob)
+        .then(() => {
+          alert("Job Post Added Successfully");
+          window.location = `/profile/${id}`;
         })
+        .catch((err) => {
+          alert(err.response.data.message);
+          console.log(err.message);
+        });
+    }
+  })
+  .catch((error) => {
+    console.error('Failed to fetch data:', error);
+    // Handle the error from the analysis endpoint
+  })
+  .finally(() => {
+    // Set loading to false when the request is complete.
+    setLoading(false);
+  });
   };
 
   return (
