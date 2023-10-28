@@ -97,7 +97,7 @@ const quizSets = {
 
   SoftwareEngineer: [
     {
-      question: "What is polymorphism? D",
+      question: "What is polymorphism?",
       a: "the process of converting code from one programming language to another",
       b: "the ability of an object to take on many forms",
       c: "the practice of writing efficient and optimized code",
