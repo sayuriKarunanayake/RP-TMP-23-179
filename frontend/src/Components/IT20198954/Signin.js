@@ -103,7 +103,7 @@ const Signin = () => {
     axios
       .post(`http://localhost:8070/register/signin`, newRegister)
       .then(() => {
-        alert("Sign in successful!");
+        // alert("Sign in successful!");
       //  navigation("/", { state: { email } });
       localStorage.setItem("email", email);
         // navigation("/home", { state: { email } });
