@@ -11,9 +11,7 @@ import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+import { red } from "@mui/material/colors"; 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import "../../CSS/it20198954.css";
@@ -87,24 +85,91 @@ const JobView = () => {
 
   const filteredPosts = jobPosts.filter((post) => {
     // Preprocess the jobRole and recommendations
-    const jobRoleProcessed = jobRole.toLowerCase().replace(/\s/g, "");
+    const jobRoleProcessed = jobRole.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
     const recommendationsProcessed = recommendations.map((rec) =>
-      rec.title.toLowerCase().replace(/\s/g, "")
+      rec.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "")
     );
-
+  
     // Preprocess the post title
-    const titleProcessed = post.title.toLowerCase().replace(/\s/g, "");
-
+    const titleProcessed = post.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  
     // Check if the preprocessed jobRole is in the preprocessed post title
     if (titleProcessed.includes(jobRoleProcessed)) {
       return true;
     }
-
+  
     // Check if any recommendation contains a similar title
     return recommendationsProcessed.some((recProcessed) =>
       titleProcessed.includes(recProcessed)
     );
   });
+
+  //originally worked one
+  // const filteredPosts = jobPosts.filter((post) => {
+  //   // Preprocess the jobRole and recommendations
+  //   const jobRoleProcessed = jobRole.toLowerCase().replace(/\s/g, "");
+  //   const recommendationsProcessed = recommendations.map((rec) =>
+  //     rec.title.toLowerCase().replace(/\s/g, "")
+  //   );
+
+  //   // Preprocess the post title
+  //   const titleProcessed = post.title.toLowerCase().replace(/\s/g, "");
+
+  //   // Check if the preprocessed jobRole is in the preprocessed post title
+  //   if (titleProcessed.includes(jobRoleProcessed)) {
+  //     return true;
+  //   }
+
+  //   // Check if any recommendation contains a similar title
+  //   return recommendationsProcessed.some((recProcessed) =>
+  //     titleProcessed.includes(recProcessed)
+  //   );
+  // });
+
+  // const filteredPosts = jobPosts.filter((post) => {
+  //   // Preprocess the jobRole and recommendations
+  //   const jobRoleProcessed = jobRole.toLowerCase().replace(/\s/g, "");
+  //   const recommendationsProcessed = recommendations.map((rec) =>
+  //     rec.title.toLowerCase().replace(/\s/g, "")
+  //   );
+  
+  //   // Preprocess the post title
+  //   const titleProcessed = post.title.toLowerCase().replace(/\s/g, "");
+  
+  //   // Extract the first word of the post title
+  //   const firstWordOfTitle = post.title.toLowerCase().split(" ")[0];
+  
+  //   // Extract the first word of every recommendation
+  //   const firstWordsOfRecommendations = recommendations.map((rec) =>
+  //     rec.title.toLowerCase().split(" ")[0]
+  //   );
+  
+  //   // Check if the preprocessed jobRole is in the preprocessed post title
+  //   if (titleProcessed.includes(jobRoleProcessed)) {
+  //     return true;
+  //   }
+  
+  //   // Check if any recommendation contains a similar title
+  //   if (recommendationsProcessed.some((recProcessed) =>
+  //     titleProcessed.includes(recProcessed)
+  //   )) {
+  //     return true;
+  //   }
+  
+  //   // Check if the first word of the post title is in the first words of recommendations
+  //   if (firstWordsOfRecommendations.includes(firstWordOfTitle)) {
+  //     return true;
+  //   }
+  
+  //   // Check if the first word of the post title is the same as the preprocessed jobRole
+  //   if (firstWordOfTitle === jobRoleProcessed) {
+  //     return true;
+  //   }
+  
+  //   return false;
+  // });
+  
+  
 
   console.log(filteredPosts, "jobPosts and filteredPosts");
 
@@ -166,6 +231,11 @@ const JobView = () => {
 
   const handleStart = () => {
     navigate("/jobform", { state: { email } });
+  };
+
+
+  const handleApplyClick = () => {
+    navigate('/applyform');
   };
 
   return (
@@ -307,6 +377,7 @@ const JobView = () => {
                     marginLeft: "10px",
                     marginRight: "1px",
                   }}
+                  onClick={handleApplyClick}
                 >
                   Apply
                 </Button>

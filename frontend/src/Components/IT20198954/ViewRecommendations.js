@@ -41,7 +41,7 @@ function ViewRecommendations() {
     })
     .catch((error) => {
       console.error("Axios Error saving results:", error);
-      alert("Error occurred during saving results");
+      // alert("Error occurred during saving results");
     });
 
   return ( 
