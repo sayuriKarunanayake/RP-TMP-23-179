@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('Data.csv')
+df = pd.read_csv('Book1.csv')
 
 # Shuffle the rows
 shuffled_df = df.sample(frac=1, random_state=42)

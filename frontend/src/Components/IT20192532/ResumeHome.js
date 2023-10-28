@@ -80,7 +80,7 @@ const ResumeHome = () => {
               <CardWithHover
                 title="Resume Suggestions"
                 description="!! Upload your Resume and get personalized suggestions !! "
-                buttonText="Upload Resume"
+                buttonText="Get Suggestions"
                 linkTo="/resumesugg"
               />
               <CardWithHover

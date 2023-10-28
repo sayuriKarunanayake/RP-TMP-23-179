@@ -16,7 +16,7 @@ function Resume() {
   //       Name: "John De Silva",
   //       Role: "Engineer",
   //       Objective:
-  //         "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+  //         "Enthusiastic person who has the determination to work smart not hard with the ability to learn & adapt to things quickly ",
   //     },
   //   ],
   //   Personal_Information: [
@@ -33,12 +33,17 @@ function Resume() {
   //       Phone: "+947677557890",
   //       Email: "john@gmail.com",
   //       Address: "Colombo",
-  //       GitHub: "GIT",
-  //       LinkedIn: "LINKEDIN",
+  //       GitHub: "GITj@github.com",
+  //       LinkedIn: "https://www.linkedin.com/in/John De Silva-13794322a/",
   //     },
   //   ],
   //   Education_Information: [
-  //     { Institute: "IIT", Qualification: "SE", Year: "2023" },
+  //     {
+  //       Institute: "Victoria University",
+  //       Qualification:
+  //         "Bachelor of Information Technology, Advanced Web & Mobile Application",
+  //       Year: "2021",
+  //     },
   //   ],
   //   Work_Experience_Information: [
   //     {
@@ -46,55 +51,55 @@ function Resume() {
   //       End_Date: "2022-06-30",
   //       Company: "Company ABC",
   //       Job_Description: "Full stack dev",
-  //       Job_Title: "Mr",
+  //       Job_Title: "Trainee",
   //     },
   //   ],
   //   Courses_Followed: [{ Course: "IT", Achieved_Year: "2021" }],
   //   Achievements: [
-  //     { Achievements: "Award 1" },
-  //     { Achievements: "Award 2" },
-  //     { Achievements: "Award 3" },
+  //     { Achievements: "Python Essential Training" },
+  //     { Achievements: "Designing RESTful APIs" },
+  //     { Achievements: "Advanced Java Programming" },
   //   ],
   //   Projects: [
   //     {
   //       Project_Name: "Project 01",
   //       Project_Description:
-  //         "Description 01 Description 01 Description 01 Description 01 Description 01 Description 01 ",
-  //       Stacks: "Stack 01",
+  //         "This web site for public Transport reservation system. In the current situation  passengers have to waste time and undercity of the manual process.  ",
+  //       Stacks: "HTML5, CSS, php, java Script, Xammp",
   //     },
-  //     {
-  //       Project_Name: "Project 02",
-  //       Project_Description:
-  //         "Description 02Description 02Description 02Description 02Description 02Description 02",
-  //       Stacks: "Stack 02",
-  //     },
-  //     {
-  //       Project_Name: "Project 03",
-  //       Project_Description:
-  //         "Description 02Description 02Description 02Description 02Description 02Description 02",
-  //       Stacks: "Stack 03",
-  //     },
+  //     // {
+  //     //   Project_Name: "Project 02",
+  //     //   Project_Description:
+  //     //     "Description 02Description 02Description 02Description 02Description 02Description 02",
+  //     //   Stacks: "Stack 02",
+  //     // },
+  //     // {
+  //     //   Project_Name: "Project 03",
+  //     //   Project_Description:
+  //     //     "Description 02Description 02Description 02Description 02Description 02Description 02",
+  //     //   Stacks: "Stack 03",
+  //     // },
   //   ],
   //   Technical_Skills: [
   //     { Technical_Skills: "PHP" },
   //     { Technical_Skills: "Java" },
-  //     { Technical_Skills: "Java" },
-  //     { Technical_Skills: "Java" },
-  //     { Technical_Skills: "Java" },
+  //     // { Technical_Skills: "Java" },
+  //     // { Technical_Skills: "Java" },
+  //     // { Technical_Skills: "Java" },
   //   ],
-  //   Skills: [{ Skills: "Time" }, { Skills: "Talk" }],
+  //   Skills: [{ Skills: "Team Work" }, { Skills: "Time Management" }],
   //   Languages: [{ Language: "English" }, { Language: "Sinhala" }],
   //   References_Information: [
   //     {
-  //       RefName: "Ref 01",
-  //       RefEmail: "ref@mail",
-  //       RefPhone: "00111111111",
-  //       RefDesignation: "ref",
+  //       RefName: "Mrs. Vasantha De Silva ",
+  //       RefEmail: "vasanthadesilva2009@gmail.com ",
+  //       RefPhone: " 0714319050",
+  //       RefDesignation: "Chartered Architect/ lecturer",
   //     },
   //   ],
   // }
 
-  //Get the form data from local storage
+  // Get the form data from local storage
 
   const formData = JSON.parse(
     localStorage.getItem("resumeData")
@@ -201,7 +206,13 @@ function Resume() {
                   </div>
                 ))}
               {/* My personal information section */}
-              <Typography variant="h6" color="white" fontWeight={"bold"}>
+              <Typography
+                variant="h6"
+                color="white"
+                fontWeight={"bold"}
+                paddingBottom={0.5}
+                marginLeft={0.5}
+              >
                 My Information
               </Typography>
               <Divider
@@ -211,8 +222,8 @@ function Resume() {
               />
               <Stack
                 direction={"flex"}
-                gap={1}
-                sx={{ flexWrap: "wrap", mt: 2 }}
+                gap={5}
+                sx={{ flexWrap: "wrap", mt: 1 }}
               >
                 {/* Populating data to the My personal information section */}
                 {Array.isArray(formData.Personal_Information) &&
@@ -281,18 +292,25 @@ function Resume() {
               </Stack>
 
               {/* Contact information section */}
-              <Box sx={{ my: 1 }}>
-                <Typography variant="h6" color="white" fontWeight={"bold"}>
+              <Box sx={{ my: 2 }}>
+                <Typography
+                  variant="h6"
+                  color="white"
+                  fontWeight={"bold"}
+                  paddingBottom={5}
+                  height={2}
+                >
                   Contact
                 </Typography>
                 <Divider
                   variant="fullWidth"
                   orientation="horizontal"
+                  paddingBottom={5}
                   sx={{ border: "1px solid white" }}
                 />
 
                 {/* Populating data to the Contact information section */}
-                <Box sx={{ my: 2 }}>
+                <Box sx={{ my: 3 }}>
                   {Array.isArray(formData.Contact_Information) &&
                     formData.Contact_Information.map((contact, index) => (
                       <div key={index}>
@@ -325,7 +343,12 @@ function Resume() {
 
               {/* Skills section */}
               <Box sx={{ my: 3 }}>
-                <Typography variant="h6" color="white" fontWeight={"bold"}>
+                <Typography
+                  variant="h6"
+                  color="white"
+                  fontWeight={"bold"}
+                  paddingBottom={0.5}
+                >
                   Skills
                 </Typography>
                 <Divider
@@ -347,7 +370,12 @@ function Resume() {
                 </Box>
 
                 {/* Technical Skills section */}
-                <Typography variant="h6" color="white" fontWeight={"bold"}>
+                <Typography
+                  variant="h6"
+                  color="white"
+                  fontWeight={"bold"}
+                  paddingBottom={0.5}
+                >
                   Technical Skills
                 </Typography>
                 <Divider
@@ -374,7 +402,12 @@ function Resume() {
 
                 {/* Languages section */}
                 <Box sx={{ my: 3 }}>
-                  <Typography variant="h6" color="white" fontWeight={"bold"}>
+                  <Typography
+                    variant="h6"
+                    color="white"
+                    fontWeight={"bold"}
+                    paddingBottom={0.5}
+                  >
                     Languages
                   </Typography>
                   <Divider
@@ -422,6 +455,7 @@ function Resume() {
                         variant="h4"
                         color="initial"
                         fontWeight={"bold"}
+                        paddingBottom={1}
                       >
                         {abstractInfo.Name ? abstractInfo.Name : "Name"}
                       </Typography>
@@ -443,7 +477,12 @@ function Resume() {
 
               {/* Work experience section */}
               <Box sx={{ mb: 3 }}>
-                <Typography variant="h6" color="initial" fontWeight={"bold"}>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  fontWeight={"bold"}
+                  paddingBottom={0.5}
+                >
                   Work Experience
                 </Typography>
                 <Divider
@@ -496,7 +535,12 @@ function Resume() {
 
               {/* Education section */}
               <Box sx={{ my: 3 }}>
-                <Typography variant="h6" color="initial" fontWeight={"bold"}>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  fontWeight={"bold"}
+                  paddingBottom={1}
+                >
                   Education
                 </Typography>
                 <Divider
@@ -531,7 +575,12 @@ function Resume() {
 
               {/* Courses followed section */}
               <Box sx={{ my: 3 }}>
-                <Typography variant="h6" color="initial" fontWeight={"bold"}>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  fontWeight={"bold"}
+                  paddingBottom={0.5}
+                >
                   Courses Followed
                 </Typography>
                 <Divider
@@ -554,7 +603,12 @@ function Resume() {
 
               {/* Projects section */}
               <Box sx={{ mb: 3 }}>
-                <Typography variant="h6" color="initial" fontWeight="bold">
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  fontWeight="bold"
+                  paddingBottom={0.5}
+                >
                   Projects
                 </Typography>
                 <Divider
@@ -590,7 +644,13 @@ function Resume() {
 
               {/* Achievements section */}
               <Box sx={{ my: 3 }}>
-                <Typography variant="h6" color="initial" fontWeight={"bold"}>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  fontWeight={"bold"}
+                  paddingBottom={0.5}
+                  mt={7.1}
+                >
                   Achievements
                 </Typography>
                 <Divider
@@ -615,7 +675,12 @@ function Resume() {
               {/* References section */}
               <Box sx={{ my: 3 }}>
                 <Box sx={{ my: 2 }}>
-                  <Typography variant="h6" color="initial" fontWeight={"bold"}>
+                  <Typography
+                    variant="h6"
+                    color="initial"
+                    fontWeight={"bold"}
+                    paddingBottom={0.5}
+                  >
                     References
                   </Typography>
                   <Divider

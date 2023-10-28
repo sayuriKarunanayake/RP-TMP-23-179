@@ -50,6 +50,9 @@ import InputFormPage from "./Components/IT20192532/InputFormPage"
 import Resume2 from "./Components/IT20192532/Resume2"
 import ResumeSuggestions from "./Components/IT20192532/ResumeSuggestions"
 // import Combined from "./Components/IT20192532/Combined";
+// Import the ResumeTable component"
+// import FileUploadForm from "./Components/FileUploadForm"
+import UploadedFiles from "./Components/UploadedFiles"
 
 //IT20201296
 import UploadForm from './Components/IT20201296/UploadForm';
@@ -181,6 +184,9 @@ function App() {
             <Route exact path="/ResumeHome" element={<ResumeHome />}></Route>
             <Route path="/resume" element={<Resume />} />
             <Route path="/resume2" element={<Resume2 />} />
+            <Route path="/uploads" element={<UploadedFiles />} />
+
+            {/* Add this route */}
           </Routes>
         </div>
 
