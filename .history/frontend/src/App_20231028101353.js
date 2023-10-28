@@ -53,10 +53,12 @@ import ResumeSuggestions from "./Components/IT20192532/ResumeSuggestions"
 import UploadForm from './Components/IT20201296/UploadForm';
 
 function App() {
-  // //add paths to pages where Headermain should not be visible like login/register
-  // const shouldRenderHeader = ![
-  //   "/",
-  // ].includes(window.location.pathname)
+  //add paths to pages where Headermain should not be visible like login/register
+  const shouldRenderHeader = ![
+    "/regrecruiter",
+    "/recruiterLogin",
+    "/",
+  ].includes(window.location.pathname)
 
   //IT20192532 - RESUME BUILDER Storage
   // Remove details from the form
@@ -107,8 +109,7 @@ function App() {
     <>
       <Router>
         <div>
-         
-          <Headermain/>      
+          {shouldRenderHeader && <Headermain />}
 
           <Routes>
             {/* IT20197032 */}
@@ -195,6 +196,8 @@ function App() {
             onVerifyClick={handleVerification} // Pass handleVerification function as prop
           />} />
         </Routes>
+
+
 
       </Router>
     </>

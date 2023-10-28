@@ -162,13 +162,11 @@ const JobList = () => {
             <CardText>{selectedJob?.jobDescription}</CardText>
           </CardBody>
         </Card>
-        <a href='/applyform'>
         <div style={applyButtonContainerStyle}>
           <button style={applyButtonStyle}>
             Apply
           </button>
         </div>
-        </a>
       </div>
     </div>
     </div>
