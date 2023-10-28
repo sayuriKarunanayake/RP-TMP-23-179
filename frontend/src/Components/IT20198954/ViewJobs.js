@@ -233,6 +233,11 @@ const JobView = () => {
     navigate("/jobform", { state: { email } });
   };
 
+
+  const handleApplyClick = () => {
+    navigate('/applyform');
+  };
+
   return (
     // <div className="job-recommendations">
     <div
@@ -372,6 +377,7 @@ const JobView = () => {
                     marginLeft: "10px",
                     marginRight: "1px",
                   }}
+                  onClick={handleApplyClick}
                 >
                   Apply
                 </Button>
