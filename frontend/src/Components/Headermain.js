@@ -95,9 +95,6 @@ const Headermain = () => {
           <IconButton color="inherit" component={Link} to="/">
             <HomeIcon />
           </IconButton>
-          <IconButton color="inherit" component={Link} to="/joblist">
-            <WorkIcon />
-          </IconButton>
           {/* Person Icon with Dropdown */}
           <IconButton color="inherit" onClick={handlePersonClick}>
             <PersonIcon />

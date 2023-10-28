@@ -70,8 +70,7 @@ const Dashboard = () => {
 
   return (
     <div className="w-full h-screen overflow-hidden bg-[url('https://static.vecteezy.com/system/resources/previews/007/340/656/non_2x/job-interview-illustration-free-vector.jpg')]">
-      {/* header */}
-      <DashboardHeader />
+   
       {/* content */}
       <div className=" w-full px-12 h-full flex flex-col items-center justify-center">
         <div className=" w-full grid grid-cols-[40%_60%]">
@@ -92,7 +91,7 @@ const Dashboard = () => {
               onMouseLeave={() => setIsHovered(false)}
             >
               <a
-                href="/readf"
+                href="/joblist"
                 style={{
                   textDecoration: "none",
                   color: "white",
@@ -146,7 +145,7 @@ const Dashboard = () => {
               onMouseLeave={() => setIsHovered(false)}
             >
               <a
-                href="/readf"
+                href="/fakecheck"
                 style={{
                   textDecoration: "none",
                   color: "white",

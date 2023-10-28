@@ -1,6 +1,6 @@
 import Content from "../Components/Profile/Content";
 import TopBanner from "../Components/Profile/TopBanner";
-import Footer from "../layout/Footer";
+
 
 import { useParams } from 'react-router-dom';
 
@@ -15,8 +15,8 @@ const Profile = () => {
       {/* content */}
       <Content id={id}/>
       <div className=" flex-1" />
-      {/* footer */}
-      <Footer />
+   
+
     </div>
   );
 };
