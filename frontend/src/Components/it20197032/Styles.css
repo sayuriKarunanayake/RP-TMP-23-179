@@ -93,16 +93,45 @@
      animation: spin 1.2s linear infinite;
   }
 
-  .login-form {
-     margin: 0 auto;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-  }
+   .fake-result {
+      color: #FF0000; /* Red text for fake result */
+   }
+   
+   .real-result {
+      color: #008000; /* Green text for real result */
+   }
+   
+   .blinking-text {
+      animation: blink 1s infinite;
+   }
 
-  @media (min-width: 576px) {
-     .login-form {
-        margin: 0 auto;
-     }
-  }
+   
+   @keyframes blink {
+      0%, 100% {
+      opacity: 1;
+      }
+      50% {
+      opacity: 0;
+      }
+   }
+   
+   .result-text {
+      font-size: 20px;
+      font-weight: bold;
+      color: black; /* Default text color */
+   }
+   
+/*recruiter login css*/
+   .login-form {
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+   }
+
+   @media (min-width: 576px) {
+      .login-form {
+         margin: 0 auto;
+      }
+   }
