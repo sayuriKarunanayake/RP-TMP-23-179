@@ -145,21 +145,21 @@ export default function AddUser() {
               <MenuItem value="SoftwareEngineer">
                 Software Engineering
               </MenuItem>
-              <MenuItem value="uiUxEngineering">UI/UX Engineering</MenuItem>
-              <MenuItem value="projectManagement">Project management</MenuItem>
-              <MenuItem value="networkEngineering">
+              <MenuItem value="UiUxEngineer">UI/UX Engineering</MenuItem>
+              <MenuItem value="ProjectManager">Project management</MenuItem>
+              <MenuItem value="NetworkEngineer">
                 Network Engineering
               </MenuItem> 
-              <MenuItem value="databaseAdministration">
+              <MenuItem value="DatabaseAdministrator">
                 Database Administration
               </MenuItem>
-              <MenuItem value="cybersecurity">Cybersecurity</MenuItem>
-              <MenuItem value="systemAdministration">
+              <MenuItem value="CybersecurityAnalyst">Cybersecurity</MenuItem>
+              <MenuItem value="SystemAdministrator">
                 System Administration
               </MenuItem>
-              <MenuItem value="qualityAssurance">Quality Assurance</MenuItem>
-              <MenuItem value="businessAnalyst">Business Analyst</MenuItem>
-              <MenuItem value="devopsEngineering">Devops Engineering</MenuItem>
+              <MenuItem value="QualityAssuranceEngineer">Quality Assurance</MenuItem>
+              <MenuItem value="BusinessAnalyst">Business Analyst</MenuItem>
+              <MenuItem value="DevopsEngineer">Devops Engineering</MenuItem>
               {/* Add more job role options as needed */}
             </TextField>
             <TextField

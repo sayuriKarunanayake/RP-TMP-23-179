@@ -106,7 +106,8 @@ const Signin = () => {
         alert("Sign in successful!");
       //  navigation("/", { state: { email } });
       localStorage.setItem("email", email);
-        navigation("/home", { state: { email } });
+        // navigation("/home", { state: { email } });
+        navigation("/dashboard", { state: { email } });  
       })
       .catch((err) => {
         alert("Invalid email or password!");
