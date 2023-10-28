@@ -3,12 +3,14 @@ import { AppBar, Toolbar, Typography, IconButton, InputBase, styled } from '@mui
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MailIcon from '@mui/icons-material/Mail';
 import WorkIcon from '@mui/icons-material/Work';
 import HomeIcon from '@mui/icons-material/Home';
 import LinkedInLogo from '../Assets/logo.png';
 import { Link } from 'react-router-dom'; 
+import Popover from '@mui/material/Popover';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 
 
 const HeaderAppBar = styled(AppBar)(({ theme }) => ({
@@ -65,6 +67,24 @@ const HeaderIconsContainer = styled('div')(({ theme }) => ({
 }));
 
 const Headermain = () => {
+
+  const [personAnchorEl, setPersonAnchorEl] = React.useState(null);
+  const [moreAnchorEl, setMoreAnchorEl] = React.useState(null);
+
+  const handlePersonClick = (event) => {
+    setPersonAnchorEl(event.currentTarget);
+  };
+
+  const handleMoreClick = (event) => {
+    setMoreAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setPersonAnchorEl(null);
+    setMoreAnchorEl(null);
+  };
+
+
   return (
     <HeaderAppBar position="static">
       <Toolbar>
@@ -78,12 +98,55 @@ const Headermain = () => {
           <IconButton color="inherit" component={Link} to="/joblist">
             <WorkIcon />
           </IconButton>
-          <IconButton color="inherit">
+          {/* Person Icon with Dropdown */}
+          <IconButton color="inherit" onClick={handlePersonClick}>
             <PersonIcon />
           </IconButton>
-          <IconButton color="inherit">
+          <Popover
+            open={Boolean(personAnchorEl)}
+            anchorEl={personAnchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+          >
+            <List>
+              <ListItem button onClick={handleClose}>
+                <ListItemText primary="Profile" />
+              </ListItem>
+              {/* Add more items as needed */}
+            </List>
+          </Popover>
+
+          {/* More Icon with Dropdown */}
+          <IconButton color="inherit" onClick={handleMoreClick}>
             <MoreHorizIcon />
           </IconButton>
+          <Popover
+            open={Boolean(moreAnchorEl)}
+            anchorEl={moreAnchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+          >
+            <List>
+              <ListItem button onClick={handleClose}>
+                <ListItemText primary="Option 1" />
+              </ListItem>
+              {/* Add more items as needed */}
+            </List>
+          </Popover>
           
 
         </HeaderIconsContainer>
