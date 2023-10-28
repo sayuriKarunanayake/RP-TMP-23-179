@@ -45,6 +45,8 @@ export default function Result({ email }) {
   const handleSubmit = async () => {
     // e.preventDefault();
     if(correct >= 7 ){
+      setExit(false);
+    setStart(false);
     try {
       const response = await axios.post("http://192.168.16.100:5001/recommend", {
         user_skills: userSkills,
