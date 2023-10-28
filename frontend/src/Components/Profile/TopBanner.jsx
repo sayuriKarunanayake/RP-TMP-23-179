@@ -53,6 +53,7 @@ const TopBanner = () => {
   const handleUpdateProfile = async () => {
     try {
       await axios.put(`http://localhost:8070/recruiter/updateRecuiter/${id}`, editedDetails);
+      alert("Update successful !")
       // After the update, you might want to fetch the updated details again
       const response = await axios.get(`http://localhost:8070/recruiter/getRecuiter/${id}`);
       setRecruiterDetails(response.data.Recruiter);

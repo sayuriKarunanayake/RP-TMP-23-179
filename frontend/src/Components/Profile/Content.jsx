@@ -98,9 +98,7 @@ const Content = () => {
               <TableCell className="tabal-color" align="right">
                 Location
               </TableCell>
-              <TableCell className="tabal-color" align="right">
-                Created Date
-              </TableCell>
+             
               <TableCell className="tabal-color" align="right">
                 Actions
               </TableCell>
@@ -113,7 +111,6 @@ const Content = () => {
                 <TableCell align="right">{job.companyName}</TableCell>
                 <TableCell align="right">{job.jobLevel}</TableCell>
                 <TableCell align="right">{job.location}</TableCell>
-                <TableCell align="right">2023/02</TableCell>
                 <TableCell className="float-right">
                   <AiOutlineDelete
                     className="cursor-pointer text-red-500 text-2xl"
