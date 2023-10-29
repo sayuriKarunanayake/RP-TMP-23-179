@@ -249,7 +249,16 @@ const JobView = () => {
   return (
     // <div className="job-recommendations">
     <> 
-     <div role="presentation"  >
+     
+    <div
+      className="job-recommendations"
+      style={{
+        backgroundColor: "#F2F4F5",
+        minHeight: "100vh",
+        padding: "20px",
+      }}
+    >
+       <div role="presentation"  >
     <Breadcrumbs aria-label="breadcrumb" marginLeft="100px" marginTop="20px">
       <Link underline="hover" color="inherit" href="/dashboard">
         Home
@@ -264,14 +273,6 @@ const JobView = () => {
       <Typography color="text.primary">Job Recommendations</Typography>
     </Breadcrumbs>
     </div>
-    <div
-      className="job-recommendations"
-      style={{
-        backgroundColor: "#F2F4F5",
-        minHeight: "100vh",
-        padding: "20px",
-      }}
-    >
       <Typography
         variant="h4"
         align="center"
