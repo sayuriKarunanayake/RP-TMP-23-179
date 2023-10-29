@@ -57,6 +57,8 @@ import UploadedFiles from "./Components/UploadedFiles"
 
 //IT20201296
 import UploadForm from './Components/IT20201296/UploadForm';
+import Header from "../src/layout/HomeHeader";
+
 
 function App() {
   // //add paths to pages where Headermain should not be visible like login/register
@@ -113,83 +115,117 @@ function App() {
 
   return (
     <Router>
-    <Routes>
-      {/* Home route without the common header */}
-      <Route path="/" element={<Home />} />
-      <Route path="/regrecruiter" element={<RegRecruiter />} />
-      <Route path="/recruiterLogin" element={<RecruiterLogin />} />
-      <Route exact path="/signup" element={<AddUser />} />
-      <Route exact path="/signin" element={<Signin setEmail={setEmail} />} />
+      <Routes>
+        {/* Home route without the common header */}
+        <Route path="/" element={<Home />} />
 
-      {/* Common header for all other routes */}
-      <Route
-        path="/*"
-        element={
-          <div>
-            <Headermain />
-            <Routes>
-              {/* Other routes with the common header */}
-              <Route path="/addjob/:id" element={<JobPostForm />} />
-              <Route path="/joblist" element={<Joblist />} />
-              <Route path="/pmlist" element={<Pmlist />} />
-              <Route path="/cyblist" element={<Cyblist />} />
-              <Route path="/netlist" element={<Netlist />} />
-              <Route path="/dslist" element={<Dslist />} />
-              <Route path="/selist" element={<SElist />} />
-              <Route path="/fakecheck" element={<FakeCheck />} />
-              
-              <Route path="/repscore" element={<ReputationCalculator />} />
-
-              <Route path="/dashboard" Component={Dashboard} />
-              <Route path="/profile/:id" Component={Profile} />
-
-              {/* Thisara's routes with conditional rendering */}
-              {exit === false ? (
-                <>
-                  {start === true ? (
-                    <Route exact path="/quiz" element={<Quiz />} />
-                  ) : (
-                    <Route exact path="/quiz" element={<Start />} />
-                  )}
-                </>
+        {/* Common header for all other routes */}
+        <Route
+          path="/*"
+          element={
+            <div>
+              {[
+                '/regrecruiter',
+                '/recruiterLogin',
+                '/signup',
+                '/signin'
+              ].includes(window.location.pathname) ? (
+                // Different header for specific routes
+                <Header />
               ) : (
-                <Route exact path="/quiz" element={<Result />} />
+                // Common header for all other routes
+                <Headermain />
               )}
 
+              <Routes>
+                {/* Other routes with the common header */}
+                <Route path="/addjob/:id" element={<JobPostForm />} />
+                <Route path="/joblist" element={<Joblist />} />
+                <Route path="/pmlist" element={<Pmlist />} />
+                <Route path="/cyblist" element={<Cyblist />} />
+                <Route path="/netlist" element={<Netlist />} />
+                <Route path="/dslist" element={<Dslist />} />
+                <Route path="/selist" element={<SElist />} />
+                <Route path="/fakecheck" element={<FakeCheck />} />
+                
+                <Route path="/repscore" element={<ReputationCalculator />} />
+
+                <Route path="/dashboard" Component={Dashboard} />
+                <Route path="/profile/:id" Component={Profile} />
+
+                {/* Thisara's routes with conditional rendering */}
+                {exit === false ? (
+                  <>
+                    {start === true ? (
+                      <Route exact path="/quiz" element={<Quiz />} />
+                    ) : (
+                      <Route exact path="/quiz" element={<Start />} />
+                    )}
+                  </>
+                ) : (
+                  <Route exact path="/quiz" element={<Result />} />
+                )}
+
+
+                <Route exact path="/jobform" element={<Job email={email} />} />
+                <Route
+                  exact
+                  path="/updateuser"
+                  element={<UpdateUser email={email} />}
+                />
+                <Route exact path="/jobs" element={<JobView email={email} />} />
+                <Route exact path="/fail" element={<Fail email={email} />} />
+                <Route
+                  exact
+                  path="/viewrec"
+                  element={<ViewRecommendations email={email} />}
+                />
+
+
+                {/* IT 20192532 routes */}
+                <Route exact path="/ResumeForms" element={<InputFormPage />} />
+                <Route exact path="/resumesugg" element={<ResumeSuggestions />} />
+                <Route exact path="/ResumeHome" element={<ResumeHome />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/resume2" element={<Resume2 />} />
+                <Route path="/uploads" element={<UploadedFiles />} />
+
+                {/* IT20201296 routes */}
+                <Route
+                  path="/applyform"
+                  element={<UploadForm
+                    onImageUpload={(file) => {
+                      setImage1(file);
+                    }}
+                    onVideoUpload={(file) => {
+                      setVideo(file);
+                    }}
+                    verificationResult={verificationResult}
+                    headPosePercentage={headPosePercentage}
+                    onVerifyClick={handleVerification} // Pass handleVerification function as prop
+                    blinkCount={blinkCount}
+                  />}
+                />
+
+                {/* Additional routes */}
+                <Route path="/regrecruiter" element={<RegRecruiter />} />
+                <Route path="/recruiterLogin" element={<RecruiterLogin />} />
+                <Route exact path="/signup" element={<AddUser />} />
+                <Route
+                  exact
+                  path="/signin"
+                  element={<Signin />}
+                />
+
+
               
-
-              {/* IT 20192532 routes */}
-              <Route exact path="/ResumeForms" element={<InputFormPage />} />
-              <Route exact path="/resumesugg" element={<ResumeSuggestions />} />
-              <Route exact path="/ResumeHome" element={<ResumeHome />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="/resume2" element={<Resume2 />} />
-              <Route path="/uploads" element={<UploadedFiles />} />
-
-              {/* IT20201296 routes */}
-              <Route
-                path="/applyform"
-                element={<UploadForm
-                  onImageUpload={(file) => {
-                    setImage1(file);
-                  }}
-                  onVideoUpload={(file) => {
-                    setVideo(file);
-                  }}
-                  verificationResult={verificationResult}
-                  headPosePercentage={headPosePercentage}
-                  onVerifyClick={handleVerification} // Pass handleVerification function as prop
-                  blinkCount={blinkCount}
-                />}
-              />
-            </Routes>
+              </Routes>
               <Footer />
-            
-          </div>
-        }
-      />
-    </Routes>
-  </Router>
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   )
 }
 
