@@ -180,6 +180,12 @@ const ResumeSuggestions = () => {
                       View Resumes
                     </Button>
                   </center>
+                  <br></br>
+                  <center>
+                    <Button style={buttonStyle} as={Link} to="/ResumeHome">
+                      Back
+                    </Button>
+                  </center>
                 </Card>
               </Col>
               <Col>
