@@ -235,7 +235,7 @@ if __name__ == "__main__":
     # openai.api_key = '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'
 
     # New one
-    openai.api_key = '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'
+    openai.api_key = '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'
     
     app.run(debug=True, port=5008)
     
