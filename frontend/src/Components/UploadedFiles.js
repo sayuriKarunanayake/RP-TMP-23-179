@@ -63,13 +63,13 @@ const UploadedFiles = () => {
               <td>{upload.jobLevel}</td>
               <td>{upload.pdfPath.split("\\").pop()}</td>
               <td>
-                <a
+                {/* <a
                   href="/uploads/cv.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button variant="primary">View</Button>
-                </a>
+                  <Button variant="primary">View</Button> */}
+                {/* </a> */}
                 <br />
                 <br />
                 <Button
