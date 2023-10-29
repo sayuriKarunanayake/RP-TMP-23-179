@@ -160,7 +160,7 @@ const SElist = () => {
             <CardText>{selectedJob?.jobDescription}</CardText>
           </CardBody>
         </Card>
-        <a href='/applyform' style={{ textDecoration: 'none' }}>
+        <a href={`/applyform/${selectedJob?._id}`} style={{ textDecoration: 'none' }}>
         <div style={applyButtonContainerStyle}>
           <button style={applyButtonStyle}>
             Apply

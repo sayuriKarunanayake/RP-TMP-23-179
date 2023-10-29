@@ -192,7 +192,7 @@ function App() {
 
                 {/* IT20201296 routes */}
                 <Route
-                  path="/applyform"
+                  path="/applyform/:id"
                   element={<UploadForm
                     onImageUpload={(file) => {
                       setImage1(file);
