@@ -128,7 +128,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
           <div class="form-rowD">
             <div class="input-dataD">
               <div class="underlineD"></div>
-              <label class="form-labelD" for="customFile">Upload Your video (Some thing about you in 1 min)</label><br />
+              <label class="form-labelD" for="customFile">Upload Your video (Some thing about you)</label><br />
               <input type="file" class="form-controlD" accept="video/*" onChange={handleVideoUpload} />
             </div>
           </div>

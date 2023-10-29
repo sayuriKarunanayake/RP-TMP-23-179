@@ -15,6 +15,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the Siamese model
+
+
 class L1Dist(Layer):
     def __init__(self, **kwargs):
         super().__init__()
@@ -22,21 +24,26 @@ class L1Dist(Layer):
     def call(self, input_embedding, validation_embedding):
         return tf.math.abs(input_embedding - validation_embedding)
 
-siamese_model = load_model('siamesemodelv2.h5', custom_objects={'L1Dist': L1Dist})
+
+siamese_model = load_model(
+    'siamesemodelv2.h5', custom_objects={'L1Dist': L1Dist})
 
 # Create a FaceMeshDetector object to detect face landmarks
 detector = FaceMeshDetector(maxFaces=1)
 
 # Load face mesh model for head pose estimation
 mp_face_mesh = mp.solutions.face_mesh
-face_mesh = mp_face_mesh.FaceMesh(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+face_mesh = mp_face_mesh.FaceMesh(
+    min_detection_confidence=0.5, min_tracking_confidence=0.5)
+
+# Define a function to preprocess images
+
 
 def preprocess_image(image):
-    # Resize the image to match the model input size (100x100 pixels)
     image = image.resize((100, 100))
-    # Convert to numpy array and normalize pixel values
     image = np.array(image) / 255.0
     return image
+
 
 def calculate_blink_count(video_path):
     cap = cv2.VideoCapture(video_path)
@@ -45,10 +52,10 @@ def calculate_blink_count(video_path):
     counter = 0
 
     while True:
-        ret, img = cap.read()
-        if not ret:
+        if cap.get(cv2.CAP_PROP_POS_FRAMES) == cap.get(cv2.CAP_PROP_FRAME_COUNT):
             break
 
+        success, img = cap.read()
         img, faces = detector.findFaceMesh(img, draw=False)
 
         if faces:
@@ -77,6 +84,15 @@ def calculate_blink_count(video_path):
 
     cap.release()
     return blinkCounter
+
+
+def preprocess_image(image):
+    # Resize the image to match the model input size (100x100 pixels)
+    image = image.resize((100, 100))
+    # Convert to numpy array and normalize pixel values
+    image = np.array(image) / 255.0
+    return image
+
 
 @app.route('/verify', methods=['POST'])
 def verify_image_video():
@@ -145,7 +161,8 @@ def verify_image_video():
 
     similarity_scores = []
     for frame in frames:
-        similarity_score = siamese_model.predict([np.expand_dims(image, axis=0), np.expand_dims(frame, axis=0)])[0][0]
+        similarity_score = siamese_model.predict(
+            [np.expand_dims(image, axis=0), np.expand_dims(frame, axis=0)])[0][0]
         similarity_scores.append(similarity_score)
 
     avg_similarity_score = np.mean(similarity_scores)
@@ -155,21 +172,6 @@ def verify_image_video():
     match_int = int(match)
     avg_similarity_score = float(avg_similarity_score)
 
-    # Calculate the duration of the uploading video in seconds
-    duration_new = int(video_capture.get(cv2.CAP_PROP_FRAME_COUNT) / video_capture.get(cv2.CAP_PROP_FPS))
-
-    # Calculate expected eye count based on the duration of the video
-    expected_eye_count = (30 / 60) * duration_new
-
-    # Calculate eye percentage
-    eye_percentage = (blink_count / expected_eye_count) * 100
-
-    # Calculate not pose percentage
-    not_pose = 100 - forward_percentage
-
-    # Calculate stress level
-    stress_level = (0.5 * eye_percentage) + (0.5 * not_pose)
-
     video_capture.release()
     os.remove(temp_video_file.name)
 
@@ -178,8 +180,8 @@ def verify_image_video():
         'avg_similarity_score': avg_similarity_score,
         'headPosePercentage': forward_percentage,
         'blinkCount': blink_count,
-        'stressLevel': stress_level,  # Include stress level in the response
     })
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000)
