@@ -56,15 +56,15 @@ export default function Quiz() {
 
 
   return (
-    <ThemeProvider theme={theme}>
-      <div style={{ backgroundImage: `url(${quiz1})`, backgroundSize: "cover", backgroundPosition: "center" }}> 
+    <ThemeProvider theme={theme} >
+      <div style={{ backgroundImage: `url(${quiz1})`, backgroundSize: "cover", backgroundPosition: "center"  }}> 
       <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
          
       >
-        <Box marginTop={10}>
+        <Box marginTop={10} marginBottom="150px">
           
             <QuizBox current={current} next={setCurrent} jobRole={jobRole} />
          
