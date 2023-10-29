@@ -154,7 +154,7 @@ const Headermain = () => {
             }}
           >
             <List>
-              <ListItem button onClick={handleClose}>
+              <ListItem button onClick={handleClose}component={Link} to="/jobList">
                 <ListItemText primary="Option 1" />
               </ListItem>
               {/* Add more items as needed */}

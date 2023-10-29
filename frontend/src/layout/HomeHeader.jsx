@@ -3,8 +3,7 @@ import logo from "../Assets/img/logo.png";
 
 const Navigation = [
   { name: "Home", path: "/" },
-  { name: "Jobs", path: "/joblist" },
-  { name: "Contact", path: "/contact" },
+
 ];
 
 const HomeHeader = () => {

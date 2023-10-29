@@ -57,6 +57,8 @@ import UploadedFiles from "./Components/UploadedFiles"
 
 //IT20201296
 import UploadForm from './Components/IT20201296/UploadForm';
+import Header from "../src/layout/HomeHeader";
+
 
 function App() {
   // //add paths to pages where Headermain should not be visible like login/register
@@ -112,107 +114,118 @@ function App() {
   };
 
   return (
-    <>
-      <Router>
-        <div>
-         
-          <Headermain/>      
+    <Router>
+      <Routes>
+        {/* Home route without the common header */}
+        <Route path="/" element={<Home />} />
 
-          <Routes>
-            {/* IT20197032 */}
-            <Route path="/addjob/:id" element={<JobPostForm />} />
-            <Route path="/joblist" element={<Joblist />} />
-            <Route path="/pmlist" element={<Pmlist />} />
-            <Route path="/cyblist" element={<Cyblist />} />
-            <Route path="/netlist" element={<Netlist />} />
-            <Route path="/dslist" element={<Dslist />} />
-            <Route path="/selist" element={<SElist />} />
-            <Route path="/fakecheck" element={<FakeCheck />} />
-            <Route path="/regrecruiter" element={<RegRecruiter />} />
-            <Route path="/recruiterLogin" element={<RecruiterLogin />} />
-            <Route path="/repscore" element={<ReputationCalculator />} />
+        {/* Common header for all other routes */}
+        <Route
+          path="/*"
+          element={
+            <div>
+              {[
+                '/regrecruiter',
+                '/recruiterLogin',
+                '/signup',
+                '/signin'
+              ].includes(window.location.pathname) ? (
+                // Different header for specific routes
+                <Header />
+              ) : (
+                // Common header for all other routes
+                <Headermain />
+              )}
 
-            <Route path="/" Component={Home} />
-            <Route path="/dashboard" Component={Dashboard} />
-            <Route path="/profile/:id" Component={Profile} />
+              <Routes>
+                {/* Other routes with the common header */}
+                <Route path="/addjob/:id" element={<JobPostForm />} />
+                <Route path="/joblist" element={<Joblist />} />
+                <Route path="/pmlist" element={<Pmlist />} />
+                <Route path="/cyblist" element={<Cyblist />} />
+                <Route path="/netlist" element={<Netlist />} />
+                <Route path="/dslist" element={<Dslist />} />
+                <Route path="/selist" element={<SElist />} />
+                <Route path="/fakecheck" element={<FakeCheck />} />
+                
+                <Route path="/repscore" element={<ReputationCalculator />} />
 
-            {/* thisara */}
-            {exit === false ? (
-              <>
-                {start === true ? (
-                  <Route exact path="/quiz" element={<Quiz />} />
+                <Route path="/dashboard" Component={Dashboard} />
+                <Route path="/profile/:id" Component={Profile} />
+
+                {/* Thisara's routes with conditional rendering */}
+                {exit === false ? (
+                  <>
+                    {start === true ? (
+                      <Route exact path="/quiz" element={<Quiz />} />
+                    ) : (
+                      <Route exact path="/quiz" element={<Start />} />
+                    )}
+                  </>
                 ) : (
-                  <Route exact path="/quiz" element={<Start />} />
+                  <Route exact path="/quiz" element={<Result />} />
                 )}
-              </>
-            ) : (
-              <Route exact path="/quiz" element={<Result />} />
-            )}
 
-            <Route exact path="/signup" element={<AddUser />} />
-            <Route
-              exact
-              path="/signin"
-              element={<Signin setEmail={setEmail} />}
-            />
 
-            <Route exact path="/jobform" element={<Job email={email} />} />
-            <Route
-              exact
-              path="/updateuser"
-              element={<UpdateUser email={email} />}
-            />
-            <Route exact path="/jobs" element={<JobView email={email} />} />
-            <Route exact path="/fail" element={<Fail email={email} />} />
-            <Route
-              exact
-              path="/viewrec"
-              element={<ViewRecommendations email={email} />}
-            />
-            <Route exact path="/home" element={<HomeTest email={email} />} />
-          </Routes>
+                <Route exact path="/jobform" element={<Job email={email} />} />
+                <Route
+                  exact
+                  path="/updateuser"
+                  element={<UpdateUser email={email} />}
+                />
+                <Route exact path="/jobs" element={<JobView email={email} />} />
+                <Route exact path="/fail" element={<Fail email={email} />} />
+                <Route
+                  exact
+                  path="/viewrec"
+                  element={<ViewRecommendations email={email} />}
+                />
 
-          {/* IT 20192532 */}
-          <Routes>
-            <Route
-              exact
-              path="/ResumeForms"
-              element={<InputFormPage />}
-            ></Route>
-            <Route
-              exact
-              path="/resumesugg"
-              element={<ResumeSuggestions />}
-            ></Route>
-            <Route exact path="/ResumeHome" element={<ResumeHome />}></Route>
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/resume2" element={<Resume2 />} />
-            <Route path="/uploads" element={<UploadedFiles />} />
 
-            {/* Add this route */}
-          </Routes>
-        
+                {/* IT 20192532 routes */}
+                <Route exact path="/ResumeForms" element={<InputFormPage />} />
+                <Route exact path="/resumesugg" element={<ResumeSuggestions />} />
+                <Route exact path="/ResumeHome" element={<ResumeHome />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/resume2" element={<Resume2 />} />
+                <Route path="/uploads" element={<UploadedFiles />} />
 
-        {/* IT20201296 */}
-        <Routes>
-          <Route path="/applyform" element={<UploadForm
-            onImageUpload={(file) => {
-              setImage1(file);
-            }}
-            onVideoUpload={(file) => {
-              setVideo(file);
-            }}
-            verificationResult={verificationResult}
-            headPosePercentage={headPosePercentage}
-            onVerifyClick={handleVerification} // Pass handleVerification function as prop
-            blinkCount={blinkCount}
-          />} />
-        </Routes>
+                {/* IT20201296 routes */}
+                <Route
+                  path="/applyform"
+                  element={<UploadForm
+                    onImageUpload={(file) => {
+                      setImage1(file);
+                    }}
+                    onVideoUpload={(file) => {
+                      setVideo(file);
+                    }}
+                    verificationResult={verificationResult}
+                    headPosePercentage={headPosePercentage}
+                    onVerifyClick={handleVerification} // Pass handleVerification function as prop
+                    blinkCount={blinkCount}
+                  />}
+                />
 
-          <Footer/>
-        </div>
-      </Router>
-    </>
+                {/* Additional routes */}
+                <Route path="/regrecruiter" element={<RegRecruiter />} />
+                <Route path="/recruiterLogin" element={<RecruiterLogin />} />
+                <Route exact path="/signup" element={<AddUser />} />
+                <Route
+                  exact
+                  path="/signin"
+                  element={<Signin />}
+                />
+
+
+              
+              </Routes>
+              <Footer />
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   )
 }
 

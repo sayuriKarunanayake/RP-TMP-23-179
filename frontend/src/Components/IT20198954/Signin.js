@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../Assets/IT20198954/q2.png";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import axios from "axios";
+import { toast , ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Container,
   Grid,
@@ -103,14 +105,15 @@ const Signin = () => {
     axios
       .post(`http://localhost:8070/register/signin`, newRegister)
       .then(() => {
-        // alert("Sign in successful!");
+        toast.success('Login successful');
       //  navigation("/", { state: { email } });
       localStorage.setItem("email", email);
         // navigation("/home", { state: { email } });
         navigation("/dashboard", { state: { email } });  
       })
       .catch((err) => {
-        alert("Invalid email or password!");
+        //alert("Invalid email or password!");
+        toast.error('Invalid credentials');
       });
   }
 
@@ -166,9 +169,12 @@ const Signin = () => {
           <Typography variant="body2"> 
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </Typography>
-        </form><br></br>
-      </Paper> 
+        </form> <br></br>
+      </Paper>  <ToastContainer 
+          position="top-center"
+          />
       {/* <img src={logo} alt="logo" className={classes.logo} /> */}
+    
     </Container></center>
   );
 };
