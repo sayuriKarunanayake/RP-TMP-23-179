@@ -34,7 +34,7 @@ const ResumeSuggestions = () => {
 
     axios
       .post(
-        "http://192.168.8.100:5003/extract_experience_time_durations",
+        "http://192.168.1.5:5003/extract_experience_time_durations",
         formData
       )
 
@@ -60,17 +60,17 @@ const ResumeSuggestions = () => {
     }
 
     axios
-      .post("http://192.168.8.100:5004/predict", data)
+      .post("http://192.168.1.5:5004/predict", data)
 
       .then((response) => {
         const prediction = response.data.prediction
         //suggestions
         const reviewText =
           prediction === 1
-            ? " Great !!! You can apply for the Selected Job Level "
-            : "Sorry............ You can't apply for the Selected Job Level"
+            ? " Great !!! You can apply for"
+            : "Sorry............ You can't apply for"
 
-        setReview(`${reviewText}`)
+        setReview(`${reviewText} ${jobLevel}`)
       })
 
       .catch((error) => {
@@ -163,22 +163,21 @@ const ResumeSuggestions = () => {
                   <h2>
                     <strong>!!! Instructions to Use !!!</strong>
                   </h2>
-                  <p>Step 1. Upload Your Resume</p>
+                  <p>Step 1. Upload Your LinkedIn Resume</p>
                   <p>Step 2. Select Job Level</p>
                   <p>Step 3. Click Upload Resume</p>
                   <p>Step 4. Click ok button in the Window</p>
-                  <p>
-                    To view the uploaded Resumes and Selected Job Levels, you
-                    can click the View Button
-                  </p>
+                  {/* <p>
+                    To the uploaded Resumes and Selected Job Levels
+                  </p> */}
                   <center>
-                    <Button
+                    {/* <Button
                       style={buttonStyle}
                       as={Link}
                       to="/uploads" // Add the URL of your view page
                     >
                       View Resumes
-                    </Button>
+                    </Button> */}
                   </center>
                   <br></br>
                   <center>

@@ -42,7 +42,7 @@ export default function RecruiterLogin() {
             await new Promise(resolve => setTimeout(resolve, 2000)); // Adjust the duration as needed
 
             const userId = response.data.userId;
-           
+            localStorage.setItem("recemail", email);
             window.location = `/profile/${userId}`;
            
             
