@@ -3,7 +3,7 @@ import logo from "../Assets/img/logo.png";
 
 const Navigation = [
   { name: "Home", path: "/" },
-  { name: "Jobs", path: "/joblist" },
+  { name: "About", path: "/abt" },
   { name: "Contact", path: "/contact" },
 ];
 
