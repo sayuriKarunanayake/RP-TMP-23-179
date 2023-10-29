@@ -18,6 +18,8 @@ import {
 import { useNavigate, useLocation } from "react-router-dom";
 import ColorizeIcon from "@mui/icons-material/Colorize";
 import EastIcon from '@mui/icons-material/East';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
 
 export default function JobRecommendationForm() {
   const [jobRole, setJobRole] = useState("");
@@ -69,6 +71,16 @@ export default function JobRecommendationForm() {
   };
 
   return (
+  <> 
+    <div role="presentation"  >
+    <Breadcrumbs aria-label="breadcrumb" marginLeft="100px" marginTop="20px">
+      <Link underline="hover" color="inherit" href="/dashboard">
+        Home
+      </Link>
+    
+      <Typography color="text.primary">Guidelines</Typography>
+    </Breadcrumbs>
+    </div>
     <Container classname="containerQuiz" style={{ textAlign: "center" }}>
     
 
@@ -180,5 +192,6 @@ export default function JobRecommendationForm() {
         </TableContainer>
       </Box>
     </Container>
+    </>
   );
 }
