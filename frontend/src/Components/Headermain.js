@@ -84,6 +84,21 @@ const Headermain = () => {
     setMoreAnchorEl(null);
   };
 
+  const logout = () => {
+    const token = localStorage.getItem("email");
+  
+    if (token === null) {
+      // Token is not found in local storage
+     
+      window.location = "/";
+      
+    } else {
+      // Token is found in local storage 
+      
+      localStorage.clear();
+      window.location = "/";
+    }
+  }
 
   return (
     <HeaderAppBar position="static">
@@ -113,8 +128,9 @@ const Headermain = () => {
             }}
           >
             <List>
-              <ListItem button onClick={handleClose}>
-                <ListItemText primary="Profile" />
+              <ListItem button onClick={logout}>
+                <ListItemText primary="Logout" />
+                
               </ListItem>
               {/* Add more items as needed */}
             </List>
