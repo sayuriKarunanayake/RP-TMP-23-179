@@ -227,7 +227,7 @@ if __name__ == "__main__":
     # # print(classify_job(sample_text))
     # print(job_cls(sample_text))
 
-    # Initialize the OpenAI API with your API key
+ 
     # openai.api_key = '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'
     # openai.api_key = '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'
     # openai.api_key = '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'
@@ -235,7 +235,7 @@ if __name__ == "__main__":
     # openai.api_key = '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'
 
     # New one
-    openai.api_key = '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'
+    openai.api_key = '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'
     
     app.run(debug=True, port=5008)
     

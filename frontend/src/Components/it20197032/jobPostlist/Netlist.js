@@ -158,11 +158,13 @@ const Netlist = () => {
             <CardText>{selectedJob?.jobDescription}</CardText>
           </CardBody>
         </Card>
+        <a href='/applyform' style={{ textDecoration: 'none' }}>
         <div style={applyButtonContainerStyle}>
           <button style={applyButtonStyle}>
             Apply
           </button>
         </div>
+        </a>
       </div>
     </div>
     </div>
