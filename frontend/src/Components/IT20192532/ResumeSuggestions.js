@@ -34,7 +34,7 @@ const ResumeSuggestions = () => {
 
     axios
       .post(
-        "http://192.168.1.5:5003/extract_experience_time_durations",
+        "http://127.0.0.1:5003/extract_experience_time_durations",
         formData
       )
 
@@ -60,7 +60,7 @@ const ResumeSuggestions = () => {
     }
 
     axios
-      .post("http://192.168.1.5:5004/predict", data)
+      .post("http://127.0.0.1:5004/predict", data)
 
       .then((response) => {
         const prediction = response.data.prediction
