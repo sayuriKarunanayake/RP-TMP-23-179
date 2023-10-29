@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Container, Paper, Box, FormControl, MenuItem, InputLabel, TextField, Button, Grid, Typography, Select } from '@mui/material';
 import axios from 'axios'; // Import Axios
 import { useParams } from 'react-router-dom';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+
 
 const JobPostForm = () => {
   
@@ -65,6 +68,14 @@ const JobPostForm = () => {
 
   return (
     <div>
+       <div role="presentation"  >
+        <Breadcrumbs aria-label="breadcrumb" marginLeft="100px" marginTop="20px">
+          <Link underline="hover" color="inherit" href={`/profile/${id}`}>
+            Profile
+          </Link>
+          <Typography color="text.primary">Post Job</Typography>
+        </Breadcrumbs>
+        </div>
       <br/><br/>
       <Container maxWidth="md">
         <Paper elevation={3} style={{ padding: '20px', borderRadius: '10px' }}>
@@ -217,7 +228,7 @@ const JobPostForm = () => {
             </Grid>
           </Grid>
         </Paper>
-      </Container>
+      </Container><br/><br/>
     </div>
  
   );

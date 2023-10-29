@@ -94,11 +94,9 @@ const Content = () => {
               <TableCell className="tabal-color" align="right">
                 Job Level
               </TableCell>
-          
               <TableCell className="tabal-color" align="right">
                 Location
               </TableCell>
-             
               <TableCell className="tabal-color" align="right">
                 Actions
               </TableCell>
