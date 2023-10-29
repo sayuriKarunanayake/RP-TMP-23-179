@@ -50,6 +50,11 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 // Serve uploaded files
 app.use("/api", uploadRoutes)
 
+//IT20201296
+const ApplicationRouter = require("./routes/apply.js")
+app.use("/apply", ApplicationRouter)
+
+
 app.listen(PORT, () => {
   console.log(`Server up and running on port ${PORT}`)
 })
