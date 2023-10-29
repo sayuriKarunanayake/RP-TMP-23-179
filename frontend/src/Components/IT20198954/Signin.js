@@ -123,9 +123,9 @@ const Signin = () => {
 
   return (
     <center>  
-       <Container style={{ marginTop:"100px" }} component="main" maxWidth="1px" className={classes.root}>
+       <Container style={{ marginTop:"150px" }} component="main" maxWidth="1px" className={classes.root}>
          
-      <Paper elevation={5} maxWidth="md"   style={{ width: "33%" ,height:"auto" }}>
+      <Paper elevation={5} maxWidth="md"   style={{ width: "33%" ,height:"auto",marginBottom:"150px" }}>
         <br></br><Avatar style={{ backgroundColor: "#1976d2 " }} className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar><br></br>
