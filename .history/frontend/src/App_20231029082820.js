@@ -104,7 +104,6 @@ function App() {
       const result = response.data;
       setVerificationResult(result);
       setHeadPosePercentage(result.headPosePercentage); // Set head pose percentage state
-      setBlinkCount(result.blinkCount);
     } catch (error) {
       console.error('Error:', error);
     }
@@ -204,7 +203,6 @@ function App() {
             verificationResult={verificationResult}
             headPosePercentage={headPosePercentage}
             onVerifyClick={handleVerification} // Pass handleVerification function as prop
-            blinkCount={blinkCount}
           />} />
         </Routes>
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import './UploadForm.css'; // Import the CSS file
 
-function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPosePercentage, blinkCount, onVerifyClick }) {
+function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPosePercentage, onVerifyClick }) {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [, setSelectedImage] = useState(null);
   const [, setSelectedVideo] = useState(null);
@@ -30,7 +29,6 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
           <div className="head-pose-percentage">
             <p>Percentage looking forward: {headPosePercentage !== null ? `${headPosePercentage.toFixed(2)}%` : 'N/A'}</p>
           </div>
-
         </div>
       );
     } else {
@@ -55,101 +53,76 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
     }
   };
 
-  const displayBlinkCount = () => {
-    if (blinkCount !== null) {
-      return (
-        <div className="blink-count">
-          <p>Eye Blink Count: {blinkCount}</p>
-        </div>
-      );
-    } else {
-      return null;
-    }
-  };
-
-  const displayStressLevel = () => {
-    if (verificationResult !== null && verificationResult.stressLevel !== undefined) {
-      return (
-        <div className="stress-level">
-          <p>Stress Level (Above 100 = Stressed): {verificationResult.stressLevel.toFixed(2)}</p>
-        </div>
-      );
-    } else {
-      return null;
-    };
-  };
-
   return (
 
 
     <div>
 
-      <div class="containerD">
-        <div class="textD">
+      <div class="container">
+        <div class="text">
           Apply Here!
         </div>
-        <br />
 
         <form action="#">
 
-          <div class="form-rowD">
-            <div class="input-dataD">
+          <div class="form-row">
+            <div class="input-data">
               <input type="text" required />
-              <div class="underlineD"></div>
+              <div class="underline"></div>
               <label for="">Full Name</label>
             </div>
-            <div class="input-dataD">
+            <div class="input-data">
               <input type="text" required />
-              <div class="underlineD"></div>
+              <div class="underline"></div>
               <label for="">Phone Number</label>
             </div>
           </div>
 
-          <div class="form-rowD">
-            <div class="input-dataD">
+          <div class="form-row">
+            <div class="input-data">
               <input type="text" required />
-              <div class="underlineD"></div>
+              <div class="underline"></div>
               <label for="">Email</label>
             </div>
           </div>
 
 
 
-          <div class="form-rowD">
-            <div class="input-dataD">
+          <div class="form-row">
+            <div class="input-data">
               <input type="text" required />
-              <div class="underlineD"></div>
+              <div class="underline"></div>
               <label for="">Link to Your Video</label>
             </div>
           </div>
 
 
 
-          <div class="form-rowD">
-            <div class="input-dataD">
-              <div class="underlineD"></div>
-              <label class="form-labelD" for="customFile">Upload Your video (Some thing about you in 1 min)</label><br />
-              <input type="file" class="form-controlD" accept="video/*" onChange={handleVideoUpload} />
+          <div class="form-row">
+            <div class="input-data">
+              <div class="underline"></div>
+              <label class="form-label" for="customFile">Upload Your video (Some thing about you)</label><br />
+              <input type="file" class="form-control" accept="video/*" onChange={handleVideoUpload} />
             </div>
           </div>
 
           <br />
 
-          <div class="form-rowD">
-            <div class="input-dataD">
-              <div class="underlineD"></div>
-              <label class="form-labelD" for="customFile">Upload Your recently taken photo</label><br />
-              <input type="file" class="form-controlD" accept="image/*" onChange={handleImageUpload} />
+          <div class="form-row">
+            <div class="input-data">
+              <div class="underline"></div>
+              <label class="form-label" for="customFile">Upload Your recently taken photo</label><br />
+              <input type="file" class="form-control" accept="image/*" onChange={handleImageUpload} />
             </div>
           </div>
 
           <br />
 
-          <div class="form-rowD">
-            <div class="input-dataD">
-              <div class="underlineD"></div>
-              <label class="form-labelD" for="customFile">Upload Your CV</label><br />
-              <input type="file" class="form-controlD" id="customFile" />
+          <div class="form-row">
+            <div class="input-data">
+              <div class="underline"></div>
+              <label class="form-label" for="customFile">Upload Your CV</label><br />
+              <input type="file" class="form-control" id="customFile" />
             </div>
           </div>
 
@@ -158,19 +131,17 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <br />
 
-          <div className='form-rawD'>
-            <div className='input-dataD'>
+          <div className='form-raw'>
+            <div className='input-data'>
               {displayVerificationResult()}
               {displayProgressBar()}
-              {displayBlinkCount()} {/* Display blink count */}
-              {displayStressLevel()} {/* Display stress level */}
             </div>
           </div>
 
 
-          <div className="form-row submit-btnD">
-            <div className="input-dataD">
-              <div className="innerD"></div>
+          <div className="form-row submit-btn">
+            <div className="input-data">
+              <div className="inner"></div>
               {/* Call onVerifyClick (handleVerification) when the button is clicked */}
               <input type="submit" value="Submit" onClick={onVerifyClick} />
             </div>

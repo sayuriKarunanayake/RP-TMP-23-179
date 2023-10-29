@@ -204,7 +204,6 @@ function App() {
             verificationResult={verificationResult}
             headPosePercentage={headPosePercentage}
             onVerifyClick={handleVerification} // Pass handleVerification function as prop
-            blinkCount={blinkCount}
           />} />
         </Routes>
 
