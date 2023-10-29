@@ -31,7 +31,7 @@ function Resume() {
   //       Name: "John De Silva",
   //       Role: "Engineer",
   //       Objective:
-  //         "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem ",
+  //         "Enthusiastic person who has the determination to work smart not hard with the ability to learn & adapt to things quickly ",
   //     },
   //   ],
   //   Personal_Information: [
@@ -48,12 +48,17 @@ function Resume() {
   //       Phone: "+947677557890",
   //       Email: "john@gmail.com",
   //       Address: "Colombo",
-  //       GitHub: "GIT",
-  //       LinkedIn: "LINKEDIN",
+  //       GitHub: "GITj@github.com",
+  //       LinkedIn: "https://www.linkedin.com/in/John De Silva-13794322a/",
   //     },
   //   ],
   //   Education_Information: [
-  //     { Institute: "IIT", Qualification: "SE", Year: "2023" },
+  //     {
+  //       Institute: "Victoria University",
+  //       Qualification:
+  //         "Bachelor of Information Technology, Advanced Web & Mobile Application",
+  //       Year: "2021",
+  //     },
   //   ],
   //   Work_Experience_Information: [
   //     {
@@ -61,50 +66,50 @@ function Resume() {
   //       End_Date: "2022-06-30",
   //       Company: "Company ABC",
   //       Job_Description: "Full stack dev",
-  //       Job_Title: "Mr",
+  //       Job_Title: "Trainee",
   //     },
   //   ],
   //   Courses_Followed: [{ Course: "IT", Achieved_Year: "2021" }],
   //   Achievements: [
-  //     { Achievements: "Award 1" },
-  //     { Achievements: "Award 2" },
-  //     { Achievements: "Award 3" },
+  //     { Achievements: "Python Essential Training" },
+  //     { Achievements: "Designing RESTful APIs" },
+  //     // { Achievements: "Advanced Java Programming" },
   //   ],
   //   Projects: [
   //     {
   //       Project_Name: "Project 01",
   //       Project_Description:
-  //         "Description 01 Description 01 Description 01 Description 01 Description 01 Description 01 ",
-  //       Stacks: "Stack 01",
+  //         "This web site for public Transport reservation system. In the current situation  passengers have to waste time and undercity of the manual process. ",
+  //       Stacks: "HTML5, CSS, php, java Script, Xammp",
   //     },
-  //     {
-  //       Project_Name: "Project 02",
-  //       Project_Description:
-  //         "Description 02Description 02Description 02Description 02Description 02Description 02",
-  //       Stacks: "Stack 02",
-  //     },
-  //     {
-  //       Project_Name: "Project 03",
-  //       Project_Description:
-  //         "Description 02Description 02Description 02Description 02Description 02Description 02",
-  //       Stacks: "Stack 03",
-  //     },
+  //     // {
+  //     //   Project_Name: "Project 02",
+  //     //   Project_Description:
+  //     //     "Description 02Description 02Description 02Description 02Description 02Description 02",
+  //     //   Stacks: "Stack 02",
+  //     // },
+  //     // {
+  //     //   Project_Name: "Project 03",
+  //     //   Project_Description:
+  //     //     "Description 02Description 02Description 02Description 02Description 02Description 02",
+  //     //   Stacks: "Stack 03",
+  //     // },
   //   ],
   //   Technical_Skills: [
   //     { Technical_Skills: "PHP" },
   //     { Technical_Skills: "Java" },
-  //     { Technical_Skills: "Java" },
-  //     { Technical_Skills: "Java" },
-  //     { Technical_Skills: "Java" },
+  //     // { Technical_Skills: "Java" },
+  //     // { Technical_Skills: "Java" },
+  //     // { Technical_Skills: "Java" },
   //   ],
-  //   Skills: [{ Skills: "Time" }, { Skills: "Talk" }],
+  //   Skills: [{ Skills: "Team Work" }, { Skills: "Time Management" }],
   //   Languages: [{ Language: "English" }, { Language: "Sinhala" }],
   //   References_Information: [
   //     {
-  //       RefName: "Ref 01",
-  //       RefEmail: "ref@mail",
-  //       RefPhone: "00111111111",
-  //       RefDesignation: "ref",
+  //       RefName: "Mrs. Vasantha De Silva ",
+  //       RefEmail: "vasanthadesilva2009@gmail.com ",
+  //       RefPhone: " 0714319050",
+  //       RefDesignation: "Chartered Architect/ lecturer",
   //     },
   //   ],
   // }
@@ -239,7 +244,7 @@ function Resume() {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  mt: 2,
+                  mt: 3,
                   ml: -3,
                   pl: 3,
                   backgroundColor: "#355E3B",
@@ -247,10 +252,18 @@ function Resume() {
                   borderBottomRightRadius: "100px",
                 }}
               >
-                <img src={infoImage} alt="info" height={18} />
+                <img
+                  src={infoImage}
+                  alt="info"
+                  height={20}
+                  width={20}
+                  paddingBottom={2}
+                />
                 <Typography
+                  ml={2}
                   variant="h6"
                   color="white"
+                  paddingBottom={1}
                   fontWeight="bold"
                   sx={{ ml: 1 }}
                 >
@@ -267,6 +280,7 @@ function Resume() {
                   formData.Personal_Information.map((personalInfo, index) => (
                     <div key={index}>
                       <Typography
+                        ml={0}
                         variant="caption"
                         color="initial"
                         fontWeight="bold"
@@ -342,12 +356,19 @@ function Resume() {
                     borderBottomRightRadius: "100px",
                   }}
                 >
-                  <img src={ContactImage} alt="info" height={25} />
+                  <img
+                    src={ContactImage}
+                    alt="info"
+                    height={20}
+                    width={20}
+                    paddingBottom={2}
+                  />
                   <Typography
                     variant="h6"
                     color="white"
                     fontWeight="bold"
-                    sx={{ ml: 0.5 }}
+                    paddingBottom={1}
+                    sx={{ ml: 1 }}
                   >
                     Contact
                   </Typography>
@@ -386,12 +407,12 @@ function Resume() {
               </Box>
 
               {/* Skills section */}
-              <Box sx={{ mt: 7, mb: 3 }}>
+              <Box sx={{ mt: 10.2, mb: 3 }}>
                 <Box
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    mt: 2,
+                    mt: 8.5,
                     ml: -3,
                     pl: 3,
                     backgroundColor: "#355E3B",
@@ -399,12 +420,13 @@ function Resume() {
                     borderBottomRightRadius: "100px",
                   }}
                 >
-                  <img src={SkillsImage} alt="info" height={35} />
+                  <img src={SkillsImage} alt="info" height={20} width={20} />
                   <Typography
                     variant="h6"
                     color="white"
                     fontWeight="bold"
-                    sx={{ ml: 0.5 }}
+                    sx={{ ml: 1 }}
+                    paddingBottom={1}
                   >
                     Skills
                   </Typography>
@@ -441,12 +463,18 @@ function Resume() {
                     borderBottomRightRadius: "100px",
                   }}
                 >
-                  <img src={TechskillsImage} alt="info" height={20} />
+                  <img
+                    src={TechskillsImage}
+                    alt="info"
+                    height={20}
+                    width={20}
+                  />
                   <Typography
                     variant="h6"
                     color="white"
                     fontWeight="bold"
                     sx={{ ml: 1 }}
+                    paddingBottom={1}
                   >
                     Technical Skills
                   </Typography>
@@ -482,12 +510,18 @@ function Resume() {
                       borderBottomRightRadius: "100px",
                     }}
                   >
-                    <img src={LanguageImage} alt="info" height={25} />
+                    <img
+                      src={LanguageImage}
+                      alt="info"
+                      height={20}
+                      width={20}
+                    />
                     <Typography
                       variant="h6"
                       color="white"
                       fontWeight="bold"
-                      sx={{ ml: 0.5 }}
+                      sx={{ ml: 1 }}
+                      paddingBottom={1}
                     >
                       Languages
                     </Typography>
@@ -529,7 +563,7 @@ function Resume() {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    mt: 2,
+                    mt: 5,
                     mr: -3,
                     ml: -2,
                     pl: 2,
@@ -538,12 +572,13 @@ function Resume() {
                     borderBottomLeftRadius: "100px",
                   }}
                 >
-                  <img src={AboutmeImage} alt="info" height={25} />
+                  <img src={AboutmeImage} alt="info" height={20} width={20} />
                   <Typography
                     variant="h6"
                     color="white"
                     fontWeight="bold"
-                    sx={{ ml: 0.5 }}
+                    sx={{ ml: 1 }}
+                    paddingBottom={1}
                   >
                     About Me
                   </Typography>
@@ -576,12 +611,13 @@ function Resume() {
                     borderBottomLeftRadius: "100px",
                   }}
                 >
-                  <img src={EducationImage} alt="info" height={25} />
+                  <img src={EducationImage} alt="info" height={20} width={20} />
                   <Typography
                     variant="h6"
                     color="white"
                     fontWeight="bold"
-                    sx={{ ml: 0.5 }}
+                    sx={{ ml: 1 }}
+                    paddingBottom={1}
                   >
                     Education
                   </Typography>
@@ -656,12 +692,13 @@ function Resume() {
                     borderBottomLeftRadius: "100px",
                   }}
                 >
-                  <img src={WorkImage} alt="info" height={20} />
+                  <img src={WorkImage} alt="info" height={20} width={20} />
                   <Typography
                     variant="h6"
                     color="white"
                     fontWeight="bold"
-                    sx={{ ml: 0.5 }}
+                    sx={{ ml: 1 }}
+                    paddingBottom={1}
                   >
                     Work Experience
                   </Typography>
@@ -754,8 +791,14 @@ function Resume() {
                     borderBottomLeftRadius: "100px",
                   }}
                 >
-                  <img src={CoursesImage} alt="info" height={30} />
-                  <Typography variant="h6" color="white" fontWeight="bold">
+                  <img src={CoursesImage} alt="info" height={20} width={20} />
+                  <Typography
+                    variant="h6"
+                    color="white"
+                    fontWeight="bold"
+                    sx={{ ml: 1 }}
+                    paddingBottom={1}
+                  >
                     Courses Followed
                   </Typography>
                 </Box>
@@ -788,12 +831,13 @@ function Resume() {
                     borderBottomLeftRadius: "100px",
                   }}
                 >
-                  <img src={ProjImage} alt="info" height={30} />
+                  <img src={ProjImage} alt="info" height={20} width={20} />
                   <Typography
                     variant="h6"
                     color="white"
                     fontWeight="bold"
                     sx={{ ml: 1 }}
+                    paddingBottom={1}
                   >
                     Projects
                   </Typography>
@@ -861,7 +905,7 @@ function Resume() {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    mt: 2,
+                    mt: 5.5,
                     mr: -3,
                     ml: -2,
                     pl: 2,
@@ -870,12 +914,18 @@ function Resume() {
                     borderBottomLeftRadius: "100px",
                   }}
                 >
-                  <img src={AchievementsImage} alt="info" height={25} />
+                  <img
+                    src={AchievementsImage}
+                    alt="info"
+                    height={20}
+                    width={20}
+                  />
                   <Typography
                     variant="h6"
                     color="white"
                     fontWeight="bold"
                     sx={{ ml: 1 }}
+                    paddingBottom={1}
                   >
                     Achievements
                   </Typography>
@@ -910,12 +960,13 @@ function Resume() {
                       borderBottomLeftRadius: "100px",
                     }}
                   >
-                    <img src={RefImage} alt="info" height={25} />
+                    <img src={RefImage} alt="info" height={20} width={20} />
                     <Typography
                       variant="h6"
                       color="white"
                       fontWeight="bold"
                       sx={{ ml: 1 }}
+                      paddingBottom={1}
                     >
                       References
                     </Typography>
