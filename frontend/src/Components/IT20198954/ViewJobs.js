@@ -20,6 +20,9 @@ import axios from "axios";
 import Divider from "@mui/material/Divider";
 import { QuizContext } from "./QuizHolder";
 
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} size="large" />;
@@ -245,6 +248,22 @@ const JobView = () => {
 
   return (
     // <div className="job-recommendations">
+    <> 
+     <div role="presentation"  >
+    <Breadcrumbs aria-label="breadcrumb" marginLeft="100px" marginTop="20px">
+      <Link underline="hover" color="inherit" href="/dashboard">
+        Home
+      </Link>
+      <Link
+        underline="hover"
+        color="inherit"
+        href="/jobform"
+      >
+        Quiz
+      </Link>
+      <Typography color="text.primary">Job Recommendations</Typography>
+    </Breadcrumbs>
+    </div>
     <div
       className="job-recommendations"
       style={{
@@ -461,6 +480,7 @@ const JobView = () => {
         </Button>
       </div>
     </div>
+    </>
   );
 };
 

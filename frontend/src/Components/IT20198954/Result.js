@@ -48,7 +48,7 @@ export default function Result({ email }) {
       setExit(false);
     setStart(false);
     try {
-      const response = await axios.post("http://192.168.16.100:5001/recommend", {
+      const response = await axios.post("http://192.168.16.102:5001/recommend", {
         user_skills: userSkills,
       });
       if (response.status === 200) {

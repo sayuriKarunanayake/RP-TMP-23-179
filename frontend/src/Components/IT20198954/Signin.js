@@ -5,7 +5,7 @@ import logo from "../../Assets/IT20198954/q2.png";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import axios from "axios";
 import { toast , ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'; 
 import {
   Container,
   Grid,
@@ -80,19 +80,20 @@ const Signin = () => {
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
+   
 
   function sendData(e) {
     e.preventDefault();
 
     if (!email || !pwd) {
-      alert("Please provide both email and password");
+      toast.error('Please provide both email and password');
       return;
     } else if (
       !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
       )
     ) {
-      alert("Invalid email");
+      toast.error('Invalid email');
       return;
     }
 
@@ -105,11 +106,14 @@ const Signin = () => {
     axios
       .post(`http://localhost:8070/register/signin`, newRegister)
       .then(() => {
-        toast.success('Login successful');
-      //  navigation("/", { state: { email } });
-      localStorage.setItem("email", email);
+        console.error('Login success', newRegister);
+         
+        
+        localStorage.setItem("email", email);
         // navigation("/home", { state: { email } });
-        navigation("/dashboard", { state: { email } });  
+        toast.success('Login successful');
+        //navigation("/dashboard", { state: { email } });  
+        window.location = `/dashboard`;
       })
       .catch((err) => {
         //alert("Invalid email or password!");
@@ -118,9 +122,10 @@ const Signin = () => {
   }
 
   return (
-    <center>   <Container style={{ marginTop:"100px" }} component="main" maxWidth="1px" className={classes.root}>
+    <center>  
+       <Container style={{ marginTop:"150px" }} component="main" maxWidth="1px" className={classes.root}>
          
-      <Paper elevation={5} maxWidth="md"   style={{ width: "33%" ,height:"auto" }}>
+      <Paper elevation={5} maxWidth="md"   style={{ width: "33%" ,height:"auto",marginBottom:"150px" }}>
         <br></br><Avatar style={{ backgroundColor: "#1976d2 " }} className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar><br></br>
@@ -169,10 +174,10 @@ const Signin = () => {
           <Typography variant="body2"> 
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </Typography>
-        </form> <br></br>
-      </Paper>  <ToastContainer 
+        </form> <ToastContainer 
           position="top-center"
-          />
+          /> <br></br>
+      </Paper>   
       {/* <img src={logo} alt="logo" className={classes.logo} /> */}
     
     </Container></center>
