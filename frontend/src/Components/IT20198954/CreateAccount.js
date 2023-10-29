@@ -66,14 +66,14 @@ export default function AddUser() {
    }
 
   return (
-    <Container classname="containerQuiz" maxWidth="md">
-      <Grid container spacing={2} justifyContent="center" alignItems="center">
+    <Container classname="containerQuiz" maxWidth="md"  >
+      <Grid container spacing={2} justifyContent="center" alignItems="center" marginTop="60px">
         <Grid item xs={12}>
           <br></br>
-          <Typography variant="h4" align="center" gutterBottom>
+          <Typography variant="h4" align="center" gutterBottom marginLeft={20}>
             GREAT TO SEE YOU HERE!
           </Typography>
-          <Typography variant="body2" align="center">
+          <Typography variant="body2" align="center" marginLeft={25}>
             Join with us...
           </Typography>
         </Grid>  
@@ -104,7 +104,7 @@ export default function AddUser() {
             </Button>
           </div>
          </Grid>  
-        <Grid item xs={12} sm={6} md={8} lg={9}>
+        <Grid item xs={12} sm={6} md={8} lg={9} marginBottom="100px">
           <form onSubmit={sendData}>
             <TextField
               label="Name"
