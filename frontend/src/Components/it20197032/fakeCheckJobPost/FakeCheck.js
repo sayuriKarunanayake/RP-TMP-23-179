@@ -3,6 +3,10 @@ import axios from 'axios';
 import spinner from '../../../Assets/loader-unscreen.gif';
 import '../Styles.css';
 import { useLocation } from 'react-router-dom';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import { Typography } from '@mui/material';
+
 
 function FakeCheck() {
   const [jobDescription, setJobDescription] = useState('');
@@ -30,7 +34,15 @@ function FakeCheck() {
 
   return (
     <>
-      <br/><br/>
+      <div role="presentation"  >
+        <Breadcrumbs aria-label="breadcrumb" marginLeft="100px" marginTop="20px">
+          <Link underline="hover" color="inherit" href="/">
+            Dashboard
+          </Link>
+          <Typography color="text.primary">Scam Checker</Typography>
+        </Breadcrumbs>
+      </div>
+        <br/><br/>
       <div className="container2">
         <h1 style={{ textAlign: "center", color:"rgb(25, 118, 210)" }}>Job Scam Checker</h1>
         <img

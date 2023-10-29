@@ -151,32 +151,6 @@ const Headermain = () => {
             </List>
           </Popover>
 
-          {/* More Icon with Dropdown */}
-          <IconButton color="inherit" onClick={handleMoreClick}>
-            <MoreHorizIcon />
-          </IconButton>
-          <Popover
-            open={Boolean(moreAnchorEl)}
-            anchorEl={moreAnchorEl}
-            onClose={handleClose}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center',
-            }}
-          >
-            <List>
-              <ListItem button onClick={handleClose}component={Link} to="/jobList">
-                <ListItemText primary="Option 1" />
-              </ListItem>
-              {/* Add more items as needed */}
-            </List>
-          </Popover>
-          
-
         </HeaderIconsContainer>
       </Toolbar>
     </HeaderAppBar>
