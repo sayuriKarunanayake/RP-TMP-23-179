@@ -115,7 +115,7 @@ const Dashboard = () => {
                 }}
                 className="start-link"
               >
-                Resume Evaluator
+                Resume Enhancement
               </a>
             </Button>
             <Button

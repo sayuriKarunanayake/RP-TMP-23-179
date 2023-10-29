@@ -32,7 +32,7 @@ function FakeCheck() {
     <>
       <br/><br/>
       <div className="container2">
-        <h3 style={{ textAlign: "center" }}>Job Scam Checker</h3>
+        <h1 style={{ textAlign: "center", color:"rgb(25, 118, 210)" }}>Job Scam Checker</h1>
         <img
             className="title-image"
             src="https://www.launchpads.com.au/assets/css/icons/animated/search/animat-search-color.gif"

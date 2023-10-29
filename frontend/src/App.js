@@ -5,6 +5,7 @@ import "@mui/material"
 import "@mui/icons-material"
 import "@mui/system"
 import axios from 'axios';
+import Footer from "./layout/Footer";
 
 //IT20197032
 import JobPostForm from "./Components/it20197032/createJobPost/JobPostForm.js"
@@ -190,7 +191,7 @@ function App() {
 
             {/* Add this route */}
           </Routes>
-        </div>
+        
 
         {/* IT20201296 */}
         <Routes>
@@ -208,6 +209,8 @@ function App() {
           />} />
         </Routes>
 
+          <Footer/>
+        </div>
       </Router>
     </>
   )
