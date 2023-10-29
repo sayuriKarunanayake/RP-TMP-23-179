@@ -64,7 +64,7 @@ const ResumeHome = () => {
               {" "}
               <h1>
                 <strong style={{ color: "#1976d2" }}>
-                  Resume Optimizer and Enhancement System
+                  Resume Evaluator and Enhancement System
                 </strong>
               </h1>
             </center>

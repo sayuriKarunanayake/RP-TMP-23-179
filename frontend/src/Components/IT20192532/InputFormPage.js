@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import "./InputFormPage.css"
 import { Box } from "@mui/system"
 import Stepper from "@mui/material/Stepper"
@@ -9,6 +9,7 @@ import StepContent from "@mui/material/StepContent"
 import Button from "@mui/material/Button"
 import Paper from "@mui/material/Paper"
 import Typography from "@mui/material/Typography"
+
 import {
   FormControl,
   InputLabel,
@@ -326,11 +327,24 @@ function InputFormPage() {
     Language: ["English", "Sinhala", "Tamil", "French", "Spanish"],
   }
 
+  const buttonStyle = {
+    backgroundColor: "#1976d2",
+    color: "white",
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "5px",
+
+    hoover: "0.5s",
+    width: "175px",
+  }
   return (
     <>
       <div style={{ margin: "2% 5%", color: "#1976d2" }}>
         <h1 style={{ textAlign: "center" }}>Build Your Own Resume</h1>
-
+        <Button style={buttonStyle} as={Link} to="/ResumeHome">
+          Back
+        </Button>
+        <br></br> <br></br>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
             <Step key={step.label}>
