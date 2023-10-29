@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import { AppBar, Toolbar, Typography, IconButton, InputBase, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
@@ -70,7 +70,8 @@ const Headermain = () => {
 
   const [personAnchorEl, setPersonAnchorEl] = React.useState(null);
   const [moreAnchorEl, setMoreAnchorEl] = React.useState(null);
-
+  const [email, setEmail] = useState(localStorage.getItem("email"));
+  const [recemail, setRecEmail] = useState(localStorage.getItem("recemail"));
   const handlePersonClick = (event) => {
     setPersonAnchorEl(event.currentTarget);
   };
@@ -84,18 +85,29 @@ const Headermain = () => {
     setMoreAnchorEl(null);
   };
 
+ 
   const logout = () => {
     const token = localStorage.getItem("email");
+    const rectoken = localStorage.getItem("recemail");
   
-    if (token === null) {
-      // Token is not found in local storage
-     
-      window.location = "/";
-      
-    } else {
-      // Token is found in local storage 
-      
+    if (token !== null || rectoken !== null) {
+      // Clear the tokens from local storage
       localStorage.clear();
+    }
+  
+    // Redirect the user to the '/' route
+    window.location = "/";
+  }
+  
+  const handleHomeIconClick = () => {
+       if (email) {
+       
+      window.location = "/dashboard";
+    } else if(recemail) {
+      // User is not logged in, navigate to the home page
+      
+      window.location = "/";
+    }else{
       window.location = "/";
     }
   }
@@ -107,7 +119,10 @@ const Headermain = () => {
         <HeaderLogo src={LinkedInLogo} alt="LinkedIn Logo" />
         
         <HeaderIconsContainer>
-          <IconButton color="inherit" component={Link} to="/">
+          {/* <IconButton color="inherit" component={Link} to="/">
+            <HomeIcon />
+          </IconButton> */}
+          <IconButton color="inherit" onClick={handleHomeIconClick}>
             <HomeIcon />
           </IconButton>
           {/* Person Icon with Dropdown */}
