@@ -17,10 +17,6 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
   const [videoLink, setvideoLink] = useState("");
   const [cvLink, setcvLink] = useState("");
 
-
- 
-
-
   const newApply = {
     fullName,
     phoneNo,
@@ -35,7 +31,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
   const handleSubmit = (e) => {
 
     e.preventDefault();
-    axios.post("http://localhost:8070/apply/addApplications", newApply)
+    axios.post("http://localhost:8070/addApplications", newApply)
       .then(() => {
         alert("Job Applied Successfully");
         window.location = `/home`;
@@ -143,12 +139,12 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setfullName(e.target.value)} required />
+              <input type="text" onChange={(e) => setfullName(e.target.value)} required/>
               <div class="underlineD"></div>
               <label for="">Full Name</label>
             </div>
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setphoneNo(e.target.value)} required />
+              <input type="text" onChange={(e) => setphoneNo(e.target.value)} required/>
               <div class="underlineD"></div>
               <label for="">Phone Number</label>
             </div>
@@ -156,7 +152,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setemail(e.target.value)} required />
+              <input type="text" onChange={(e) => setemail(e.target.value)} required/>
               <div class="underlineD"></div>
               <label for="">Email</label>
             </div>
@@ -164,7 +160,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setvideoLink(e.target.value)} required />
+              <input type="text" onChange={(e) => setvideoLink(e.target.value)} required/>
               <div class="underlineD"></div>
               <label for="">Link to Your Video</label>
             </div>
@@ -172,7 +168,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setcvLink(e.target.value)} required />
+              <input type="text" onChange={(e) => setcvLink(e.target.value)} required/>
               <div class="underlineD"></div>
               <label for="">Link to Your CV</label>
             </div>
@@ -235,7 +231,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
                 className='button12'
                 type="submit"
                 value="Submit"
-
+               
               >
                 Submit2
               </button>

@@ -18,7 +18,8 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
   const [cvLink, setcvLink] = useState("");
 
 
- 
+  const { id } = useParams();
+  console.log('job ID:', id);
 
 
   const newApply = {
@@ -35,7 +36,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
   const handleSubmit = (e) => {
 
     e.preventDefault();
-    axios.post("http://localhost:8070/apply/addApplications", newApply)
+    axios.post("http://localhost:8070/addApplications", newApply)
       .then(() => {
         alert("Job Applied Successfully");
         window.location = `/home`;

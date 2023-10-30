@@ -17,10 +17,6 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
   const [videoLink, setvideoLink] = useState("");
   const [cvLink, setcvLink] = useState("");
 
-
- 
-
-
   const newApply = {
     fullName,
     phoneNo,
@@ -32,10 +28,41 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
 
 
+
+
+
   const handleSubmit = (e) => {
 
+
+    //form input validations
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
+      alert("Invalid Email!");
+      return
+    }
+    else if (!(fullName.trim().length > 5)) {
+      alert("Invalid Full Name!")
+      return
+    }
+    else if (!(videoLink.trim().length > 5)) {
+      alert("Invalid Full Name!")
+      return
+    }
+    else if (!(cvLink.trim().length > 5)) {
+      alert("Invalid Full Name!")
+      return
+    }
+    else if (phoneNo.trim().length != 10) {
+      alert("Invalid Phone Number!");
+      return
+    }
+
+
     e.preventDefault();
-    axios.post("http://localhost:8070/apply/addApplications", newApply)
+
+
+
+
+    axios.post("http://localhost:8070/addApplications", newApply)
       .then(() => {
         alert("Job Applied Successfully");
         window.location = `/home`;
@@ -124,6 +151,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
   return (
 
+
     <div>
       <div role="presentation"  >
         <Breadcrumbs aria-label="breadcrumb" marginLeft="100px" marginTop="20px">
@@ -143,12 +171,12 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setfullName(e.target.value)} required />
+              <input type="text" onChange={(e) => setfullName(e.target.value)} />
               <div class="underlineD"></div>
               <label for="">Full Name</label>
             </div>
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setphoneNo(e.target.value)} required />
+              <input type="text" onChange={(e) => setphoneNo(e.target.value)} />
               <div class="underlineD"></div>
               <label for="">Phone Number</label>
             </div>
@@ -156,15 +184,17 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setemail(e.target.value)} required />
+              <input type="text" onChange={(e) => setemail(e.target.value)} />
               <div class="underlineD"></div>
               <label for="">Email</label>
             </div>
           </div>
 
+
+
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setvideoLink(e.target.value)} required />
+              <input type="text" onChange={(e) => setvideoLink(e.target.value)} />
               <div class="underlineD"></div>
               <label for="">Link to Your Video</label>
             </div>
@@ -172,7 +202,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setcvLink(e.target.value)} required />
+              <input type="text" onChange={(e) => setcvLink(e.target.value)} />
               <div class="underlineD"></div>
               <label for="">Link to Your CV</label>
             </div>
@@ -223,21 +253,6 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
                 onClick={onVerifyClick}
               >
                 Submit
-              </button>
-            </div>
-          </div>
-
-          <div className="form-row submit-btnD">
-            <div className="input-dataD">
-              <div className="innerD"></div>
-              {/* Call onVerifyClick (handleVerification) when the button is clicked */}
-              <button
-                className='button12'
-                type="submit"
-                value="Submit"
-
-              >
-                Submit2
               </button>
             </div>
           </div>

@@ -4,47 +4,17 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Typography } from '@mui/material';
 import { useParams } from 'react-router';
-import axios from 'axios';
 
 function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPosePercentage, blinkCount, onVerifyClick }) {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  const [fullName, setfullName] = useState("");
-  const [phoneNo, setphoneNo] = useState("");
-  const [email, setemail] = useState("");
-  const [videoLink, setvideoLink] = useState("");
-  const [cvLink, setcvLink] = useState("");
+    // Regular expression for validating phone number (10 digits)
+    const phoneRegex = /^\d{10}$/;
 
-
- 
-
-
-  const newApply = {
-    fullName,
-    phoneNo,
-    email,
-    videoLink,
-    cvLink
-
-  };
-
-
-
-  const handleSubmit = (e) => {
-
-    e.preventDefault();
-    axios.post("http://localhost:8070/apply/addApplications", newApply)
-      .then(() => {
-        alert("Job Applied Successfully");
-        window.location = `/home`;
-      })
-      .catch((err) => {
-        alert(err.response.data.message);
-        console.log(err.message);
-      });
-  };
+    // Regular expression for validating email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const { id } = useParams();
   console.log('job ID:', id);
@@ -122,7 +92,16 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
     };
   };
 
+  const handlePhoneNumberChange = (e) => {
+    setPhoneNumber(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
   return (
+
 
     <div>
       <div role="presentation"  >
@@ -139,16 +118,16 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
         </div>
         <br />
 
-        <form onSubmit={handleSubmit}>
+        <form action="#">
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setfullName(e.target.value)} required />
+              <input type="text" required />
               <div class="underlineD"></div>
               <label for="">Full Name</label>
             </div>
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setphoneNo(e.target.value)} required />
+              <input type="text" required />
               <div class="underlineD"></div>
               <label for="">Phone Number</label>
             </div>
@@ -156,15 +135,17 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setemail(e.target.value)} required />
+              <input type="text" required />
               <div class="underlineD"></div>
               <label for="">Email</label>
             </div>
           </div>
 
+
+
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setvideoLink(e.target.value)} required />
+              <input type="text" required />
               <div class="underlineD"></div>
               <label for="">Link to Your Video</label>
             </div>
@@ -172,7 +153,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text" onChange={(e) => setcvLink(e.target.value)} required />
+              <input type="text"  />
               <div class="underlineD"></div>
               <label for="">Link to Your CV</label>
             </div>
@@ -223,21 +204,6 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
                 onClick={onVerifyClick}
               >
                 Submit
-              </button>
-            </div>
-          </div>
-
-          <div className="form-row submit-btnD">
-            <div className="input-dataD">
-              <div className="innerD"></div>
-              {/* Call onVerifyClick (handleVerification) when the button is clicked */}
-              <button
-                className='button12'
-                type="submit"
-                value="Submit"
-
-              >
-                Submit2
               </button>
             </div>
           </div>
