@@ -139,7 +139,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
           <div class="form-rowD">
             <div class="input-dataD">
-              <input type="text"  />
+              <input type="text" onChange={(e) => setcvLink(e.target.value)} />
               <div class="underlineD"></div>
               <label for="">Link to Your CV</label>
             </div>

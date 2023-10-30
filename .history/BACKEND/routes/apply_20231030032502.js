@@ -2,14 +2,14 @@ const router = require("express").Router();
 let Applications = require("../models/Apply");
 
 //add route
-router.route("/addApplications").post((req, res) => {
+router.route("/addApplications").post((req,res)=>{
     const fullName = req.body.fullName;
     const phoneNo = req.body.phoneNo;
     const email = req.body.email;
     const videoLink = req.body.videoLink;
     const linkedIn = req.body.linkedIn;
     const jobid = req.body.jobid;
-
+    
 
     //create obj.
     const newApplications = new Applications({
@@ -21,33 +21,33 @@ router.route("/addApplications").post((req, res) => {
         jobid
     })
 
-    newApplications.save().then(() => {
+    newApplications.save().then(()=>{
         res.json("New Application saved successfully")
-    }).catch((err) => {
+    }).catch((err)=>{
         console.log(err);
-        res.status(401).send({ message: 'Error saving new application' });
+        res.status(401).send({message:'Error saving new application'});
     })
 })
 
 
 //get all 
-router.route("/getallapp").get((req, res) => {
-    Applications.find().then((application) => {
+router.route("/getallapp").get((req,res)=>{
+    Applications.find().then((application)=>{
         res.json(application)
-    }).catch((err) => {
+    }).catch((err)=>{
         console.log(err);
     })
 
 })
 
 //delete
-router.route("/deleteAppl/:id").delete(async (req, res) => {
+router.route("/deleteAppl/:id").delete(async(req,res)=>{
     let userId = req.params.id;
-    await Applications.findByIdAndDelete(userId).then(() => {
-        res.status(200).send({ status: "Application deleted" });
-    }).catch((err) => {
+    await Applications.findByIdAndDelete(userId).then(()=>{
+        res.status(200).send({status:"Application deleted"});
+    }).catch((err)=>{
         console.log(err.message);
-        res.status(500).send({ status: "Error with deletion", error: err.message });
+        res.status(500).send({status:"Error with deletion", error:err.message});
     })
 })
 

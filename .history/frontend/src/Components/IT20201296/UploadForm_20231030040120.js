@@ -20,7 +20,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
   };
 
   const handleVideoUpload = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files[0];s
     onVideoUpload(file, setUploadProgress);
     setSelectedVideo(URL.createObjectURL(file)); // Display selected video
   };
@@ -137,19 +137,12 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
             </div>
           </div>
 
-          <div class="form-rowD">
-            <div class="input-dataD">
-              <input type="text"  />
-              <div class="underlineD"></div>
-              <label for="">Link to Your CV</label>
-            </div>
-          </div>
+
 
           <div class="form-rowD">
             <div class="input-dataD">
               <div class="underlineD"></div>
               <label class="form-labelD" for="customFile">Upload Your video (Some thing about you in 1 min)</label><br />
-              {selectedVideo && <video src={selectedVideo} controls width="200" height="150" />}
               <input type="file" class="form-controlD" accept="video/*" onChange={handleVideoUpload} />
             </div>
           </div>
@@ -160,13 +153,23 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
             <div class="input-dataD">
               <div class="underlineD"></div>
               <label class="form-labelD" for="customFile">Upload Your recently taken photo</label><br />
-              {selectedImage && <img src={selectedImage} alt="Selected" width="200" height="150" />}
               <input type="file" class="form-controlD" accept="image/*" onChange={handleImageUpload} />
             </div>
           </div>
 
           <br />
+
+          <div class="form-rowD">
+            <div class="input-dataD">
+              <div class="underlineD"></div>
+              <label class="form-labelD" for="customFile">Upload Your CV</label><br />
+              <input type="file" class="form-controlD" id="customFile" />
+            </div>
+          </div>
+
           <br />
+
+
           <br />
 
           <div className='form-rawD'>
@@ -183,14 +186,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
             <div className="input-dataD">
               <div className="innerD"></div>
               {/* Call onVerifyClick (handleVerification) when the button is clicked */}
-              <button
-                className='button12'
-                type="submit"
-                value="Submit"
-                onClick={onVerifyClick}
-              >
-                Submit
-              </button>
+              <input type="submit" value="Submit" onClick={onVerifyClick} />
             </div>
           </div>
 

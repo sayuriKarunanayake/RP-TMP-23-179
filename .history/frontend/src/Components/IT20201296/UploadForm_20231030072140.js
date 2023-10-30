@@ -137,13 +137,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
             </div>
           </div>
 
-          <div class="form-rowD">
-            <div class="input-dataD">
-              <input type="text"  />
-              <div class="underlineD"></div>
-              <label for="">Link to Your CV</label>
-            </div>
-          </div>
+
 
           <div class="form-rowD">
             <div class="input-dataD">
@@ -166,7 +160,18 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
           </div>
 
           <br />
+
+          <div class="form-rowD">
+            <div class="input-dataD">
+              <div class="underlineD"></div>
+              <label class="form-labelD" for="customFile">Upload Your CV</label><br />
+              <input type="file" class="form-controlD" id="customFile" />
+            </div>
+          </div>
+
           <br />
+
+
           <br />
 
           <div className='form-rawD'>
