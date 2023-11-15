@@ -243,7 +243,7 @@ const JobView = () => {
 
 
   const handleApplyClick = () => {
-    navigate('/applyform');
+    navigate(`/applyform/${filteredJobPosts._Id}`);
   };
 
   return (

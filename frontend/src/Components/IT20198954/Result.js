@@ -46,7 +46,7 @@ export default function Result({ email }) {
     // e.preventDefault();
     if(correct >= 7 ){
       setExit(false);
-      setStart(false);
+    setStart(false);
     try {
       const response = await axios.post("http://127.0.0.1:5001/recommend", {
         user_skills: userSkills,
@@ -263,7 +263,7 @@ export default function Result({ email }) {
                         textAlign: "center",
                       }}
                     >
-                      Next
+                      Test
                     </Button>
                   </center>
                 </TableBody>
