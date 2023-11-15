@@ -12,7 +12,7 @@ const Pmlist = () => {
 
     useEffect(() => {
       // Fetch job posts from the Node.js backend
-      axios.get("https://itconnect-backend-8c64d94c6e02.herokuapp.com/job/getalljob")
+      axios.get("http://localhost:8070/job/getalljob")
         .then(response => {
           setJobPosts(response.data);
         })

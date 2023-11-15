@@ -203,7 +203,7 @@ useEffect(() => {
 
 const getResults = async () => {
   try {
-    const response = await axios.get(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/result/find/${email}`);
+    const response = await axios.get(`http://localhost:8070/result/find/${email}`);
     
     if (response.status === 200 && response.data.success) {
       setResultsData(response.data.data);

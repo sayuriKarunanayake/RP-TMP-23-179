@@ -40,7 +40,7 @@ export default function AddUser() {
     console.log("Before Axios request", newUser);
  
     axios
-    .post(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/register/adduser`, newUser)
+    .post(`http://localhost:8070/register/adduser`, newUser)
     .then((response) => {
       console.log("Response:", response.data);
       alert("Thanks for joining!");
@@ -54,7 +54,7 @@ export default function AddUser() {
 
     
   //   axios
-  //     .post(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/register/adduser`, newUser)
+  //     .post(`http://localhost:8070/register/adduser`, newUser)
   //     .then(() => {
   //       alert("Thanks for joining!");
   //       window.location = `/signin`;

@@ -35,7 +35,7 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
   const handleSubmit = (e) => {
 
     e.preventDefault();
-    axios.post("https://itconnect-backend-8c64d94c6e02.herokuapp.com/apply/addApplications", newApply)
+    axios.post("http://localhost:8070/apply/addApplications", newApply)
       .then(() => {
         alert("Job Applied Successfully");
         window.location = `/dashboard`;

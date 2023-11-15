@@ -32,7 +32,7 @@ export default function RecruiterLogin() {
       }
   
       try {
-        const response = await axios.post('https://itconnect-backend-8c64d94c6e02.herokuapp.com/recruiter/login', { workMail: email, pwd: password });
+        const response = await axios.post('http://localhost:8070/recruiter/login', { workMail: email, pwd: password });
   
         if (response.data.success) {
             console.error('Login success', error.message);

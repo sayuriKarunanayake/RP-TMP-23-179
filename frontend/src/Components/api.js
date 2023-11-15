@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "https://itconnect-backend-8c64d94c6e02.herokuapp.com/api" // Update with your backend URL
+const API_URL = "http://localhost:8070/api" // Update with your backend URL
 
 export const uploadFile = (formData) =>
   axios.post(`${API_URL}/upload`, formData)

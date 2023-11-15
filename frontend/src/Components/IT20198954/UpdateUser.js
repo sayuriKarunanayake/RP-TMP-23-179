@@ -48,7 +48,7 @@ const navigate = useNavigate()
 
     try {
       const response = await axios.put(
-        `https://itconnect-backend-8c64d94c6e02.herokuapp.com/register/updateuser/${user._id}`,
+        `http://localhost:8070/register/updateuser/${user._id}`,
         updatedUser
       );
 

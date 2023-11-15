@@ -104,7 +104,7 @@ const Signin = () => {
 
     
     axios
-      .post(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/register/signin`, newRegister)
+      .post(`http://localhost:8070/register/signin`, newRegister)
       .then(() => {
         console.error('Login success', newRegister);
          
@@ -230,7 +230,7 @@ export default Signin;
 //     console.log("Email after setting:", email);
 
 //     axois
-//       .post(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/register/signin`, newRegister)
+//       .post(`http://localhost:8070/register/signin`, newRegister)
 //       .then(() => {
 //         alert("Sign in successfully!");
 

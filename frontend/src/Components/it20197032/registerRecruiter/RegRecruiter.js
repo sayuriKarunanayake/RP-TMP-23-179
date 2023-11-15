@@ -39,7 +39,7 @@ const RegRecruiter = () => {
 
     validationSchema: validationSchema,
     onSubmit: (newRecruiter) => {
-      axios.post("https://itconnect-backend-8c64d94c6e02.herokuapp.com/recruiter/addRecruiter", newRecruiter)
+      axios.post("http://localhost:8070/recruiter/addRecruiter", newRecruiter)
       .then(() => {
         alert("Recruiter Registration Successful!");
         window.location = `/recruiterLogin`;

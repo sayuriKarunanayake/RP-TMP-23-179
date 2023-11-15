@@ -17,7 +17,7 @@ const NavBar = () => {
   //   // Moved the API call inside useEffect
   //   const getUser = async () => {
   //     try {
-  //       const result = await axios.get(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/register/find/${email}`);
+  //       const result = await axios.get(`http://localhost:8070/register/find/${email}`);
   //       setUserData(result.data.data);
   //       console.log(UserData, "UserData nav bar");
   //     } catch (err) {
@@ -103,7 +103,7 @@ export default NavBar;
 //     // Moved the API call inside useEffect
 //     const getUser = async () => {
 //       try {
-//         const result = await axios.get(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/register/find/${email}`);
+//         const result = await axios.get(`http://localhost:8070/register/find/${email}`);
 //         setUserData(result.data.data);
 //         console.log(UserData, "UserData nav bar");
 //       } catch (err) {
