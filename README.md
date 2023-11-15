@@ -7,11 +7,11 @@ Sub objectives -
 
 *  Accurate classification of fake job posts
 
-*  To recommend personalized jobs based on user’s skill test results and resume data
+*  To recommend personalized jobs based on user’s skill test results
 
 *  Identify candidates' confident level by non￾verbal behaviors
 
-*  CV recommendation and enhancement system.
+*  CV evaluation and enhancement system.
 
 
 Main research problem - How an effective job portal benefits both job seeks and recruiters ?
