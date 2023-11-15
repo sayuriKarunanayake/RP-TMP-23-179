@@ -43,7 +43,7 @@ const JobPostForm = () => {
         recruiterID
       };
 
-      axios.post("http://localhost:8070/job/addjob", newJob)
+      axios.post("https://itconnect-backend-8c64d94c6e02.herokuapp.com/job/addjob", newJob)
         .then(() => {
           alert("Job Post Added Successfully");
           window.location = `/profile/${id}`;

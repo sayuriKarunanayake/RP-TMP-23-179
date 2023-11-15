@@ -1,75 +1,132 @@
 /* styles.css */
 
+/* Container Styles */
 .containerD {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5f5;
+  padding: 40px;
+  background-color: #ffffff;
   border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
+/* Heading Styles */
 .textD {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  color: #007bff;
 }
 
+/* Form Row Styles */
 .form-rowD {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
+/* Input Field Styles */
 .input-dataD {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .input-dataD input[type="text"],
 .input-dataD input[type="file"] {
-  width: 100%;
-  padding: 10px;
+  width: calc(100% - 20px);
+  padding: 12px;
   font-size: 16px;
   border: none;
-  border-bottom: 1px solid #333;
+  border-bottom: 2px solid #000000;
   background-color: transparent;
   outline: none;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.input-dataD input[type="text"]:focus,
+.input-dataD input[type="file"]:focus {
+  border-color: #ffffff;
 }
 
 .input-dataD .underlineD {
   position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: #333;
+  width: calc(100% - 20px);
+  height: 2px;
+  background-color: #007bff;
   bottom: 0;
-  left: 0;
+  left: 10px;
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.input-dataD input:focus + .underlineD {
+  transform: scaleX(1);
 }
 
 .input-dataD label {
   position: absolute;
   top: -20px;
-  left: 0;
+  left: 10px;
   font-size: 14px;
-  color: #333;
+  color: #000000;
+  background-color: #f5fbff;
+  padding: 0 5px;
+  transition: all 0.3s ease;
 }
 
+.input-dataD input:focus + label {
+  top: -35px;
+  font-size: 12px;
+}
+
+/* Form Label Styles */
 .form-labelD {
   font-size: 14px;
   color: #333;
+  margin-bottom: 5px;
+  display: block;
 }
 
+/* Form Control Styles */
 .form-controlD {
   margin-top: 10px;
 }
 
+/* Submit Button Styles */
 .submit-btnD input[type="submit"] {
-  background-color: #979ff8;
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 14px 28px;
   font-size: 18px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .submit-btnD input[type="submit"]:hover {
-  background-color: #8254d8;
+  background-color: #0056b3;
 }
+
+.button12 {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #87b5ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.button12:hover {
+  background-color: #496991;
+}
+
+.button12:active {
+  background-color: #7a5ffe;
+}
+

@@ -4,11 +4,47 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Typography } from '@mui/material';
 import { useParams } from 'react-router';
+import axios from 'axios';
 
 function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPosePercentage, blinkCount, onVerifyClick }) {
   const [uploadProgress, setUploadProgress] = useState(0);
-  const [, setSelectedImage] = useState(null);
-  const [, setSelectedVideo] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const [fullName, setfullName] = useState("");
+  const [phoneNo, setphoneNo] = useState("");
+  const [email, setemail] = useState("");
+  const [videoLink, setvideoLink] = useState("");
+  const [cvLink, setcvLink] = useState("");
+
+
+ 
+
+
+  const newApply = {
+    fullName,
+    phoneNo,
+    email,
+    videoLink,
+    cvLink
+
+  };
+
+
+
+  const handleSubmit = (e) => {
+
+    e.preventDefault();
+    axios.post("https://itconnect-backend-8c64d94c6e02.herokuapp.com/apply/addApplications", newApply)
+      .then(() => {
+        alert("Job Applied Successfully");
+        window.location = `/dashboard`;
+      })
+      .catch((err) => {
+        alert(err.response.data.message);
+        console.log(err.message);
+      });
+  };
 
   const { id } = useParams();
   console.log('job ID:', id);
@@ -88,61 +124,30 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
 
   return (
 
-
     <div>
-         <div role="presentation"  >
-          <Breadcrumbs aria-label="breadcrumb" marginLeft="100px" marginTop="20px">
-            <Link underline="hover" color="inherit" href="/joblist">
-              Jobs
-            </Link>
-            <Typography color="text.primary">Breadcrumbs</Typography>
-          </Breadcrumbs>
-        </div>
+      <div role="presentation"  >
+        <Breadcrumbs aria-label="breadcrumb" marginLeft="100px" marginTop="20px">
+          <Link underline="hover" color="inherit" href="/joblist">
+            Jobs
+          </Link>
+          <Typography color="text.primary">Breadcrumbs</Typography>
+        </Breadcrumbs>
+      </div>
       <div class="containerD">
         <div class="textD">
           Apply Here!
         </div>
         <br />
 
-        <form action="#">
+        <form onSubmit={handleSubmit}>
 
-          <div class="form-rowD">
-            <div class="input-dataD">
-              <input type="text" required />
-              <div class="underlineD"></div>
-              <label for="">Full Name</label>
-            </div>
-            <div class="input-dataD">
-              <input type="text" required />
-              <div class="underlineD"></div>
-              <label for="">Phone Number</label>
-            </div>
-          </div>
-
-          <div class="form-rowD">
-            <div class="input-dataD">
-              <input type="text" required />
-              <div class="underlineD"></div>
-              <label for="">Email</label>
-            </div>
-          </div>
-
-
-
-          <div class="form-rowD">
-            <div class="input-dataD">
-              <input type="text" required />
-              <div class="underlineD"></div>
-              <label for="">Link to Your Video</label>
-            </div>
-          </div>
-
-
+          
 
           <div class="form-rowD">
             <div class="input-dataD">
               <div class="underlineD"></div>
               <label class="form-labelD" for="customFile">Upload Your video (Some thing about you in 1 min)</label><br />
+              {selectedVideo && <video src={selectedVideo} controls width="200" height="150" />}
               <input type="file" class="form-controlD" accept="video/*" onChange={handleVideoUpload} />
             </div>
           </div>
@@ -153,23 +158,13 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
             <div class="input-dataD">
               <div class="underlineD"></div>
               <label class="form-labelD" for="customFile">Upload Your recently taken photo</label><br />
+              {selectedImage && <img src={selectedImage} alt="Selected" width="200" height="150" />}
               <input type="file" class="form-controlD" accept="image/*" onChange={handleImageUpload} />
             </div>
           </div>
 
           <br />
-
-          <div class="form-rowD">
-            <div class="input-dataD">
-              <div class="underlineD"></div>
-              <label class="form-labelD" for="customFile">Upload Your CV</label><br />
-              <input type="file" class="form-controlD" id="customFile" />
-            </div>
-          </div>
-
           <br />
-
-
           <br />
 
           <div className='form-rawD'>
@@ -186,7 +181,66 @@ function UploadForm({ onImageUpload, onVideoUpload, verificationResult, headPose
             <div className="input-dataD">
               <div className="innerD"></div>
               {/* Call onVerifyClick (handleVerification) when the button is clicked */}
-              <input type="submit" value="Submit" onClick={onVerifyClick} />
+              <button
+                className='button12'
+                type="submit"
+                value="Submit"
+                onClick={onVerifyClick}
+              >
+                Verify
+              </button>
+            </div>
+          </div>
+
+          <div class="form-rowD">
+            <div class="input-dataD">
+              <input type="text" onChange={(e) => setfullName(e.target.value)} required />
+              <div class="underlineD"></div>
+              <label for="">Full Name</label>
+            </div>
+            <div class="input-dataD">
+              <input type="text" onChange={(e) => setphoneNo(e.target.value)} required />
+              <div class="underlineD"></div>
+              <label for="">Phone Number</label>
+            </div>
+          </div>
+
+          <div class="form-rowD">
+            <div class="input-dataD">
+              <input type="text" onChange={(e) => setemail(e.target.value)} required />
+              <div class="underlineD"></div>
+              <label for="">Email</label>
+            </div>
+          </div>
+
+          <div class="form-rowD">
+            <div class="input-dataD">
+              <input type="text" onChange={(e) => setvideoLink(e.target.value)} required />
+              <div class="underlineD"></div>
+              <label for="">Link to Your Video</label>
+            </div>
+          </div>
+
+          <div class="form-rowD">
+            <div class="input-dataD">
+              <input type="text" onChange={(e) => setcvLink(e.target.value)} required />
+              <div class="underlineD"></div>
+              <label for="">Link to Your CV</label>
+            </div>
+          </div>
+
+          <div className="form-row submit-btnD">
+            <div className="input-dataD">
+              <div className="innerD"></div>
+              {/* Call onVerifyClick (handleVerification) when the button is clicked */}
+              <button
+                className='button12'
+                type="submit"
+                value="Submit"
+
+              >
+                Submit2
+              </button>
             </div>
           </div>
 

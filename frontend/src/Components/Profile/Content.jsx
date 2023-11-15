@@ -19,7 +19,7 @@ const Content = () => {
 
   useEffect(() => {
     // Fetch job posts from the Node.js backend
-    axios.get("http://localhost:8070/job/getalljob")
+    axios.get("https://itconnect-backend-8c64d94c6e02.herokuapp.com/job/getalljob")
       .then(response => {
         setJobDetails(response.data);
       })
@@ -54,7 +54,7 @@ const Content = () => {
     const deleteJob = async (jobId) => {
       try {
         // Make a DELETE request to delete the job post
-        await axios.delete(`http://localhost:8070/job/deletejob/${jobId}`);
+        await axios.delete(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/job/deletejob/${jobId}`);
         alert('Job post deleted successfully!');
         window.location.reload();//refresh page
 

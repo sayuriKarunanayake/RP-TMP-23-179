@@ -21,7 +21,7 @@ const TopBanner = () => {
   useEffect(() => {
     const fetchRecruiterDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:8070/recruiter/getRecuiter/${id}`,{ _id:id});
+        const response = await axios.get(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/recruiter/getRecuiter/${id}`,{ _id:id});
         setRecruiterDetails(response.data.Recruiter);
         console.log(response.data.Recruiter.firstName);
         console.log(response.data.Recruiter.currentJob);
@@ -52,10 +52,10 @@ const TopBanner = () => {
 
   const handleUpdateProfile = async () => {
     try {
-      await axios.put(`http://localhost:8070/recruiter/updateRecuiter/${id}`, editedDetails);
+      await axios.put(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/recruiter/updateRecuiter/${id}`, editedDetails);
       alert("Update successful !")
       // After the update, you might want to fetch the updated details again
-      const response = await axios.get(`http://localhost:8070/recruiter/getRecuiter/${id}`);
+      const response = await axios.get(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/recruiter/getRecuiter/${id}`);
       setRecruiterDetails(response.data.Recruiter);
       setEditing(false);
     } catch (error) {

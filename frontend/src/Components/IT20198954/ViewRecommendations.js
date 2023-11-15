@@ -33,7 +33,7 @@ function ViewRecommendations() {
   console.log("Before Axios request", newResult);
 
   axios
-    .post(`http://localhost:8070/result/addresults`, newResult)
+    .post(`https://itconnect-backend-8c64d94c6e02.herokuapp.com/result/addresults`, newResult)
     .then((response) => {
       console.log("Response:", response.data);
       // alert("Thanks for joining!");

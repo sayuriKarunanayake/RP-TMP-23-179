@@ -13,7 +13,7 @@ const JobList = () => {
 
     useEffect(() => {
       // Fetch job posts from the Node.js backend
-      axios.get("http://localhost:8070/job/getalljob")
+      axios.get("https://itconnect-backend-8c64d94c6e02.herokuapp.com/job/getalljob")
         .then(response => {
           setJobPosts(response.data);
           console.log(response.data);

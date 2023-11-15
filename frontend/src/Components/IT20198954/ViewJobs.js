@@ -84,7 +84,7 @@ const JobView = () => {
 
   useEffect(() => {
     // Fetch job posts from your API or database
-    axios.get("http://localhost:8070/register/getjobs").then((response) => {
+    axios.get("https://itconnect-backend-8c64d94c6e02.herokuapp.com/register/getjobs").then((response) => {
       setJobPosts(response.data); // Assuming response.data contains job posts
       console.log(response, "response");
     });
@@ -243,7 +243,7 @@ const JobView = () => {
 
 
   const handleApplyClick = () => {
-    navigate('/applyform');
+    navigate(`/applyform/${filteredJobPosts._Id}`);
   };
 
   return (

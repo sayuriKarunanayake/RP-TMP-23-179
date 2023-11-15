@@ -36,7 +36,7 @@ function FakeCheck() {
     <>
       <div role="presentation"  >
         <Breadcrumbs aria-label="breadcrumb" marginLeft="100px" marginTop="20px">
-          <Link underline="hover" color="inherit" href="/">
+          <Link underline="hover" color="inherit" href="/dashboard">
             Dashboard
           </Link>
           <Typography color="text.primary">Scam Checker</Typography>
